@@ -6,4 +6,5 @@
 
 module.exports = {
   /* Your site config here */
+  `gatsby-plugin-sass`,
 }
