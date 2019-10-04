@@ -11,3 +11,12 @@ dl, dd, ol, ul, figure {
     margin: 0;
     padding: 0;
 }
+
+/**
+ * Basic styling
+ */
+
+html{
+ box-sizing: border-box;
+ font-size: 62.5%;
+}
