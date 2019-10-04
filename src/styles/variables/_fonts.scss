@@ -1,1 +1,31 @@
 
+// Import
+
+@font-face {
+  font-family: 'sans light';
+  src: url('static/fonts/mn--light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'sans book';
+  src: url('static/fonts/mn--book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'sans medium';
+  src: url('static/fonts/mn--medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'sans demi';
+  src: url('static/fonts/mn--demi.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'serif italic';
+  src: url('fonts/fj--medium--italic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'serif';
+  src: url('fonts/fj--medium.otf') format('opentype');
+}
