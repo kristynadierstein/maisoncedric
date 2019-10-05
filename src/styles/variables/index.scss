@@ -5,6 +5,7 @@
 /**
  * Reset some basic elements
  */
+
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -75,6 +76,6 @@ h5{
 }
 
 p{
-  font: 400 1rem/0.66 $sans-base;
+  font: 400 1rem/1.66 $sans-base;
   @media screen and (max-width: $TabletPortrait) {} //Later
 }
