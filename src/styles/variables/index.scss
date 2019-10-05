@@ -48,3 +48,33 @@ body {
     font-kerning: normal;
     -webkit-font-smoothing: antialiased;
 }
+
+h1{
+  font: 500 2rem/1.25 $serif-roman;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
+
+h2{
+  font: 500 2rem/1 $serif-italic;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
+
+h3{
+  font: 500 1.5rem/0.75 $serif-italic;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
+
+h4{
+  font: 500 1.25rem/0.85 $sans-bold;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
+
+h5{
+  font: 500 1rem/0.66 $sans-black;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
+
+p{
+  font: 400 1rem/0.66 $sans-base;
+  @media screen and (max-width: $TabletPortrait) {} //Later
+}
