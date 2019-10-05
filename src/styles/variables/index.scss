@@ -16,7 +16,35 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 
+ $radius: 0.2rem;
+
+ $timing: ease-in;
+ $delay: 0.1s;
+ $duration: 0.3s;
+
+::selection{
+  background: $gray200; /* WebKit/Blink Browsers */
+}
+::-moz-selection{
+  background: $gray200; /* WebKit/Blink Browsers */
+}
+
 html{
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 16px;
+}
+
+body {
+    font-family: $sans-base;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $gray900;
+    background-color: white;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
 }
