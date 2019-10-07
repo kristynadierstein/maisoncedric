@@ -5,6 +5,13 @@
     justify-content: center;
 }
 
+.newsletter-imgs {
+    display: flex;
+    align-items: baseline;
+    overflow: visible;
+    margin-right:150px;
+}
+
 .newsletter-text-all {
     display: inline-grid;
     width: 24%;

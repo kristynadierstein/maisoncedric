@@ -12,8 +12,10 @@ class NewsletterAd extends React.Component{
     render (){
         return(
             <div className="newsletter-ad">
-                < Pic2 />
-                < Pic1 />
+                <section className="newsletter-imgs">
+                    < Pic2 />
+                    < Pic1 />
+                </section>
                 <div className="newsletter-text-all">
                     <h1 className="newsletter-title">Be the first to know our new...</h1>
                     <p className="newsletter-body">
