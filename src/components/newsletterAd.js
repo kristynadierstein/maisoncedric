@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'gatsby';
 
 //import placeholder imagery
 import Pic1 from '../../src/images/pic1.svg'
@@ -13,8 +14,8 @@ class NewsletterAd extends React.Component{
         return(
             <div className="newsletter-ad">
                 <section className="newsletter-imgs">
-                    < Pic2 />
-                    < Pic1 />
+                    < Pic2 className="newsletter-pic1"/>
+                    < Pic1 className="newsletter-pic2"/>
                 </section>
                 <div className="newsletter-text-all">
                     <h1 className="newsletter-title">Be the first to know our new...</h1>
@@ -23,10 +24,18 @@ class NewsletterAd extends React.Component{
                     heureux de vous présenter notre sélection 
                     éclectique de pièces du XXe siècle.
                     </p>
-                 <div className="newsletter-btns">   
-                    <button className="btn-newsletter-subscribe">Subscribe to our Newsletter</button>
-                    <button className="btn-newsletter-instagram">Follow us on Instagram</button>
-                </div>
+                    <div className="newsletter-btns">   
+                    <Link to="#">
+                            <button className="btn-newsletter-subscribe">
+                                Subscribe to our Newsletter
+                            </button>
+                        </Link>
+                        <Link to="#">
+                            <button className="btn-newsletter-instagram">
+                                Follow us on Instagram
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
             
