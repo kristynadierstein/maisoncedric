@@ -6,7 +6,9 @@ import '../styles/main.scss';
 
 //import components
 import Header from '../components/header.js'
-import NavBar from "../components/navbar.js";
+import NavBar from '../components/navbar.js';
+import Footer from '../components/footer.js';
+import NewsletterAd from '../components/newsletterAd.js';
 
 class Index extends React.Component {
   render(){
@@ -115,6 +117,8 @@ class Index extends React.Component {
             </div>
           </div>
         </div>
+        < NewsletterAd />
+        < Footer /> 
       </React.Fragment>
       )
   }

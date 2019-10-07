@@ -1,5 +1,13 @@
 import React from 'react';
-import { Link } from "gatsby";
+
+//import react-router-dom to be use Navlink and active tabs styling, once pages done, add switch to create routes
+import {
+    Route,
+    NavLink,
+    BrowserRouter as Router,
+    Switch,
+  } from 'react-router-dom';
+
 
 //import imagery
 import FlagEN from '../../static/images/ic--flag--en.svg';
@@ -21,24 +29,25 @@ class NavBar extends React.Component{
 
     render (){
         return(
-            <div id="navbar">
-                <div id="navbar-left">
-                    <ul className={`mobile-menu ${this.state.navbarIsOpen ? 'show-menu' : 'hide-menu' } `}>
-                        <li><Link to="#">Nouveautés</Link></li>
-                        <li><Link to="#">Assises</Link></li>
-                        <li><Link to="#">Mobilier</Link></li>
-                        <li><Link to="#">Luminaire</Link></li>
-                        <li><Link to="#">Décoration</Link></li>
-                    </ul>
-                </div>
-                <div id="navbar-right">
-                    <ul className={`mobile-menu ${this.state.navbarIsOpen ? 'show-menu' : 'hide-menu' } `}>
-                        <li><Link to="#">À propos</Link></li>
-                        < FlagEN />
-                    </ul>
-
-                </div>
-            </div>
+            <Router>
+                <nav id="navbar">
+                    <div id="navbar-left">
+                        <ul>
+                            <li><NavLink exact={true} activeClassName="active" to="#">Nouveautés</NavLink></li>
+                            <li><NavLink activeClassName="active" to="#">Assises</NavLink></li>
+                            <li><NavLink activeClassName="active" to="#">Mobilier</NavLink></li>
+                            <li><NavLink activeClassName="active" to="#">Luminaire</NavLink></li>
+                            <li><NavLink activeClassName="active" to="#">Décoration</NavLink></li>
+                        </ul>
+                    </div>
+                    <div id="navbar-right">
+                        <ul>
+                            <li><NavLink activeClassName="active" to="#">À propos</NavLink></li>
+                            <li><NavLink activeClassName="active" to="#">< FlagEN /></NavLink></li>
+                        </ul>
+                    </div>
+                </nav>
+            </Router>
         )
     }
 }

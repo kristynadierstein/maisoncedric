@@ -36,3 +36,18 @@ $serif-roman: 'serif', sans-serif;
 $sans-bold: 'sans medium', sans-serif;
 $sans-black: 'sans demi', sans-serif;
 
+a {
+  text-decoration: none;
+  color: $gray600;
+}
+
+
+ul > li {
+  list-style-type: none;
+}
+
+
+//ONCE ROUTING IS OK, THIS SHOULD BE STYLING FOR THE ACTIVE TAB
+// .active {
+//   color: $gray900;
+// }
