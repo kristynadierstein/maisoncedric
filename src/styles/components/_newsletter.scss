@@ -85,3 +85,10 @@
     left: 34px;
 }
 
+@media (max-width: $MobilePortrait) {
+    .newsletter-ad {
+    display: none;
+    }
+    
+}
+

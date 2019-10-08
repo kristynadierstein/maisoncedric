@@ -23,3 +23,41 @@
 #footer-email {
     padding-bottom:2px !important;
 }
+
+.mobile-footer {
+    display: none;
+}
+
+@media (max-width: $MobilePortrait) {
+   .footer {
+        display:none;
+   }
+
+   .footer-contact {
+        padding:0px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+   }
+    
+   .footer-department {
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-bottom:16px;
+       padding-left:0px;
+   }
+
+   .mobile-footer {
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       background-color: $gray900;
+       color: white;
+       font-family: $sans-bold !important;
+       min-height: 300px;
+       padding: 40px;
+   }
+
+}
