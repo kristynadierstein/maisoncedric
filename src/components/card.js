@@ -9,7 +9,7 @@ export default props => (
     <Link to="/produit">
       <div className="image">
         <div className="vendu">
-          <label htmlFor="">Vendu</label>
+          <label htmlFor="">{props.cardSold}</label>
         </div>
       </div>
       <div className="desc">

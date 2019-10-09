@@ -22,7 +22,8 @@ export default () => (
     <div className="row-3">
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-        cardPrice="2.400">
+        cardPrice="2.400"
+        cardSold="Vendu">
       </Card>
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
@@ -50,7 +51,8 @@ export default () => (
       </Card>
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-        cardPrice="2.500">
+        cardPrice="2.500"
+        cardSold="Vendu">
       </Card>
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."

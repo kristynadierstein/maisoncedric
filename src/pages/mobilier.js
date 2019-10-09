@@ -30,7 +30,8 @@ export default () => (
       </Card>
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-        cardPrice="1.500">
+        cardPrice="1.500"
+        cardSold="Vendu">
       </Card>
       <Card
         cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."

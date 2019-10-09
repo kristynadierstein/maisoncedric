@@ -15,7 +15,8 @@ class Index extends React.Component {
         <div className="row-3">
           <Card
             cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ipsam."
-            cardPrice="3.000">
+            cardPrice="3.000"
+            cardSold="Vendu">
           </Card>
           <Card
             cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptatum!"
@@ -38,7 +39,8 @@ class Index extends React.Component {
           </Card>
           <Card
             cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-            cardPrice="1.500">
+            cardPrice="1.500"
+            cardSold="Vendu">
           </Card>
           <Card
             cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
