@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby"
 
 // import styles
 import '../styles/main.scss';
@@ -12,13 +13,12 @@ export default () => (
         <hr/>
         <div className="call-to-action">
           <label htmlFor="">Vendu</label>
-          <a className="btn-1" href="#">Contactez-nous</a>
+          <Link className="btn-1">Contactez-nous</Link>
         </div>
         <hr/>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quasi iusto ab placeat non sed recusandae dignissimos quod. Sit adipisci asperiores veritatis nisi nihil. Nesciunt omnis excepturi totam porro hic.
         </p>
-        <hr/>
       </div>
     </div>
   </div>
