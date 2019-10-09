@@ -1,3 +1,5 @@
+// Desktop
+
 .category {
   display: flex;
   .sidebar {
@@ -12,6 +14,30 @@
     flex-wrap: wrap;
     .card {
       margin-bottom: 30px;
+    }
+  }
+}
+
+// Responsive
+
+@media screen and (max-width: 580px) {
+  .category {
+    flex-direction: column;
+    .sidebar {
+      width: 100%;
+      padding: 0;
+      hr {
+        display: none;
+      }
+      ul {
+        display: none;
+      }
+    }
+    .row-3 {
+      width: 100%;
+      .card {
+        width: 48%;
+      }
     }
   }
 }
