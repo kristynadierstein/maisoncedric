@@ -20,18 +20,54 @@ export default () => (
       </ul>
     </div>
     <div className="row-3">
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.400">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.800">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="1.500">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.500">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.400">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.800">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="1.500">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.500">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.400">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.800">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="1.500">
+      </Card>
+      <Card
+        cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
+        cardPrice="2.500">
+      </Card>
     </div>
   </div>
 )
