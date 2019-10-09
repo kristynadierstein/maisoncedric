@@ -11,7 +11,7 @@ class Index extends React.Component {
 
         <h1>Nouveautés</h1>
 
-        <div className="row-1">
+        <div className="row-3">
           <div className="card">
             <div className="image">
               <div className="vendu">
@@ -53,7 +53,7 @@ class Index extends React.Component {
           </div>
         </div>
 
-        <div className="row-2">
+        <div className="row-4">
           <div className="card">
             <div className="image">
               <div className="vendu">

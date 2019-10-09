@@ -1,0 +1,17 @@
+.category {
+  display: flex;
+  .sidebar {
+    width: 25%;
+    padding: 20px;
+    ul {
+      list-style-type: none;
+    }
+  }
+  .row-3 {
+    width: 75%;
+    flex-wrap: wrap;
+    .card {
+      margin-bottom: 30px;
+    }
+  }
+}
