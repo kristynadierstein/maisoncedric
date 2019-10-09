@@ -1,8 +1,8 @@
 import React from "react";
 
-
 // import styles
 import '../styles/main.scss';
+
 
 class Index extends React.Component {
   render(){
@@ -108,7 +108,7 @@ class Index extends React.Component {
           </div>
         </div>
       </div>
-      )
+    )
   }
 }
 
