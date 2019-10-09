@@ -3,6 +3,7 @@
 .row-3 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 20px 0;
   .card {
     width: 30%;
@@ -11,6 +12,7 @@
 .row-4 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 20px 0;
   .card {
     width: 22%;
@@ -21,7 +23,6 @@
 
 @media screen and (max-width: 580px) {
   .row-3 {
-    flex-direction: column;
     .card {
       width: 100%;
       padding: 20px 0;
