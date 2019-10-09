@@ -7,6 +7,7 @@ exports.components = {
   "component---src-pages-decoration-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/decoration.js" /* webpackChunkName: "component---src-pages-decoration-js" */),
   "component---src-pages-index-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-luminaires-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/luminaires.js" /* webpackChunkName: "component---src-pages-luminaires-js" */),
-  "component---src-pages-mobilier-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/mobilier.js" /* webpackChunkName: "component---src-pages-mobilier-js" */)
+  "component---src-pages-mobilier-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/mobilier.js" /* webpackChunkName: "component---src-pages-mobilier-js" */),
+  "component---src-pages-produit-js": () => import("/Users/amrschmitz/code/maisoncedric/src/pages/produit.js" /* webpackChunkName: "component---src-pages-produit-js" */)
 }
 
