@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "gatsby";
+import Card from "../components/card";
 
 // import styles
 import '../styles/main.scss';
-
 
 class Index extends React.Component {
   render(){
@@ -12,100 +13,16 @@ class Index extends React.Component {
         <h1>Nouveautés</h1>
 
         <div className="row-3">
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facere corporis atque consequuntur.</p>
-              <label>
-                <strong>3.000 €</strong>
-              </label>
-            </div>
-          </div>
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facere corporis atque consequuntur.</p>
-              <label>
-                <strong>3.000 €</strong>
-              </label>
-            </div>
-          </div>
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facere corporis atque consequuntur.</p>
-              <label>
-                <strong>3.000 €</strong>
-              </label>
-            </div>
-          </div>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
         </div>
 
         <div className="row-4">
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <label>
-                <strong>Vendu</strong>
-              </label>
-            </div>
-          </div>
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <label>
-                <strong>2.500 €</strong>
-              </label>
-            </div>
-          </div>
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <label>
-                <strong>2.500 €</strong>
-              </label>
-            </div>
-          </div>
-          <div className="card">
-            <div className="image">
-              <div className="vendu">
-                <label htmlFor="">Vendu</label>
-              </div>
-            </div>
-            <div className="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-              <label>
-                <strong>2.500 €</strong>
-              </label>
-            </div>
-          </div>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
         </div>
       </div>
     )
