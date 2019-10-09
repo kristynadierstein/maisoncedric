@@ -20,14 +20,14 @@
 // Responsive
 
 @media screen and (max-width: 580px) {
-  .row-1 {
+  .row-3 {
     flex-direction: column;
     .card {
       width: 100%;
       padding: 20px 0;
     }
   }
-  .row-2 {
+  .row-4 {
     display: none;
   }
 }
