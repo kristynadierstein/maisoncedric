@@ -27,7 +27,7 @@
 
 // Respsonsive
 
-@media screen and (max-width: 580px) {
+@media screen and ($MobilePortrait) {
   .row {
     flex-direction: column;
     .caroussel {
