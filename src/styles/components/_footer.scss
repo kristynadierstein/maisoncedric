@@ -1,4 +1,5 @@
 .footer {
+  padding: 1em;
   background-color: $gray900;
   color: white;
   font-family: $sans-bold !important;
@@ -35,16 +36,19 @@
     align-content: center;
     flex-direction: column;
     .footer-contact {
-      padding: 60px 0 0 1em;
+      padding: 60px 0 0 0;
       p {
         font-size: 20px;
       }
     }
     .footer-department {
       display: flex;
-      margin: 100px 0 16px 10px;
+      margin: 100px 0 20px 0;
       padding: 0;
       color: $gray600;
+      p {
+        font-size: 18px;
+      }
     }
   }
 }
