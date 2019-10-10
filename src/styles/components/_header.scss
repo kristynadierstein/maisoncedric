@@ -1,9 +1,35 @@
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media(max-width: $DesktopLarge){
+    .dk-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dk-logo-header {
+        margin: 48px auto;
+    }
 }
 
-.logo-header {
-    margin: 48px auto;
+@media (max-width: $MobilePortrait) {
+    .dk-header {
+        display: none;
+    }
+
+    .mb-header {
+        display: flex;
+        align-content: baseline;
+        justify-content: space-between;
+        padding-right: 21px;
+        padding-top: 21px;
+    }
+    
+    #gatsby-focus-wrapper > header > div.mb-header > svg {
+        height:20px;
+    }
+
+    #mb-logo {
+        height: 24px;
+        width: 30px;
+    }
 }
+
