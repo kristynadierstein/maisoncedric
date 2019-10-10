@@ -21,7 +21,7 @@
 
 // Responsive
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: $MobilePortrait) {
   .row-3 {
     .card {
       width: 100%;
