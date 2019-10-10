@@ -14,15 +14,6 @@ const Footer  = () => {
               <p>75009 - Paris</p>
           </div>
       </section>
-
-      <section className="mobile-footer">
-          <div className="footer-contact">
-              <p id="footer-heading">Maison Cédric</p>
-              <p id="footer-email">contact@maisoncedric</p>
-              <p>+33 6 24 55 52 51</p>
-              <p className="mb-footer-department">75009 - Paris</p>
-          </div>
-      </section>
     </React.Fragment>
   )
 }
