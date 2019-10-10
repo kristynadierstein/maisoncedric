@@ -25,7 +25,7 @@ class NavBar extends React.Component{
             sidebarOpen: false
         })
     }
-    
+
     render (){
         return(
             <React.Fragment>
@@ -75,7 +75,7 @@ class NavBar extends React.Component{
                     </Sidebar>
                     <div className="mb-navbar-filtres">
                         <Link to="a-propos">À propos</Link>
-                    </div> 
+                    </div>
                 </nav>
             </React.Fragment>
         )
