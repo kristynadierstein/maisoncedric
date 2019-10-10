@@ -5,7 +5,7 @@ import Card from "../components/card";
 import '../styles/main.scss';
 
 //import components
-import Header from '../components/header.js'
+import Header from '../components/header.js';
 import NavBar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
