@@ -20,7 +20,7 @@
 }
 
 @media screen and (max-width: $MobilePortrait) {
-  .container {
-    padding: 4em 1em 1em 1em;
+  .container, .container-small {
+    padding: 4em 1em;
   }
 }

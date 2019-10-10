@@ -74,7 +74,7 @@ class NavBar extends React.Component{
                         </Link>
                     </Sidebar>
                     <div className="mb-navbar-filtres">
-                        <Link to="a-propos">À propos</Link>
+                        <Link to="/a-propos">À propos</Link>
                     </div>
                 </nav>
             </React.Fragment>

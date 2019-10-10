@@ -38,7 +38,7 @@ class APropos extends React.Component {
         <Footer />
       </React.Fragment>
       )
-    } 
+    }
   }
 
 export default APropos
