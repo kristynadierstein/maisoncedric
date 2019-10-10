@@ -51,7 +51,7 @@
         align-items: center;
         height: 50px;
         border: 1px solid #DFE1E6;
-        color: #17181A;
+        color: $gray900;
         margin: 0px;
         position: relative;
         top: 62px;
@@ -62,7 +62,6 @@
     .mb-navbar-filtres{
         width: 50%;
         position: relative;
-        z-index: 9000;
         float: right;
         border: 1px solid $gray200;
         align-content: center;
@@ -74,5 +73,44 @@
 
     #mobile-navbar > div.mb-navbar-filtres > a {
         color: $gray900;
+    }
+
+    .mobile-sidebar {
+        background-color: white;
+        width:80%;
+    }
+
+    .mb-sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        margin: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #DFE1E6 ;
+    }
+
+    .mb-sidebar-list {
+        margin: 0px 24px 24px 24px;
+        border-bottom: 1px solid #DFE1E6;
+        padding-bottom: 24px;
+    }
+
+    #mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
+        line-height: 2.5rem;
+        margin-left: 12px;
+        color: $gray900;
+    }
+
+    .mb-sidebar-btn-contact {
+        width: 74%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 12px;
+        position: absolute;
+        left: 24px;
+        bottom: 30px;
+        border: 1px solid #DFE1E6;
+        color: #17181A;
+        font-weight:500;
     }
 }
