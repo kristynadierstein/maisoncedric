@@ -1,4 +1,7 @@
-@media(max-width: $DesktopLarge){
+@media(min-width: $TabletLandscape){
+    .mb-header {
+        display: none;
+    }
     .dk-header {
         display: flex;
         align-items: center;
@@ -21,6 +24,7 @@
         justify-content: space-between;
         padding-right: 21px;
         padding-top: 21px;
+        padding-bottom: 10px;
     }
     
     #gatsby-focus-wrapper > header > div.mb-header > svg {
