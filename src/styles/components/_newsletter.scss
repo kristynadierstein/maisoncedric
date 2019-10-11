@@ -1,0 +1,94 @@
+.newsletter-ad {
+    background-color: #EFF0F2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: -1000;
+    margin-top:180px;
+}
+
+.newsletter-imgs {
+    display: flex;
+    align-items: baseline;
+    overflow: visible;
+    margin-right:150px;
+    position: relative;
+}
+
+.newsletter-text-all {
+    display: inline-grid;
+    width: 24%;
+    padding: 42px 0px;
+}
+.newsletter-title {
+    font-family: $serif-italic;
+    font-weight:400;
+    padding-bottom: 8px;
+    font-size: x-large;
+}
+
+.newsletter-body {
+    font-weight:500;
+    
+}
+
+.btn-newsletter-subscribe {
+    background-color: #4CB781;
+    margin-top: 28px;
+    margin-bottom:8px;
+    margin-left:0px;
+    margin-right: 0px;
+    background-color: $gray900;
+    color:white;
+    height:40px;
+    border: none;
+    border-radius: 2px;
+    font-family: $sans-bold !important;
+    font-size: .9rem!important;
+    font-weight: 500!important;
+    width:100%;
+
+}
+
+.btn-newsletter-instagram {
+    background-color: #4CB781;
+    margin: 8px 0px;
+    background-color: #4A90E3;
+    color:white;
+    height:40px;
+    border: none;
+    border-radius: 2px;
+    font-family: $sans-bold !important;
+    font-size: .9rem!important;
+    font-weight: 500!important;
+    width:100%;
+   
+}
+
+.newsletter-btns{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.newsletter-pic1{
+    position: absolute;
+    right: -222px;
+    bottom: -217px;
+}
+
+.newsletter-pic2 {
+    position: absolute;
+    top: -207px;
+    left: 34px;
+}
+
+@media (max-width: $MobilePortrait) {
+    .newsletter-ad {
+    display: none;
+    }
+    
+}
+

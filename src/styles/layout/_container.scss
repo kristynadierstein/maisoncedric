@@ -18,3 +18,9 @@
     margin-top: 20px;
   }
 }
+
+@media screen and (max-width: $MobilePortrait) {
+  .container, .container-small {
+    padding: 4em 1em;
+  }
+}
