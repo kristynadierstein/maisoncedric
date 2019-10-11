@@ -9,6 +9,7 @@ import Header from '../components/header.js';
 import NavBar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
+import Carousel from '../components/carousel';
 
 class Produit extends React.Component {
   render(){
@@ -18,7 +19,9 @@ class Produit extends React.Component {
         < NavBar />
         <div className="container">
           <div className="row">
-            <div className="caroussel"></div>
+            <div className="caroussel">
+            <Carousel />
+            </div>
             <div className="content">
               <h1>Rare table de chevet laquée laiton de la Maison Jansen (1970)</h1>
               <hr/>
