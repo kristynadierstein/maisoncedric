@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
-require("dotenv").config()
+require('dotenv').config()
 
 module.exports = {
   plugins: [
@@ -21,7 +21,9 @@ module.exports = {
           }
         ]
       }
-      resolve: "gatsby-plugin-react-svg",
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /images/
