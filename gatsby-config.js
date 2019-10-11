@@ -16,7 +16,7 @@ module.exports = {
         apiKey: process.env.AIRTABLE_API_KEY,
         tables: [
           {
-            baseId: 'tblZ5F3dxY0KDSKRB',
+            baseId: 'appK4wTXeUcuTawQa',
             tableName: 'All'
           }
         ]
