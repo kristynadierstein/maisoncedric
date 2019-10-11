@@ -1,0 +1,18 @@
+button {
+    display: block;
+    margin-bottom: 1em;
+  }
+  
+  .album>span:after {
+    content: ' blabla';
+  }
+  
+  .active {
+    font-weight: bold;
+  }
+  
+  .active>span:after {
+    content: ' ja jsem aktivni';
+    border: 2px solid red;
+    color: blue;
+  }

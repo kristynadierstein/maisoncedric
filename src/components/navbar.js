@@ -9,32 +9,31 @@ import Esc from '../../static/images/ic--esc.svg';
 
 class NavBar extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             sidebarOpen: false
         };
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-    }
-
-    onSetSidebarOpen(open) {
+        this.handleClick = this.handleClick.bind(this);
+    };
+    
+    onSetSidebarOpen = (open) => {
         this.setState({ sidebarOpen: open });
-      }
+    }
 
     handleClick = (e) => {
-        this.setState({
-            sidebarOpen: false
-        })
+        this.setState({ sidebarOpen: false });
     }
-
+  
     render (){
         return(
-            <React.Fragment>
+            <React.Fragment>     
                 <nav id="desktop-navbar">
                     <div id="dk-navbar-left">
                         <ul>
-                            <li><Link to="">Nouveautés</Link></li>
-                            <li><Link to="/assises">Assises</Link></li>
-                            <li><Link to="/mobilier">Mobilier</Link></li>
+                            <li><Link to="" >Nouveautés</Link></li>
+                            <li><Link to="/assises" >Assises</Link></li>
+                            <li><Link to="/mobilier" >Mobilier</Link></li>
                             <li><Link to="/luminaires">Luminaires</Link></li>
                             <li><Link to="/decoration">Décoration</Link></li>
                         </ul>

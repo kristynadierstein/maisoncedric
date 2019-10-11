@@ -17,9 +17,7 @@ class Index extends React.Component {
         < Header />
         < NavBar />
         <div className="container">
-
           <h1>Nouveautés</h1>
-
           <div className="row-3">
             <Card
               cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ipsam."
