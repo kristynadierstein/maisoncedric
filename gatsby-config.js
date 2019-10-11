@@ -12,13 +12,15 @@ module.exports = {
     `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-airtable',
-      options: process.env.AIRTABLE_API_KEY,
-      tables: [
-        {
-          baseId: 'tblZ5F3dxY0KDSKRB',
-          tableName: 'All',
-        },
-      ],
-    },
-  ],
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY,
+        tables: [
+          {
+            baseId: 'tblZ5F3dxY0KDSKRB',
+            tableName: 'All'
+          }
+        ]
+      }
+    }
+  ]
 }
