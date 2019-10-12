@@ -88,12 +88,14 @@ class Carousel extends React.Component {
 							))
 						}
 				</div>
-				<LeftArrow
-				goToPrevSlide={this.goToPrevSlide}
-				/>
-				<RightArrow
-				goToNextSlide={this.goToNextSlide}
-				/>
+				<div className="mb-carousel-arrows">
+					<LeftArrow
+					goToPrevSlide={this.goToPrevSlide}
+					/>
+					<RightArrow
+					goToNextSlide={this.goToNextSlide}
+					/>
+				</div>
 				</div>
 		);
 	}
