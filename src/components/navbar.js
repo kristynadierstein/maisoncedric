@@ -7,7 +7,7 @@ import FlagEN from '../../static/images/ic--flag--en.svg';
 // import FlagFR from '../../static/images/ic--flag--fr.svg';
 import Esc from '../../static/images/ic--esc.svg';
 
-class NavBar extends React.Component{
+class Navbar extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -86,4 +86,4 @@ class NavBar extends React.Component{
     }
 }
 
-export default NavBar
+export default Navbar
