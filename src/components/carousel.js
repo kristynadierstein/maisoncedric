@@ -1,7 +1,7 @@
 import React from "react";
 
 //import imagery
-import Arrow from "../../static/images/ic--arrow.svg"
+import Arrow from "../../static/images/ic--arrow-wt.svg"
 
 class Carousel extends React.Component {
 	constructor(props) {
