@@ -17,7 +17,7 @@ class Produit extends React.Component {
       <React.Fragment>
         < Header />
         < NavBar />
-        <div className="container-produit">
+        <div className="container">
           <div className="row">
             <div className="caroussel">
             <Carousel />
