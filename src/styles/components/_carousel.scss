@@ -1,61 +1,62 @@
 @media(max-width: $DesktopLarge) {
   .slider {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      height: 500px;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    
-    .slider-wrapper {
-      position: relative;
-      height: 100%;
-      width: 100%;
-    }
-    
-    .slide {
-      display: inline-block;
-      height: 100%;
-      width: 100%;
-    }
-    
-    .arrow {
-      height: 500px;
-      width: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(245, 245, 245, 0.15);
-      cursor: pointer;
-      transition: transform ease-in .1s;
-    }
-    
-    .nextArrow {
-      position: absolute;
-      top: 0%;
-      right: 0px;
-      z-index: 999;
-    }
-    
-    .backArrow {
-      position: absolute;
-      top: 0%;
-      left: 0px;
-      z-index: 999;
-      color: #fff;
-      transform: rotateZ(180deg);
-    }
-    
-    .arrowLeft{
-        height: 500px;
-        width: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: transform ease-in .1s;
-    }
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 2px;
+  }
+
+  .slider-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .slide {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .arrow {
+    height: 500px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 245, 245, 0.15);
+    cursor: pointer;
+    transition: transform ease-in .1s;
+  }
+
+  .nextArrow {
+    position: absolute;
+    top: 0%;
+    right: 0px;
+    z-index: 999;
+  }
+
+  .backArrow {
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    z-index: 999;
+    color: #fff;
+    transform: rotateZ(180deg);
+  }
+
+  .arrowLeft{
+    height: 500px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform ease-in .1s;
+  }
 
     // #gatsby-focus-wrapper > div.container-produit > div > div.caroussel > div > div.mb-carousel-arrows > div.nextArrow.arrow > svg {
     //     width:200px;
@@ -66,34 +67,34 @@
     //     width:200px;
     //     height:200px;
     // }
-}
-
-@media (max-width: $MobilePortrait) {
-  .slider-wrapper {
-    position: relative;
-    height: 54%;
-    width: 100%;
   }
 
-  .arrow {
-    height: 271px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(245, 245, 245, 0.15);
-    cursor: pointer;
-    transition: transform ease-in .1s;
-  }
+  @media (max-width: $MobilePortrait) {
+    .slider-wrapper {
+      position: relative;
+      height: 54%;
+      width: 100%;
+    }
 
-  .arrowLeft {
-    height: 271px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(245, 245, 245, 0.15);
-    cursor: pointer;
-    transition: transform ease-in .1s;
+    .arrow {
+      height: 271px;
+      width: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 245, 245, 0.15);
+      cursor: pointer;
+      transition: transform ease-in .1s;
+    }
+
+    .arrowLeft {
+      height: 271px;
+      width: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 245, 245, 0.15);
+      cursor: pointer;
+      transition: transform ease-in .1s;
+    }
   }
-}
