@@ -4,6 +4,10 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
+let imgUrl = 'https://picsum.photos/200/300';
+let imgStyle = 'url(' + imgUrl + ')';
+let imgStyle2 = 'backgroundImage: ' + imgStyle
+
 export default props => (
   <div className="card">
     <Link to="/produit">

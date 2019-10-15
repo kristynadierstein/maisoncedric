@@ -11,19 +11,6 @@ import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Card from '../components/card';
 
-// Airtable query
-export const query = graphql`
-  query MyQuery {
-    allAirtable {
-      nodes {
-        data {
-          Nom_d_achat
-        }
-      }
-    }
-  }
-`;
-
 export default ({data}) => (
   <React.Fragment>
     < Header />
