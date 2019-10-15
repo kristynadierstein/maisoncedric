@@ -9,17 +9,16 @@ import Header from '../components/header.js';
 import NavBar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
+import Navbar from '../components/navbar.js';
 
 class Index extends React.Component {
   render(){
     return(
       <React.Fragment>
         < Header />
-        < NavBar />
+        < Navbar />
         <div className="container">
-
           <h1>Nouveautés</h1>
-
           <div className="row-3">
             <Card
               cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ipsam."
