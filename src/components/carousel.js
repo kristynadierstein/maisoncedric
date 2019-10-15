@@ -1,19 +1,19 @@
 import React from "react";
 
 //import imagery
-import Arrow from "../../static/images/ic--arrow.svg"
+import Arrow from "../../static/images/ic--arrow-wt.svg"
 
 class Carousel extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			images: [
-				"https://picsum.photos/200/300",
 				"https://picsum.photos/id/1/200/300",
-				"https://picsum.photos/200/300",
-				"https://picsum.photos/200/300",
-				"https://picsum.photos/200/300",
-				"https://picsum.photos/200/300"
+        "https://picsum.photos/id/2/200/300",
+        "https://picsum.photos/id/3/200/300",
+        "https://picsum.photos/id/4/200/300",
+        "https://picsum.photos/id/5/200/300",
+        "https://picsum.photos/id/6/200/300",
 			],
 			currentIndex: 0,
 			translateValue: 0
@@ -23,7 +23,7 @@ class Carousel extends React.Component {
 	goToPrevSlide = () => {
 		if(this.state.currentIndex === 0)
 			return;
-		
+
 		this.setState(prevState => ({
 			currentIndex: prevState.currentIndex - 1,
 			translateValue: prevState.translateValue + this.slideWidth()
@@ -37,7 +37,7 @@ class Carousel extends React.Component {
 							translateValue: 0
 					})
 			}
-			
+
 			this.setState(prevState => ({
 					currentIndex: prevState.currentIndex + 1,
 					translateValue: prevState.translateValue + -(this.slideWidth())
@@ -58,7 +58,7 @@ class Carousel extends React.Component {
 			}
 			return <div className="slide" style={styles}></div>
 		}
-		
+
 		const LeftArrow = (props) => {
 			return (
 				<div className="backArrow arrowLeft" onClick={props.goToPrevSlide}>
@@ -66,7 +66,7 @@ class Carousel extends React.Component {
 				</div>
 			);
 		}
-		
+
 		const RightArrow = (props) => {
 			return (
 				<div className="nextArrow arrow" onClick={props.goToNextSlide}>
@@ -74,7 +74,7 @@ class Carousel extends React.Component {
 				</div>
 			);
 		}
-		
+
 		return (
 				<div className="slider">
 				<div className="slider-wrapper"
@@ -88,15 +88,17 @@ class Carousel extends React.Component {
 							))
 						}
 				</div>
-				<LeftArrow
-				goToPrevSlide={this.goToPrevSlide}
-				/>
-				<RightArrow
-				goToNextSlide={this.goToNextSlide}
-				/>
+				<div className="mb-carousel-arrows">
+					<LeftArrow
+					goToPrevSlide={this.goToPrevSlide}
+					/>
+					<RightArrow
+					goToNextSlide={this.goToNextSlide}
+					/>
+				</div>
 				</div>
 		);
 	}
 }
-  
+
 export default Carousel
