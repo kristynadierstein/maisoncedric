@@ -4,13 +4,21 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
+function isVendu(statut) {
+  if (statut !== null) {
+    return (
+      <div className="vendu">
+        <label htmlFor="">{statut}</label>
+      </div>
+    );
+  }
+}
+
 export default props => (
   <div className="card">
     <Link to="/produit">
       <div className="image">
-        <div className="vendu">
-          <label htmlFor="">{props.cardSold}</label>
-        </div>
+        {isVendu(props.cardSold)}
       </div>
       <div className="desc">
         <p>{props.cardDesc}</p>

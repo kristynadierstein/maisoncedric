@@ -13,11 +13,14 @@ import Card from '../components/card';
 
 // Airtable query
 export const query = graphql`
-  query MyQuery {
-    allAirtable {
+  query MyQueryIndex {
+    allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
       nodes {
         data {
           Nom_d_achat
+          Prix_de_vente
+          Titre_de_l_annonce__FR_
+          Statut
         }
       }
     }
@@ -34,37 +37,42 @@ export default ({data}) => (
 
       <div className="row-3">
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ipsam."
-          cardPrice="3.000"
-          cardSold="Vendu">
+          cardDesc={data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[0].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[0].data.Statut}>
         </Card>
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptatum!"
-          cardPrice="2.500">
+          cardDesc={data.allAirtable.nodes[1].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[1].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[1].data.Statut}>
         </Card>
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quaerat!"
-          cardPrice="3.800">
+          cardDesc={data.allAirtable.nodes[2].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[2].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[2].data.Statut}>
         </Card>
       </div>
 
       <div className="row-4">
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-          cardPrice="2.400">
+          cardDesc={data.allAirtable.nodes[3].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[3].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[3].data.Statut}>
         </Card>
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-          cardPrice="2.800">
+          cardDesc={data.allAirtable.nodes[4].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[4].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[4].data.Statut}>
         </Card>
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-          cardPrice="1.500"
-          cardSold="Vendu">
+          cardDesc={data.allAirtable.nodes[5].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[5].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[5].data.Statut}>
         </Card>
         <Card
-          cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-          cardPrice="2.500">
+          cardDesc={data.allAirtable.nodes[6].data.Titre_de_l_annonce__FR_}
+          cardPrice={data.allAirtable.nodes[6].data.Prix_de_vente}
+          cardSold={data.allAirtable.nodes[6].data.Statut}>
         </Card>
       </div>
     </div>
