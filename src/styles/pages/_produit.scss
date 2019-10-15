@@ -29,13 +29,14 @@
 @media screen and (max-width: $MobilePortrait) {
   .row {
     display: block;
+    margin: -1em 0;
     .caroussel {
       width: 100%;
     }
     .content {
       width: 100%;
-      padding: 24px 8px;
-      margin-top: -218px;
+      padding: 0;
+      margin-top: -180px;
       h1 {
         font-size: 24px;
       }

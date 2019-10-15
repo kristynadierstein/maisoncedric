@@ -8,19 +8,16 @@
     white-space: nowrap;
     border-radius: 2px;
   }
-
   .slider-wrapper {
     position: relative;
     height: 100%;
     width: 100%;
   }
-
   .slide {
     display: inline-block;
     height: 100%;
     width: 100%;
   }
-
   .arrow {
     height: 500px;
     width: 70px;
@@ -31,14 +28,12 @@
     cursor: pointer;
     transition: transform ease-in .1s;
   }
-
   .nextArrow {
     position: absolute;
     top: 0%;
     right: 0px;
     z-index: 999;
   }
-
   .backArrow {
     position: absolute;
     top: 0%;
@@ -47,7 +42,6 @@
     color: #fff;
     transform: rotateZ(180deg);
   }
-
   .arrowLeft{
     height: 500px;
     width: 70px;
@@ -70,12 +64,15 @@
   }
 
   @media (max-width: $MobilePortrait) {
+    .slider {
+      margin: -1em;
+      width: 100vw;
+    }
     .slider-wrapper {
       position: relative;
       height: 54%;
       width: 100%;
     }
-
     .arrow {
       height: 271px;
       width: 70px;
@@ -86,7 +83,6 @@
       cursor: pointer;
       transition: transform ease-in .1s;
     }
-
     .arrowLeft {
       height: 271px;
       width: 70px;
