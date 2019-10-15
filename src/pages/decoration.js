@@ -1,13 +1,14 @@
 import React from "react";
-import Card from "../components/card"
+import { graphql } from 'gatsby';
 
 // import styles
 import '../styles/main.scss';
 
 //import components
+import Card from "../components/card"
+import Footer from '../components/footer.js';
 import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
 // Airtable query
