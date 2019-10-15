@@ -47,7 +47,7 @@ export default ({data}) => (
       <div className="row-3">
         {data.allAirtable.nodes.map(node => (
           <Card
-            cardDesc={node.data.Nom_d_achat}
+            cardDesc={node.data.Titre_de_l_annonce__FR_}
             cardPrice={node.data.Prix_de_vente}
             cardSold={node.data.Statut}>
           </Card>
