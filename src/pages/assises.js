@@ -12,7 +12,7 @@ import NewsletterAd from '../components/newsletterAd.js';
 
 // Airtable query
 export const query = graphql`
-  query MyQuery {
+  query MyQueryAssises {
     allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
       nodes {
         data {
