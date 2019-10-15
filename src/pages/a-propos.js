@@ -6,7 +6,7 @@ import '../styles/main.scss';
 
 //import components
 import Header from '../components/header.js';
-import NavBar from '../components/navbar.js';
+import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
@@ -15,7 +15,7 @@ class APropos extends React.Component {
     return (
       <React.Fragment>
         < Header />
-        < NavBar />
+        < Navbar />
         <div className="container-small">
           <h1>Contactez-nous</h1>
           <p>

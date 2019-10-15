@@ -32,12 +32,6 @@ export default ({data}) => (
 
       <h1>Nouveautés</h1>
 
-      <ul>
-        {data.allAirtable.nodes.map(node => (
-          <li>{node.data.Nom_d_achat}</li>
-        ))}
-      </ul>
-
       <div className="row-3">
         <Card
           cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ipsam."
