@@ -27,35 +27,39 @@ export const query = graphql`
   }
 `;
 
-export default ({data}) => (
-  <React.Fragment>
-    < Header />
-    < Navbar />
-    <div className="container category">
-      <div className="sidebar">
-        <h1>Mobilier</h1>
-        <hr/>
-        <ul>
-          <li>Mobilier type 1</li>
-          <li>Mobilier type 2</li>
-          <li>Mobilier type 3</li>
-          <li>Mobilier type 4</li>
-          <li>Mobilier type 5</li>
-          <li>Mobilier type 6</li>
-          <li>Mobilier type 7</li>
-        </ul>
+function Mobilier({data}) {
+  return (
+    <React.Fragment>
+      < Header />
+      < Navbar />
+      <div className="container category">
+        <div className="sidebar">
+          <h1>Mobilier</h1>
+          <hr/>
+          <ul>
+            <li>Mobilier type 1</li>
+            <li>Mobilier type 2</li>
+            <li>Mobilier type 3</li>
+            <li>Mobilier type 4</li>
+            <li>Mobilier type 5</li>
+            <li>Mobilier type 6</li>
+            <li>Mobilier type 7</li>
+          </ul>
+        </div>
+        <div className="row-3">
+          {data.allAirtable.nodes.map(node => (
+            <Card
+              cardDesc={node.data.Titre_de_l_annonce__FR_}
+              cardPrice={node.data.Prix_de_vente}
+              cardSold={node.data.Statut}>
+            </Card>
+          ))}
+        </div>
       </div>
-      <div className="row-3">
-        {data.allAirtable.nodes.map(node => (
-          <Card
-            cardDesc={node.data.Titre_de_l_annonce__FR_}
-            cardPrice={node.data.Prix_de_vente}
-            cardSold={node.data.Statut}>
-          </Card>
-        ))}
-      </div>
-    </div>
-    <NewsletterAd />
-    <Footer />
-  </React.Fragment>
-)
+      <NewsletterAd />
+      <Footer />
+    </React.Fragment>
+  )
+}
+
+export default Mobilier

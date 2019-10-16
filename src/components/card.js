@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import '../styles/main.scss';
 
 function isVendu(statut) {
-  if (statut === ['vendu']) {
+  if (statut !== null) {
     return (
       <div className="vendu">
         <label htmlFor="">{statut}</label>

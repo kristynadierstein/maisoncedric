@@ -37,10 +37,8 @@ class APropos extends React.Component {
         <NewsletterAd />
         <Footer />
       </React.Fragment>
-      )
-    }
+    )
   }
+}
 
 export default APropos
-
-
