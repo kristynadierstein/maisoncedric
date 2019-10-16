@@ -4,11 +4,11 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
-function isVendu(statut) {
-  if (statut !== null) {
+function isVendu(itemStatus) {
+  if (itemStatus !== null) {
     return (
       <div className="vendu">
-        <label htmlFor="">{statut}</label>
+        <label htmlFor="">{itemStatus}</label>
       </div>
     );
   }
@@ -17,13 +17,13 @@ function isVendu(statut) {
 export default props => (
   <div className="card">
     <Link to="/produit">
-      <div className="image" style={{backgroundImage: "url(" + props.cardImage + ")"}}>
-        {isVendu(props.cardSold)}
+      <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
+        {isVendu(props.status)}
       </div>
       <div className="desc">
-        <p>{props.cardDesc}</p>
+        <p>{props.title}</p>
         <label>
-          <strong>{props.cardPrice} €</strong>
+          <strong>{props.price} €</strong>
         </label>
       </div>
     </Link>

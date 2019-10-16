@@ -4,7 +4,6 @@
     color: inherit;
   }
   .image {
-    // background-image: url(https://dl.airtable.com/.attachments/6980bb650e703889360017209af08d86/e3b89a6f/mc-item-371-1.jpg);
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
     background-size: cover;
     width: 100%;
@@ -27,6 +26,7 @@
     padding: 0 10px;
     p {
       margin: 12px 0 8px 0;
+      color: $gray600;
     }
   }
 }
