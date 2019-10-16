@@ -13,8 +13,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-airtable',
       options: {
-        // apiKey: process.env.AIRTABLE_API_KEY,
-        apiKey: getEnv('AIRTABLE_API_KEY'),
+        apiKey: process.env.AIRTABLE_API_KEY,
         tables: [
           {
             baseId: 'appK4wTXeUcuTawQa',
@@ -32,8 +31,4 @@ module.exports = {
       }
     }
   ]
-}
-
-function getEnv(name, defaultValue) {
-  return process.env[name] || defaultValue
 }
