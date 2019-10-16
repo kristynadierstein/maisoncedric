@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from 'gatsby';
+import { Link } from "gatsby";
 
 // import styles
 import '../styles/main.scss';
@@ -28,6 +29,8 @@ export const query = graphql`
 `;
 
 function Assises({data}) {
+  let numberDisplayed = 9;
+  let displayedItems = data.allAirtable.nodes.slice(0, numberDisplayed);
   return (
     <React.Fragment>
       < Header />
@@ -47,13 +50,16 @@ function Assises({data}) {
           </ul>
         </div>
         <div className="row-3">
-          {data.allAirtable.nodes.map(node => (
+          {displayedItems.map(node => (
             <Card
               title={node.data.Titre_de_l_annonce__FR_}
               price={node.data.Prix_de_vente}
               status={node.data.Statut}>
             </Card>
           ))}
+          <div className="btn-container">
+            <Link className="btn-1">Voir plus d'assises</Link>
+          </div>
         </div>
       </div>
       <NewsletterAd />
