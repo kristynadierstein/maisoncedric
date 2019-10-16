@@ -12,7 +12,7 @@ import NewsletterAd from '../components/newsletterAd.js';
 import Carousel from '../components/carousel';
 
 class Produit extends React.Component {
-  render(){
+  render() {
     return (
       <React.Fragment>
         < Header />
@@ -40,9 +40,8 @@ class Produit extends React.Component {
         <NewsletterAd />
         <Footer />
       </React.Fragment>
-      )
-    }
+    )
   }
+}
 
 export default Produit
-

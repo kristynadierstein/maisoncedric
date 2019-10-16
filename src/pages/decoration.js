@@ -13,7 +13,7 @@ import NewsletterAd from '../components/newsletterAd.js';
 
 // Airtable query
 export const query = graphql`
-  query MyQueryDeco {
+  query MyDecoQuery {
     allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
       nodes {
         data {
@@ -27,35 +27,39 @@ export const query = graphql`
   }
 `;
 
-export default ({data}) => (
-  <React.Fragment>
-    < Header />
-    < Navbar />
-    <div className="container category">
-      <div className="sidebar">
-        <h1>Décoration</h1>
-        <hr/>
-        <ul>
-          <li>Décoration type 1</li>
-          <li>Décoration type 2</li>
-          <li>Décoration type 3</li>
-          <li>Décoration type 4</li>
-          <li>Décoration type 5</li>
-          <li>Décoration type 6</li>
-          <li>Décoration type 7</li>
-        </ul>
+function Decoration({data}) {
+  return (
+    <React.Fragment>
+      < Header />
+      < Navbar />
+      <div className="container category">
+        <div className="sidebar">
+          <h1>Décoration</h1>
+          <hr/>
+          <ul>
+            <li>Décoration type 1</li>
+            <li>Décoration type 2</li>
+            <li>Décoration type 3</li>
+            <li>Décoration type 4</li>
+            <li>Décoration type 5</li>
+            <li>Décoration type 6</li>
+            <li>Décoration type 7</li>
+          </ul>
+        </div>
+        <div className="row-3">
+          {data.allAirtable.nodes.map(node => (
+            <Card
+              title={node.data.Titre_de_l_annonce__FR_}
+              price={node.data.Prix_de_vente}
+              status={node.data.Statut}>
+            </Card>
+          ))}
+        </div>
       </div>
-      <div className="row-3">
-        {data.allAirtable.nodes.map(node => (
-          <Card
-            cardDesc={node.data.Titre_de_l_annonce__FR_}
-            cardPrice={node.data.Prix_de_vente}
-            cardSold={node.data.Statut}>
-          </Card>
-        ))}
-      </div>
-    </div>
-    <NewsletterAd />
-    <Footer />
-  </React.Fragment>
-)
+      <NewsletterAd />
+      <Footer />
+    </React.Fragment>
+  )
+}
+
+export default Decoration

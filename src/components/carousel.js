@@ -8,12 +8,9 @@ class Carousel extends React.Component {
 		super(props)
 		this.state = {
 			images: [
-				"https://picsum.photos/id/1/200/300",
-        "https://picsum.photos/id/2/200/300",
-        "https://picsum.photos/id/3/200/300",
-        "https://picsum.photos/id/4/200/300",
-        "https://picsum.photos/id/5/200/300",
-        "https://picsum.photos/id/6/200/300",
+				"https://dl.airtable.com/.attachments/6980bb650e703889360017209af08d86/e3b89a6f/mc-item-371-1.jpg",
+        "https://dl.airtable.com/.attachments/16067542013f6aa1e071ca3c7338d04d/31c7ddbc/mc-item-371-2.jpg",
+        "https://dl.airtable.com/.attachments/1f30f7cf79e0fd6e75c92d40afe6097e/de47bba5/mc-item-371-3.jpg",
 			],
 			currentIndex: 0,
 			translateValue: 0
