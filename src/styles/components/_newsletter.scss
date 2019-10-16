@@ -77,12 +77,16 @@
     position: absolute;
     right: -222px;
     bottom: -217px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .newsletter-pic2 {
     position: absolute;
     top: -207px;
     left: 34px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.08), 0px 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: $MobilePortrait) {
