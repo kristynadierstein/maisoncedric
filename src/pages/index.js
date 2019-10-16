@@ -11,12 +11,9 @@ import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Card from '../components/card';
 
-// import images
-
-
 // Airtable query
 export const query = graphql`
-  query MyQueryIndex {
+  query MyIndexQuery {
     allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
       nodes {
         data {
@@ -24,6 +21,10 @@ export const query = graphql`
           Prix_de_vente
           Titre_de_l_annonce__FR_
           Statut
+          Images {
+            url
+          }
+          Created_Time
         }
       }
     }
@@ -41,42 +42,49 @@ function Index({data}) {
 
         <div className="row-3">
           <Card
-            cardDesc={data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[0].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[0].data.Statut}>
+            cardDesc={data.allAirtable.nodes[4].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[4].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[4].data.Statut}
+            cardImage={data.allAirtable.nodes[4].data.Images[0].url}>
           </Card>
           <Card
-            cardDesc={data.allAirtable.nodes[1].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[1].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[1].data.Statut}>
+            cardDesc={data.allAirtable.nodes[5].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[5].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[5].data.Statut}
+            cardImage={data.allAirtable.nodes[5].data.Images[0].url}>
           </Card>
           <Card
-            cardDesc={data.allAirtable.nodes[2].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[2].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[2].data.Statut}>
+            cardDesc={data.allAirtable.nodes[12].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[12].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[12].data.Statut}
+            cardImage={data.allAirtable.nodes[12].data.Images[0].url}>
           </Card>
         </div>
 
         <div className="row-4">
           <Card
-            cardDesc={data.allAirtable.nodes[3].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[3].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[3].data.Statut}>
+            cardDesc={data.allAirtable.nodes[13].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[13].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[13].data.Statut}
+            cardImage={data.allAirtable.nodes[13].data.Images[0].url}>
           </Card>
           <Card
-            cardDesc={data.allAirtable.nodes[4].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[4].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[4].data.Statut}>
+            cardDesc={data.allAirtable.nodes[14].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[14].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[14].data.Statut}
+            cardImage={data.allAirtable.nodes[14].data.Images[0].url}>
           </Card>
           <Card
-            cardDesc={data.allAirtable.nodes[5].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[5].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[5].data.Statut}>
+            cardDesc={data.allAirtable.nodes[13].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[13].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[13].data.Statut}
+            cardImage={data.allAirtable.nodes[13].data.Images[0].url}>
           </Card>
           <Card
-            cardDesc={data.allAirtable.nodes[6].data.Titre_de_l_annonce__FR_}
-            cardPrice={data.allAirtable.nodes[6].data.Prix_de_vente}
-            cardSold={data.allAirtable.nodes[6].data.Statut}>
+            cardDesc={data.allAirtable.nodes[14].data.Titre_de_l_annonce__FR_}
+            cardPrice={data.allAirtable.nodes[14].data.Prix_de_vente}
+            cardSold={data.allAirtable.nodes[14].data.Statut}
+            cardImage={data.allAirtable.nodes[14].data.Images[0].url}>
           </Card>
         </div>
       </div>

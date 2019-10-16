@@ -13,7 +13,7 @@ import NewsletterAd from '../components/newsletterAd.js';
 
 // Airtable query
 export const query = graphql`
-  query MyQueryLuminaires {
+  query MyLuminairesQuery {
     allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
       nodes {
         data {
