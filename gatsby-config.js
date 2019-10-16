@@ -7,6 +7,11 @@
 require('dotenv').config()
 
 module.exports = {
+  siteMetadata: {
+    title: `Maison Cédric`,
+    siteUrl: `https://maisoncedric.netlify.com/`,
+    description: `Sélection éclectique de pièces du XXème siècle`,
+  },
   plugins: [
     /* Your site config here */
     `gatsby-plugin-sass`,
