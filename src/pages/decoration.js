@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from 'gatsby';
+import { Link } from "gatsby";
 
 // import styles
 import '../styles/main.scss';
@@ -14,13 +15,17 @@ import NewsletterAd from '../components/newsletterAd.js';
 // Airtable query
 export const query = graphql`
   query MyDecoQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
+    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
       nodes {
         data {
           Nom_d_achat
+          Created_Time
           Prix_de_vente
           Titre_de_l_annonce__FR_
           Statut
+          Images {
+            url
+          }
         }
       }
     }
@@ -51,9 +56,13 @@ function Decoration({data}) {
             <Card
               title={node.data.Titre_de_l_annonce__FR_}
               price={node.data.Prix_de_vente}
-              status={node.data.Statut}>
+              status={node.data.Statut}
+              image={node.data.Images[0].url}>
             </Card>
           ))}
+          <div className="btn-container">
+            <Link className="btn-1">Voir plus de décorations</Link>
+          </div>
         </div>
       </div>
       <NewsletterAd />
