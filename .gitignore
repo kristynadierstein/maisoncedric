@@ -1,2 +1,4 @@
 # dotenv environment variables file
+/.cache
+/public
 .env
