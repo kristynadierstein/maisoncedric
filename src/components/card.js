@@ -4,18 +4,26 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
+function isVendu(itemStatus) {
+  if (itemStatus !== null) {
+    return (
+      <div className="vendu">
+        <label htmlFor="">{itemStatus}</label>
+      </div>
+    );
+  }
+}
+
 export default props => (
   <div className="card">
     <Link to="/produit">
-      <div className="image">
-        <div className="vendu">
-          <label htmlFor="">{props.cardSold}</label>
-        </div>
+      <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
+        {isVendu(props.status)}
       </div>
       <div className="desc">
-        <p>{props.cardDesc}</p>
+        <p>{props.title}</p>
         <label>
-          <strong>{props.cardPrice} €</strong>
+          <strong>{props.price} €</strong>
         </label>
       </div>
     </Link>

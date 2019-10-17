@@ -5,7 +5,7 @@
     justify-content: space-evenly;
     position: relative;
     z-index: -1000;
-    margin-top:180px;
+    margin-top:100px;
 }
 
 .newsletter-imgs {
@@ -30,7 +30,7 @@
 
 .newsletter-body {
     font-weight:500;
-    
+
 }
 
 .btn-newsletter-subscribe {
@@ -63,7 +63,7 @@
     font-size: .9rem!important;
     font-weight: 500!important;
     width:100%;
-   
+
 }
 
 .newsletter-btns{
@@ -77,18 +77,22 @@
     position: absolute;
     right: -222px;
     bottom: -217px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .newsletter-pic2 {
     position: absolute;
     top: -207px;
     left: 34px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.08), 0px 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: $MobilePortrait) {
     .newsletter-ad {
     display: none;
     }
-    
+
 }
 

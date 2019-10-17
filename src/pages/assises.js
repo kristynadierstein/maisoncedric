@@ -1,94 +1,71 @@
 import React from "react";
-import Card from "../components/card"
+import { graphql } from 'gatsby';
+import { Link } from "gatsby";
 
 // import styles
 import '../styles/main.scss';
 
 //import components
-import Header from '../components/header.js';
-import NavBar from '../components/navbar.js';
+import Card from "../components/card"
 import Footer from '../components/footer.js';
+import Header from '../components/header.js';
+import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
+// Airtable query
+export const query = graphql`
+  query MyAssisesQuery {
+    allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
+      nodes {
+        data {
+          Nom_d_achat
+          Prix_de_vente
+          Titre_de_l_annonce__FR_
+          Statut
+        }
+      }
+    }
+  }
+`;
 
-class Assises extends React.Component {
-  render(){
-    return (
-      <React.Fragment>
-        < Header />
-        < NavBar />
-        <div className="container category">
-          <div className="sidebar">
-            <h1>Assises</h1>
-            <hr/>
-            <ul>
-              <li>Toutes les assises</li>
-              <li>Fauteuils</li>
-              <li>Chaises</li>
-              <li>Canapés</li>
-              <li>Tabourets</li>
-              <li>Tables</li>
-              <li>Autres</li>
-            </ul>
-          </div>
-          <div className="row-3">
+function Assises({data}) {
+  let numberDisplayed = 9;
+  let displayedItems = data.allAirtable.nodes.slice(0, numberDisplayed);
+  return (
+    <React.Fragment>
+      < Header />
+      < Navbar />
+      <div className="container category">
+        <div className="sidebar">
+          <h1>Assises</h1>
+          <hr/>
+          <ul>
+            <li>Toutes les assises</li>
+            <li>Fauteuils</li>
+            <li>Chaises</li>
+            <li>Canapés</li>
+            <li>Tabourets</li>
+            <li>Tables</li>
+            <li>Autres</li>
+          </ul>
+        </div>
+        <div className="row-3">
+          {displayedItems.map(node => (
             <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.400"
-              cardSold="Vendu">
+              title={node.data.Titre_de_l_annonce__FR_}
+              price={node.data.Prix_de_vente}
+              status={node.data.Statut}>
             </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.800">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="1.500">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.500">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.400">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.800">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="1.500">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.500"
-              cardSold="Vendu">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.400">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.800">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="1.500">
-            </Card>
-            <Card
-              cardDesc="Lorem ipsum dolor sit amet, consectetur adipisicing."
-              cardPrice="2.500">
-            </Card>
+          ))}
+          <div className="btn-container">
+            <Link className="btn-1">Voir plus d'assises</Link>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
-      </React.Fragment>
-      )
-    } 
-  }
+      </div>
+      <NewsletterAd />
+      <Footer />
+    </React.Fragment>
+  )
+}
 
 export default Assises

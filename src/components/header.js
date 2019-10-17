@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import Logo from '../../static/images/ic--mc.svg';
 import FlagEN from '../../static/images/ic--flag--en.svg';
 
-
 const Header = (props) => {
   return(
     <header>
