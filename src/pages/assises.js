@@ -15,13 +15,18 @@ import NewsletterAd from '../components/newsletterAd.js';
 // Airtable query
 export const query = graphql`
   query MyAssisesQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: DESC}) {
+    allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Assises"}}}) {
       nodes {
         data {
-          Nom_d_achat
+          Categories
+          Created_Time
           Prix_de_vente
-          Titre_de_l_annonce__FR_
           Statut
+          Titre_de_l_annonce__FR_
+          Titre_de_l_annonce__EN_
+          Images {
+            url
+          }
         }
       }
     }
@@ -30,7 +35,7 @@ export const query = graphql`
 
 function Assises({data}) {
   let numberDisplayed = 9;
-  let displayedItems = data.allAirtable.nodes.slice(0, numberDisplayed);
+  let displayedItems = data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
   return (
     <React.Fragment>
       < Header />
@@ -54,7 +59,8 @@ function Assises({data}) {
             <Card
               title={node.data.Titre_de_l_annonce__FR_}
               price={node.data.Prix_de_vente}
-              status={node.data.Statut}>
+              status={node.data.Statut}
+              image={node.data.Images[0].url}>
             </Card>
           ))}
           <div className="btn-container">
