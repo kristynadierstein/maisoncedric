@@ -15,14 +15,15 @@ import NewsletterAd from '../components/newsletterAd.js';
 // Airtable query
 export const query = graphql`
   query MyMobilierQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
+    allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Mobilier"}}}) {
       nodes {
         data {
-          Nom_d_achat
+          Categories
           Created_Time
           Prix_de_vente
-          Titre_de_l_annonce__FR_
           Statut
+          Titre_de_l_annonce__FR_
+          Titre_de_l_annonce__EN_
           Images {
             url
           }
@@ -52,7 +53,7 @@ function Mobilier({data}) {
           </ul>
         </div>
         <div className="row-3">
-          {data.allAirtable.nodes.map(node => (
+          {data.allAirtable.nodes.reverse().map(node => (
             <Card
               title={node.data.Titre_de_l_annonce__FR_}
               cardPrice={node.data.Prix_de_vente}
