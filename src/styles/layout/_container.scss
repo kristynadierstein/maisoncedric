@@ -1,27 +1,26 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1em;
-  h1 {
-    margin-top: 50px;
-  }
+  padding: 3em 1em;
 }
 
 .container-small {
   max-width: 500px;
   margin: 0 auto;
-  padding: 1em;
-  h1 {
-    margin-top: 20px;
-  }
+  padding: 3em 1em;
   p {
     margin-top: 20px;
   }
 }
 
-@media screen and (max-width: $MobilePortrait) {
+@media screen and (max-width: $TabletLandscape) {
   .container, .container-small {
-    padding: 3em 1em 1em 1em;
+    padding: 6em 1em 4em 1em;
   }
 }
 
+@media screen and (max-width: $TabletPortrait) {
+  .container, .container-small {
+    padding: 6em 1em 3em 1em;
+  }
+}

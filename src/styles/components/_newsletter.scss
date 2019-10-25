@@ -5,7 +5,7 @@
   justify-content: space-evenly;
   position: relative;
   z-index: -1000;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .newsletter-imgs {
@@ -85,9 +85,8 @@
   left: 83px;
 }
 
-@media (max-width: $TabletPortrait) {
+@media (max-width: $TabletLandscape) {
   .newsletter-ad {
     display: none;
   }
-
 }
