@@ -10,9 +10,28 @@ import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Carousel from '../components/carousel';
+import Modal from 'react-responsive-modal';
+
+//import imagery
+import Env from '../../static/images/ic-mail.svg';
+import Phone from '../../static/images/ic-phone.svg';
+import FlagFR from '../../static/images/ic--flag--fr.svg';
 
 class Produit extends React.Component {
+  state = {
+    open: false,
+  };
+
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+ 
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   render() {
+    const { open } = this.state;
     return (
       <React.Fragment>
         < Header />
@@ -27,7 +46,23 @@ class Produit extends React.Component {
               <hr/>
               <div className="call-to-action">
                 <label htmlFor="">Vendu</label>
-                <Link className="btn-1">Contactez-nous</Link>
+                <div className="btn-1" onClick={this.onOpenModal}>Contactez-nous</div>
+                <Modal open={open} onClose={this.onCloseModal} closeIconSize="20" center closeIcon="closeIcon">
+                  <h2>Contactez-nous</h2>
+                <hr></hr>
+                <div className="modal-section">
+                  <Env className="modal-env-svg"/>
+                  <a href="/#" className="email-modal">contact@maisoncedric.com</a>
+                </div>
+                <hr></hr>
+                <div className="modal-section">
+                  <Phone />
+                    <div className="modal-phone-flag">
+                      <FlagFR />
+                      <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
+                    </div>
+                </div>
+                </Modal>
               </div>
               <hr/>
               <p>
