@@ -1,117 +1,120 @@
 @media(min-width: $TabletLandscape) {
-    
-    #mobile-navbar {
-        display:none;
-    }
 
-    #desktop-navbar{
-        clear: both;
-        display: flex;
-        justify-content: space-between;
-        max-width: 100vw;
-        border-top: 1px solid $gray200; 
-        border-bottom: 1px solid $gray200; 
-        padding: 21px 121px 21px 121px;
-    }
+  #mobile-navbar {
+    display:none;
+  }
 
-    #dk-navbar-left > ul {
-        float:left;
-        position: relative;
-        left:50%;
-    }
+  #desktop-navbar{
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100vw;
+    border-top: 1px solid $gray200;
+    border-bottom: 1px solid $gray200;
+    padding: 21px 121px 21px 121px;
+  }
 
-    #dk-navbar-left > ul > li {
-        float:left;
-        position: relative;
-        left: -50%;
-        margin-right:32px;
-    }
+  #dk-navbar-left > ul {
+    float:left;
+    position: relative;
+    left:50%;
+  }
 
-    #dk-navbar-right > ul {
-        float:right;
-        position: relative;
-        left:50%;
-    }
+  #dk-navbar-left > ul > li {
+    float:left;
+    position: relative;
+    left: -50%;
+    margin-right:32px;
+  }
 
-    #dk-navbar-right > ul > li {
-        float:left;
-        position: relative;
-        left: -50%;
-        margin-left: 32px;
-    }
+  #dk-navbar-right > ul {
+    float:right;
+    position: relative;
+    left:50%;
+  }
+
+  #dk-navbar-right > ul > li {
+    float:left;
+    position: relative;
+    left: -50%;
+    margin-left: 32px;
+  }
 }
 
 @media (max-width: $TabletLandscape) {
-    #desktop-navbar {
-        display: none;
-    }
+  #desktop-navbar {
+    display: none;
+  }
 
-    .mb-navbar-btn-categories{
-        display: flex;
-        align-items: center;
-        height: 50px;
-        border: 1px solid #DFE1E6;
-        color: $gray900;
-        margin: 0px;
-        position: relative;
-        top: 62px;
-        left: 0px;
-        padding-left:60px;
-    }
+  .mb-navbar-btn-categories{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #DFE1E6;
+    color: $gray900;
+    margin: 0px;
+    position: relative;
+    top: 62px;
+    left: 0px;
+    padding-left:60px;
+  }
 
-    .mb-navbar-filtres{
-        width: 50%;
-        position: relative;
-        float: right;
-        border: 1px solid $gray200;
-        align-content: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50px;
-    }
+  .mb-navbar-filtres{
+    width: 50%;
+    position: relative;
+    float: right;
+    border: 1px solid $gray200;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+  }
 
-    #mobile-navbar > div.mb-navbar-filtres > a {
-        color: $gray900;
-    }
+  #mobile-navbar > div.mb-navbar-filtres > a {
+    color: $gray900;
+  }
 
-    .mobile-sidebar {
-        z-index: 1000 !important;
-        background-color: white;
-        width:80%;
-    }
+  .mobile-sidebar {
+    z-index: 1000 !important;
+    background-color: white;
+    width:80%;
+  }
 
-    .mb-sidebar-header {
-        display: flex;
-        justify-content: space-between;
-        margin: 24px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #DFE1E6 ;
-    }
+  .mb-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DFE1E6 ;
+  }
 
-    .mb-sidebar-list {
-        margin: 0px 24px 24px 24px;
-        border-bottom: 1px solid #DFE1E6;
-        padding-bottom: 24px;
-    }
+  .mb-sidebar-list {
+    margin: 0px 24px 24px 24px;
+    border-bottom: 1px solid #DFE1E6;
+    padding-bottom: 24px;
+  }
 
-    #mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
-        line-height: 2.5rem;
-        margin-left: 12px;
-        color: $gray900;
-    }
+  #mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
+    line-height: 2.5rem;
+    margin-left: 12px;
+    color: $gray900;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 
-    .mb-sidebar-btn-contact {
-        width: 74%;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        padding: 12px;
-        position: absolute;
-        left: 24px;
-        bottom: 30px;
-        border: 1px solid #DFE1E6;
-        color: #17181A;
-        font-weight:500;
-    }
+  .mb-sidebar-btn-contact {
+    width: 74%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 12px;
+    position: absolute;
+    left: 24px;
+    bottom: 30px;
+    border: 1px solid #DFE1E6;
+    color: #17181A;
+    font-weight:500;
+  }
 }
