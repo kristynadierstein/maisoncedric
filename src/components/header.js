@@ -9,10 +9,14 @@ const Header = (props) => {
   return(
     <header>
       <div className="dk-header">
-       < Logo className="dk-logo-header"/>
+      <Link to="/">
+        < Logo className="dk-logo-header"/>
+      </Link>
       </div>
       <div className="mb-header">
-       < Logo className="mb-logo-header"/>
+        <Link to="/">
+          < Logo className="mb-logo-header"/>
+        </Link>
       <Link to="#">< FlagEN id="mb-logo" /></Link>
       </div>
     </header>
