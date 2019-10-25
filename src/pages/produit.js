@@ -51,14 +51,14 @@ class Produit extends React.Component {
                   <h2>Contactez-nous</h2>
                 <hr></hr>
                 <div className="modal-section">
-                  <Env className="modal-env-svg"/>
+                  <Env className="modal-svg"/>
                   <a href="/#" className="email-modal">contact@maisoncedric.com</a>
                 </div>
                 <hr></hr>
                 <div className="modal-section">
-                  <Phone />
-                    <div className="modal-phone-flag">
-                      <FlagFR />
+                  <Phone className="modal-svg"/>
+                    <div>
+                      <FlagFR id="modal-phone-flag" />
                       <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
                     </div>
                 </div>
