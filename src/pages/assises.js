@@ -19,6 +19,7 @@ export const query = graphql`
       nodes {
         data {
           Categories
+          Sub_Categories
           Created_Time
           Prix_de_vente
           Statut
@@ -34,8 +35,20 @@ export const query = graphql`
 `;
 
 function Assises({data}) {
+  // Items displayed
   let numberDisplayed = 9;
   let displayedItems = data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
+  // Sub-Categories
+  let subCategories = [];
+  data.allAirtable.nodes.map(node => (
+    node.data.Sub_Categories.map(subCategory => (
+      subCategories.push(subCategory)
+    ))
+  ))
+  subCategories = subCategories.sort();
+  subCategories.push(subCategories.shift());
+  subCategories = ["Toutes les catégories"].concat(subCategories);
+
   return (
     <React.Fragment>
       < Header />
@@ -45,13 +58,9 @@ function Assises({data}) {
           <h1>Assises</h1>
           <hr/>
           <ul>
-            <li>Toutes les assises</li>
-            <li>Fauteuils</li>
-            <li>Chaises</li>
-            <li>Canapés</li>
-            <li>Tabourets</li>
-            <li>Tables</li>
-            <li>Autres</li>
+            {subCategories.map(subCategory =>
+              <li>{subCategory}</li>
+            )}
           </ul>
         </div>
         <div className="row-3">
