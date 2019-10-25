@@ -95,15 +95,6 @@
     padding-bottom: 24px;
   }
 
-  #mobile-navbar a {
-    display: block;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   #mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
     line-height: 2.5rem;
     margin-left: 12px;
@@ -111,6 +102,15 @@
     display: block;
     height: 100%;
     width: 100%;
+  }
+
+  .mb-navbar-filtres a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
   }
 
   .mb-sidebar-btn-contact {
