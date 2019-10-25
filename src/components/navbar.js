@@ -73,9 +73,9 @@ class Navbar extends React.Component{
                         onSetOpen={this.onSetSidebarOpen}
                         sidebarClassName = "mobile-sidebar"
                     >
-                        <Link onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
+                        <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
                             Categories
-                        </Link>
+                        </div>
                     </Sidebar>
                     <div className="mb-navbar-filtres">
                         <Link to="/a-propos" activeStyle={activeStyle} >À propos</Link>
