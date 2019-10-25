@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from "gatsby";
 import Sidebar from "react-sidebar";
 
+
 //import imagery
 import FlagEN from '../../static/images/ic--flag--en.svg';
-// import FlagFR from '../../static/images/ic--flag--fr.svg';
 import Esc from '../../static/images/ic--esc.svg';
 
 class Navbar extends React.Component{
