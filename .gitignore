@@ -1,6 +1,6 @@
 # dotenv environment variables file
-/.cache
-/.npm-packages
-/.vscode
-/public
+.cache
+.npm-packages
+.vscode
+public
 .env
