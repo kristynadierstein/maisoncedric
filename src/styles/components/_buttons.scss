@@ -6,3 +6,15 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.btn-1-modal {
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  padding: 7px 30px;
+  text-decoration: none;
+  cursor: pointer;
+  position: inherit;
+  z-index: 1000;
+  
+}
