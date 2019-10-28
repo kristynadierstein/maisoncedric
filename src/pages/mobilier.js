@@ -19,6 +19,7 @@ export const query = graphql`
       nodes {
         data {
           Categories
+          Sub_Categories
           Created_Time
           Prix_de_vente
           Statut
@@ -34,6 +35,20 @@ export const query = graphql`
 `;
 
 function Mobilier({data}) {
+  // Items displayed
+  let numberDisplayed = 9;
+  let displayedItems = data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
+  // Sub-Categories
+  let subCategories = [];
+  data.allAirtable.nodes.map(node => (
+    node.data.Sub_Categories.map(subCategory => (
+      subCategories.push(subCategory)
+    ))
+  ))
+  subCategories = subCategories.sort();
+  // subCategories.push(subCategories.shift()); // puts the 1st item at the end
+  subCategories = ["Toutes les catégories"].concat(subCategories);
+
   return (
     <React.Fragment>
       < Header />
@@ -43,20 +58,16 @@ function Mobilier({data}) {
           <h1>Mobilier</h1>
           <hr/>
           <ul>
-            <li>Mobilier type 1</li>
-            <li>Mobilier type 2</li>
-            <li>Mobilier type 3</li>
-            <li>Mobilier type 4</li>
-            <li>Mobilier type 5</li>
-            <li>Mobilier type 6</li>
-            <li>Mobilier type 7</li>
+            {subCategories.map(subCategory =>
+              <li>{subCategory}</li>
+            )}
           </ul>
         </div>
         <div className="row-3">
-          {data.allAirtable.nodes.reverse().map(node => (
+          {displayedItems.map(node => (
             <Card
               title={node.data.Titre_de_l_annonce__FR_}
-              cardPrice={node.data.Prix_de_vente}
+              price={node.data.Prix_de_vente}
               status={node.data.Statut}
               image={node.data.Images[0].url}>
             </Card>

@@ -46,7 +46,7 @@ function Assises({data}) {
     ))
   ))
   subCategories = subCategories.sort();
-  subCategories.push(subCategories.shift());
+  // subCategories.push(subCategories.shift()); // puts the 1st item at the end of the array
   subCategories = ["Toutes les catégories"].concat(subCategories);
 
   return (
