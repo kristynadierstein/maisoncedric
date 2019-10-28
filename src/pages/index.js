@@ -31,11 +31,6 @@ export const query = graphql`
   }
 `;
 
-Array.prototype.last = function() {
-   return this[this.length -1];
-}
-
-
 function Index({data}) {
   return (
     <React.Fragment>

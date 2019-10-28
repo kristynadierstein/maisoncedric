@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby"
 
 // import styles
 import '../styles/main.scss';
@@ -25,7 +24,7 @@ class Produit extends React.Component {
   onOpenModal = () => {
     this.setState({ open: true });
   };
- 
+
   onCloseModal = () => {
     this.setState({ open: false });
   };
