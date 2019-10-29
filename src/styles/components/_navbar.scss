@@ -51,19 +51,23 @@
     align-items: center;
     height: 50px;
     border: 1px solid #DFE1E6;
-    color: $gray900;
-    margin: 0px;
+    color: #17181A;
     position: relative;
-    top: 62px;
+    top: 61px;
     left: 0px;
-    padding-left:60px;
   }
+
+  .mb-navbar-empty-category {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
 
   .mb-navbar-filtres{
     width: 50%;
     position: relative;
     float: right;
-    border: 1px solid $gray200;
+    border: 1px solid #DFE1E6;
     align-content: center;
     display: flex;
     align-items: center;
