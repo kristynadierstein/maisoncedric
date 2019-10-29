@@ -31,7 +31,7 @@ export const query = graphql`
   }
 `;
 
-function Index({data}) {
+const Index = ({data}) => {
   return (
     <React.Fragment>
       < Header />

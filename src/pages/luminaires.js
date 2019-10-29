@@ -34,7 +34,7 @@ export const query = graphql`
   }
 `;
 
-function Luminaires({data}) {
+const Luminaires = ({data}) => {
   // Items displayed
   let numberDisplayed = 9;
   let displayedItems = data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
