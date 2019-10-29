@@ -34,53 +34,55 @@ export const query = graphql`
   }
 `;
 
-function Assises({data}) {
-  // Items displayed
-  let numberDisplayed = 9;
-  let displayedItems = data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
-  // Sub-Categories
-  let subCategories = [];
-  data.allAirtable.nodes.map(node => (
-    node.data.Sub_Categories.map(subCategory => (
-      subCategories.push(subCategory)
+class Assises extends React.Component {
+  render(){
+    // Items displayed
+    let numberDisplayed = 9;
+    let displayedItems = this.props.data.allAirtable.nodes.reverse().slice(0, numberDisplayed);
+    // Sub-Categories
+    let subCategories = [];
+    this.props.data.allAirtable.nodes.map(node => (
+      node.data.Sub_Categories.map(subCategory => (
+        subCategories.push(subCategory)
+      ))
     ))
-  ))
-  subCategories = subCategories.sort();
-  // subCategories.push(subCategories.shift()); // puts the 1st item at the end of the array
-  subCategories = ["Toutes les catégories"].concat(subCategories);
+    subCategories = subCategories.sort();
+    // subCategories.push(subCategories.shift()); // puts the 1st item at the end
+    subCategories = ["Toutes les catégories"].concat(subCategories);
 
-  return (
-    <React.Fragment>
-      < Header />
-      < Navbar />
-      <div className="container category">
-        <div className="sidebar">
-          <h1>Assises</h1>
-          <hr/>
-          <ul>
-            {subCategories.map(subCategory =>
-              <li>{subCategory}</li>
-            )}
-          </ul>
-        </div>
-        <div className="row-3">
-          {displayedItems.map(node => (
-            <Card
-              title={node.data.Titre_de_l_annonce__FR_}
-              price={node.data.Prix_de_vente}
-              status={node.data.Statut}
-              image={node.data.Images[0].url}>
-            </Card>
-          ))}
-          <div className="btn-container">
-            <Link className="btn-1">Voir plus d'assises</Link>
+    return (
+      <React.Fragment>
+        < Header />
+        < Navbar />
+        <div className="container category">
+          <div className="sidebar">
+            <h1>Assises</h1>
+            <hr/>
+            <ul>
+              {subCategories.map(subCategory =>
+                <li>{subCategory}</li>
+              )}
+            </ul>
+          </div>
+          <div className="row-3">
+            {displayedItems.map(node => (
+              <Card
+                title={node.data.Titre_de_l_annonce__FR_}
+                price={node.data.Prix_de_vente}
+                status={node.data.Statut}
+                image={node.data.Images[0].url}>
+              </Card>
+            ))}
+            <div className="btn-container">
+              <Link className="btn-1">Voir plus d'assises</Link>
+            </div>
           </div>
         </div>
-      </div>
-      <NewsletterAd />
-      <Footer />
-    </React.Fragment>
-  )
+        <NewsletterAd />
+        <Footer />
+      </React.Fragment>
+    )
+  }
 }
 
 export default Assises
