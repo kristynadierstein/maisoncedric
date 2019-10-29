@@ -31,67 +31,71 @@ export const query = graphql`
   }
 `;
 
-const Index = ({data}) => {
-  return (
-    <React.Fragment>
-      < Header />
-      < NavBar />
-      <div className="container">
+class Index extends React.Component {
+  render(){
+    const nodes = this.props.data.allAirtable.nodes;
 
-        <h1>Nouveautés</h1>
+    return (
+      <React.Fragment>
+        < Header />
+        < NavBar />
+        <div className="container">
 
-        <div className="row-3">
-          <Card
-            title={data.allAirtable.nodes[4].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[4].data.Prix_de_vente}
-            status={data.allAirtable.nodes[4].data.Statut}
-            image={data.allAirtable.nodes[4].data.Images[0].url}>
-          </Card>
-          <Card
-            title={data.allAirtable.nodes[3].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[3].data.Prix_de_vente}
-            status={data.allAirtable.nodes[3].data.Statut}
-            image={data.allAirtable.nodes[3].data.Images[0].url}>
-          </Card>
-          <Card
-            title={data.allAirtable.nodes[2].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[2].data.Prix_de_vente}
-            status={data.allAirtable.nodes[2].data.Statut}
-            image={data.allAirtable.nodes[2].data.Images[0].url}>
-          </Card>
+          <h1>Nouveautés</h1>
+
+          <div className="row-3">
+            <Card
+              title={nodes[4].data.Titre_de_l_annonce__FR_}
+              price={nodes[4].data.Prix_de_vente}
+              status={nodes[4].data.Statut}
+              image={nodes[4].data.Images[0].url}>
+            </Card>
+            <Card
+              title={nodes[3].data.Titre_de_l_annonce__FR_}
+              price={nodes[3].data.Prix_de_vente}
+              status={nodes[3].data.Statut}
+              image={nodes[3].data.Images[0].url}>
+            </Card>
+            <Card
+              title={nodes[2].data.Titre_de_l_annonce__FR_}
+              price={nodes[2].data.Prix_de_vente}
+              status={nodes[2].data.Statut}
+              image={nodes[2].data.Images[0].url}>
+            </Card>
+          </div>
+
+          <div className="row-4">
+            <Card
+              title={nodes[0].data.Titre_de_l_annonce__FR_}
+              price={nodes[0].data.Prix_de_vente}
+              status={nodes[0].data.Statut}
+              image={nodes[0].data.Images[0].url}>
+            </Card>
+            <Card
+              title={nodes[1].data.Titre_de_l_annonce__FR_}
+              price={nodes[1].data.Prix_de_vente}
+              status={nodes[1].data.Statut}
+              image={nodes[1].data.Images[0].url}>
+            </Card>
+            <Card
+              title={nodes[2].data.Titre_de_l_annonce__FR_}
+              price={nodes[2].data.Prix_de_vente}
+              status={nodes[2].data.Statut}
+              image={nodes[2].data.Images[0].url}>
+            </Card>
+            <Card
+              title={nodes[3].data.Titre_de_l_annonce__FR_}
+              price={nodes[3].data.Prix_de_vente}
+              status={nodes[3].data.Statut}
+              image={nodes[3].data.Images[0].url}>
+            </Card>
+          </div>
         </div>
-
-        <div className="row-4">
-          <Card
-            title={data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[0].data.Prix_de_vente}
-            status={data.allAirtable.nodes[0].data.Statut}
-            image={data.allAirtable.nodes[0].data.Images[0].url}>
-          </Card>
-          <Card
-            title={data.allAirtable.nodes[1].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[1].data.Prix_de_vente}
-            status={data.allAirtable.nodes[1].data.Statut}
-            image={data.allAirtable.nodes[1].data.Images[0].url}>
-          </Card>
-          <Card
-            title={data.allAirtable.nodes[2].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[2].data.Prix_de_vente}
-            status={data.allAirtable.nodes[2].data.Statut}
-            image={data.allAirtable.nodes[2].data.Images[0].url}>
-          </Card>
-          <Card
-            title={data.allAirtable.nodes[3].data.Titre_de_l_annonce__FR_}
-            price={data.allAirtable.nodes[3].data.Prix_de_vente}
-            status={data.allAirtable.nodes[3].data.Statut}
-            image={data.allAirtable.nodes[3].data.Images[0].url}>
-          </Card>
-        </div>
-      </div>
-      < NewsletterAd />
-      < Footer />
-    </React.Fragment>
-  )
+        < NewsletterAd />
+        < Footer />
+      </React.Fragment>
+    )
+  }
 }
 
 export default Index;
