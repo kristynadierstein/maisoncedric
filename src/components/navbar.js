@@ -109,7 +109,9 @@ class Navbar extends React.Component{
           sidebarClassName = "mobile-sidebar"
           >
         <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
-        Categories
+          <div className="mb-navbar-empty-category">
+            Categories
+          </div>
         </div>
         </Sidebar>
         <div className="mb-navbar-filtres">
