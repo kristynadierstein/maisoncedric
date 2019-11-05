@@ -6,6 +6,7 @@ import '../styles/main.scss';
 
 function isVendu(itemStatus) {
   if (itemStatus !== null) {
+    console.log(itemStatus)
     return (
       <div className="vendu">
         <label htmlFor="">{itemStatus}</label>

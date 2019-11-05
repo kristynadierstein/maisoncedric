@@ -18,6 +18,7 @@ export const query = graphql`
     allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Assises"}}}) {
       nodes {
         data {
+          ID
           Categories
           Sub_Categories
           Created_Time
@@ -49,7 +50,6 @@ class Assises extends React.Component {
     subCategories = subCategories.sort();
     // subCategories.push(subCategories.shift()); // puts the 1st item at the end
     subCategories = ["Toutes les catégories"].concat(subCategories);
-
     return (
       <React.Fragment>
         < Header />
@@ -60,7 +60,7 @@ class Assises extends React.Component {
             <hr/>
             <ul>
               {subCategories.map(subCategory =>
-                <li>{subCategory}</li>
+                <li key={subCategory}>{subCategory}</li>
               )}
             </ul>
           </div>
@@ -70,11 +70,12 @@ class Assises extends React.Component {
                 title={node.data.Titre_de_l_annonce__FR_}
                 price={node.data.Prix_de_vente}
                 status={node.data.Statut}
-                image={node.data.Images[0].url}>
+                image={node.data.Images[0].url}
+                key={node.data.ID}>
               </Card>
             ))}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus d'assises</Link>
+              <Link to="/" className="btn-1">Voir plus d'assises</Link>
             </div>
           </div>
         </div>

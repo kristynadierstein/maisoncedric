@@ -22,12 +22,12 @@ class NewsletterAd extends React.Component{
             éclectique de pièces du XXe siècle.
             </p>
             <div className="newsletter-btns">
-            <Link to="#">
+            <Link to="/">
                 <button className="btn-newsletter-subscribe">
                   Subscribe to our Newsletter
                 </button>
               </Link>
-              <Link to="#">
+              <Link to="/">
                 <button className="btn-newsletter-instagram">
                   Follow us on Instagram
                 </button>

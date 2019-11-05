@@ -56,7 +56,7 @@ class Produit extends React.Component {
               <div className="call-to-action">
                 <label htmlFor="">Vendu</label>
                 <div className="btn-1-modal" onClick={this.onOpenModal}>Contactez-nous</div>
-                <Modal open={open} onClose={this.onCloseModal} closeIconSize="20" center >
+                <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center >
                   <h2>Contactez-nous</h2>
                 <hr></hr>
                 <div className="modal-section">
