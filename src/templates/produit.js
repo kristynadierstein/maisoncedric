@@ -22,20 +22,21 @@ import FlagFR from '../../static/images/ic--flag--fr.svg';
 
 // // Airtable query
 export const query = graphql`
-query MyProduitQuery {
-  allAirtable (filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
+query MyQuery($id: Int!) {
+  allAirtable(filter: {data: {ID: {eq: $id}}}) {
     nodes {
       data {
-        Categories
-        Description__FR_
         ID
+        Categories
+        Sub_Categories
+        Created_Time
+        Prix_de_vente
+        Statut
+        Titre_de_l_annonce__FR_
+        Titre_de_l_annonce__EN_
         Images {
           url
         }
-        Prix_de_vente
-        Statut
-        Sub_Categories
-        Titre_de_l_annonce__FR_
       }
     }
   }
@@ -58,7 +59,11 @@ class Produit extends React.Component {
   
   render() {    
     const { open } = this.state;
- 
+     // access their IDs
+  
+   const title = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
+   const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
+   console.log(urls)
     return (
       <React.Fragment>
         < Header />
@@ -66,10 +71,12 @@ class Produit extends React.Component {
         <div className="container">
           <div className="row">
             <div className="caroussel">
-            <Carousel />
+            <Carousel 
+             urls= {urls}
+            />
             </div>
             <div className="content">
-                <h1>blabla</h1>
+                <h1>{title}</h1>
               <MediaQuery maxDeviceWidth={1199}>   
               <div className="fixed-mobile-links">  
                   <MobileLinks />

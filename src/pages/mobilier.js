@@ -105,7 +105,7 @@ export const query = graphql`
                   status={node.data.Statut}
                   image={node.data.Images[0].url}
                   id={node.data.ID}
-                  key= { index }
+                  key= {node.data.ID}
                   >
                   </Card>
               )
