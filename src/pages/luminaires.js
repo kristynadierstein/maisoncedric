@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import '../styles/main.scss';
 
 //import components
-import Card from "../components/card"
+// import Card from "../components/card"
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
@@ -18,6 +18,7 @@ export const query = graphql`
     allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Luminaire"}}}) {
       nodes {
         data {
+          ID
           Categories
           Sub_Categories
           Created_Time
@@ -34,6 +35,35 @@ export const query = graphql`
   }
 `;
 
+export const Card = (props) => {
+  console.log(props)
+  return(
+    <div className="card">
+        <Link to={`/produit/${props.id}`} key={ props.id }>
+        <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
+          {isVendu(props.status)}
+        </div>
+        <div className="desc">
+          <p>{props.title}</p>
+          <label>
+            <strong>{props.price} €</strong>
+          </label>
+        </div>
+        </Link>
+    </div>
+  )
+}
+
+  function isVendu(itemStatus) {
+    if (itemStatus !== null) {
+      return (
+        <div className="vendu">
+          <label htmlFor="">{itemStatus}</label>
+        </div>
+      );
+    }
+  }
+
 class Luminaires extends React.Component {
   render(){
     // Items displayed
@@ -49,7 +79,9 @@ class Luminaires extends React.Component {
     subCategories = subCategories.sort();
     // subCategories.push(subCategories.shift()); // puts the 1st item at the end
     subCategories = ["Toutes les catégories"].concat(subCategories);
-
+    // this.props.data.allAirtable.nodes.map(node => (
+    //   console.log(node.data.ID)
+    // ))
     return (
       <React.Fragment>
         < Header />
@@ -59,22 +91,28 @@ class Luminaires extends React.Component {
             <h1>Luminaires</h1>
             <hr/>
             <ul>
-              {subCategories.map(subCategory =>
-                <li>{subCategory}</li>
-              )}
+            {subCategories.map((subCategory, index) =>
+                <li key={ index }>{subCategory}</li>
+                )}
             </ul>
           </div>
           <div className="row-3">
-            {displayedItems.map(node => (
-              <Card
-                title={node.data.Titre_de_l_annonce__FR_}
-                price={node.data.Prix_de_vente}
-                status={node.data.Statut}
-                image={node.data.Images[0].url}>
-              </Card>
-            ))}
+          {displayedItems.sort().map((node, index) => { 
+              console.log(node.data.ID)
+              return(
+                  <Card
+                  title={node.data.Titre_de_l_annonce__FR_}
+                  price={node.data.Prix_de_vente}
+                  status={node.data.Statut}
+                  image={node.data.Images[0].url}
+                  id={node.data.ID}
+                  key= { index }
+                  >
+                  </Card>
+              )
+          })}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus d'assises</Link>
+              <Link to="/" className="btn-1">Voir plus d'assises</Link>
             </div>
           </div>
         </div>
