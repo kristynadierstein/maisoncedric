@@ -13,7 +13,6 @@ import NewsletterAd from '../components/newsletterAd.js';
 import Filter from '../components/filter.js';
 
 
-
 export const Card = (props) => {
   return(
     <div className="card">
@@ -42,7 +41,7 @@ export const Card = (props) => {
     }
   }
   
-  class Luminaires extends React.Component {
+  class Mobilier extends React.Component {
     constructor(props){
       super(props) 
       let subCategories = [];
@@ -59,14 +58,14 @@ export const Card = (props) => {
         toggleChecked(currentSelection){
           //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
           const NewSubcategories = this.state.subCategories.map(subCategory => {
-            if (subCategory.name === currentSelection) {
+            if (subCategory.name == currentSelection) {
               subCategory.checked = !subCategory.checked 
             }
             return subCategory
           })
           //if everything is unchecked  set the first "all" to be checked
           const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
-            return subCategory.checked === false
+            return subCategory.checked == false
           })
           if (isEveryCategoryUnChecked) {
             NewSubcategories[0].checked = true
@@ -78,7 +77,7 @@ export const Card = (props) => {
             NewSubcategories[0].checked = false
           }
           //if you sepcifically selected "All", we uncheck the rest of the categories
-          if (currentSelection === "Toutes les catégories") {
+          if (currentSelection == "Toutes les catégories") {
             allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
           }
           this.setState({subCategories: NewSubcategories})
@@ -95,7 +94,7 @@ export const Card = (props) => {
           }  
           //filter all subCategories which are checked, returns an array of subc which are checked
           const allCheckedSubcategories = this.state.subCategories.filter((subCategory) => {
-            return subCategory.checked === true
+            return subCategory.checked == true
           })
           //we are mapping thru the above array and getting just strings with names 
           const allCheckedSubcategoryNames = allCheckedSubcategories.map(element => {
@@ -127,8 +126,7 @@ export const Card = (props) => {
                 <Filter
                 name={subCategory.name}
                 checked={subCategory.checked}
-                toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}>
+                toggleChecked = {this.toggleChecked.bind(this)}>
                 </Filter>
                 )}
             </ul>
@@ -148,7 +146,7 @@ export const Card = (props) => {
               )
             })}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus</Link>
+              <Link className="btn-1">Voir plus d'assises</Link>
             </div>
           </div>
         </div>
@@ -159,12 +157,14 @@ export const Card = (props) => {
   }
 }
 
-export default Luminaires
+
+export default Mobilier
+
 
 // Airtable query
 export const query = graphql`
-  query MyLuminairesQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Luminaire"}}}) {
+  query MyCategoryQuery  {
+    allAirtable(sort: {fields: data___Created_Time, order: ASC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}, Categories: {in: "Mobilier"}}}) {
       nodes {
         data {
           ID
@@ -182,4 +182,4 @@ export const query = graphql`
       }
     }
   }
-`;
+  `;

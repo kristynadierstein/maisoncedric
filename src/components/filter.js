@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class Filter extends React.Component{
   //function calling the toggle check function and pass it the argument the name from the props
   handleClick(){
