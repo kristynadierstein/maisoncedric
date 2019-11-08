@@ -2,7 +2,7 @@
 import React from "react";
 import MediaQuery from 'react-responsive';
 import Modal from 'react-responsive-modal';
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 // import styles
 import '../styles/main.scss';
@@ -14,6 +14,8 @@ import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Carousel from '../components/carousel.js';
 import MobileLinks from '../components/mobile-links.js';
+import MobileNavbar from '../components/mobile-navbar.js';
+
 
 //import imagery
 import Env from '../../static/images/ic-mail.svg';
@@ -45,7 +47,13 @@ class Produit extends React.Component {
     return (
       <React.Fragment>
         < Header />
+        <MediaQuery maxDeviceWidth={1199}>
+        < MobileNavbar />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
         < Navbar />
+        </MediaQuery>
+        
         <div className="container">
           <div className="row">
             <div className="caroussel">

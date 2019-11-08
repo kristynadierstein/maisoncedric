@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from 'gatsby';
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
@@ -11,6 +12,7 @@ import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Filter from '../components/filter.js';
+import MobileNavbar from '../components/mobile-navbar.js';
 
 export const Card = (props) => {
   return(
@@ -106,52 +108,58 @@ class Assises extends React.Component {
         })
         return allMatchingProducts
       }
-      
+
       render(){
         // Items displayed
         let numberDisplayed = 9;
         let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
         
+        
         return (
           <React.Fragment>
-      < Header />
-      < Navbar />
-      <div className="container category">
-        <div className="sidebar">
-          <h1>Mobilier</h1>
-          <hr/>
-          <ul>
-            {this.state.subCategories.map((subCategory) =>
-              <Filter
-              name={subCategory.name}
-              checked={subCategory.checked}
-              toggleChecked = {this.toggleChecked.bind(this)}
-              key={subCategory.name}>
-              </Filter>
-              )}
-          </ul>
-        </div>
-        <div className="row-3">
-          {displayedItems.map((node, index) => { 
-            return(
-              <Card
-              title={node.data.Titre_de_l_annonce__FR_}
-              price={node.data.Prix_de_vente}
-              status={node.data.Statut}
-              image={node.data.Images[0].url}
-              id={node.data.ID}
-              key= {node.data.ID}
-              >
-              </Card>
-            )
-          })}
-          <div className="btn-container">
-            <Link className="btn-1">Voir plus</Link>
-          </div>
-        </div>
-      </div>
-      <NewsletterAd />
-      <Footer />
+            < Header />
+            <MediaQuery maxDeviceWidth={1199}>
+              < MobileNavbar />
+            </MediaQuery>
+            <MediaQuery minDeviceWidth={1199}>
+              < Navbar />
+            </MediaQuery>
+            <div className="container category">
+              <div className="sidebar">
+                <h1>Assises</h1>
+                <hr/>
+                <ul>
+                  {this.state.subCategories.map((subCategory) =>
+                    <Filter
+                    name={subCategory.name}
+                    checked={subCategory.checked}
+                    toggleChecked = {this.toggleChecked.bind(this)}
+                    key={subCategory.name}>
+                    </Filter>
+                    )}
+                </ul>
+              </div>
+              <div className="row-3">
+                {displayedItems.map((node, index) => { 
+                  return(
+                    <Card
+                    title={node.data.Titre_de_l_annonce__FR_}
+                    price={node.data.Prix_de_vente}
+                    status={node.data.Statut}
+                    image={node.data.Images[0].url}
+                    id={node.data.ID}
+                    key= {node.data.ID}
+                    >
+                    </Card>
+                  )
+                })}
+                <div className="btn-container">
+                  <Link to="" className="btn-1">Voir plus</Link>
+                </div>
+              </div>
+            </div>
+            <NewsletterAd />
+            <Footer />
     </React.Fragment>
   )
 }

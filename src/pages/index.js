@@ -1,16 +1,18 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
 
 // import components
 import Header from '../components/header.js';
-import NavBar from '../components/navbar.js';
+import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
-// import Card from '../components/card';
+import MobileNavbar from '../components/mobile-navbar.js';
+
 
 // Airtable query
 export const query = graphql`
@@ -68,7 +70,12 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         < Header />
-        < NavBar />
+        <MediaQuery maxDeviceWidth={1199}>
+          < MobileNavbar />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
+          < Navbar />
+        </MediaQuery>
         <div className="container">
 
           <h1>Nouveautés</h1>

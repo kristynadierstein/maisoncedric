@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
@@ -9,13 +10,19 @@ import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
+import MobileNavbar from '../components/mobile-navbar.js';
 
 class APropos extends React.Component {
   render(){
     return (
       <React.Fragment>
         < Header />
-        < Navbar />
+        <MediaQuery maxDeviceWidth={1199}>
+          < MobileNavbar />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
+          < Navbar />
+        </MediaQuery>
         <div className="container-small">
           <h1>Contactez-nous</h1>
           <p>

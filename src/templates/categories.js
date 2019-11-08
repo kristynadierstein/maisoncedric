@@ -41,10 +41,13 @@ export const Card = (props) => {
     }
   }
   
-  class Mobilier extends React.Component {
+  class Category extends React.Component {
     constructor(props){
       super(props) 
       let subCategories = [];
+      //load all data from airtable, map throught them, take all subcategories map throught them, sort them and set up their status of checked
+      //to false, create new array of subcategories unchecked, the only subcategory which is checked by default is "All categories"
+      // new array has objects with 2 parameteres name and checked status, this whole object has its state
       this.props.data.allAirtable.nodes.map(node => (
         node.data.Sub_Categories.sort().map(subCategory => (
           subCategories.push({ name: subCategory, checked: false })
@@ -56,7 +59,7 @@ export const Card = (props) => {
         // create a function for OnClick where I will change the state and pass the function to each filter via props
         //function loops thru the names of subcategories, when checked, changes the state to true
         toggleChecked(currentSelection){
-          //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
+          //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for component
           const NewSubcategories = this.state.subCategories.map(subCategory => {
             if (subCategory.name == currentSelection) {
               subCategory.checked = !subCategory.checked 
@@ -76,7 +79,7 @@ export const Card = (props) => {
           if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
             NewSubcategories[0].checked = false
           }
-          //if you sepcifically selected "All", we uncheck the rest of the categories
+          //if you specifically selected "All", we uncheck the rest of the categories
           if (currentSelection == "Toutes les catégories") {
             allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
           }
@@ -115,50 +118,50 @@ export const Card = (props) => {
           
           return (
             <React.Fragment>
-        < Header />
-        < Navbar />
-        <div className="container category">
-          <div className="sidebar">
-            <h1>Mobilier</h1>
-            <hr/>
-            <ul>
-              {this.state.subCategories.map((subCategory) =>
-                <Filter
-                name={subCategory.name}
-                checked={subCategory.checked}
-                toggleChecked = {this.toggleChecked.bind(this)}>
-                </Filter>
-                )}
-            </ul>
-          </div>
-          <div className="row-3">
-            {displayedItems.map((node, index) => { 
-              return(
-                <Card
-                title={node.data.Titre_de_l_annonce__FR_}
-                price={node.data.Prix_de_vente}
-                status={node.data.Statut}
-                image={node.data.Images[0].url}
-                id={node.data.ID}
-                key= {node.data.ID}
-                >
-                  </Card>
-              )
-            })}
-            <div className="btn-container">
-              <Link className="btn-1">Voir plus d'assises</Link>
-            </div>
-          </div>
-        </div>
-        <NewsletterAd />
-        <Footer />
-      </React.Fragment>
+              < Header />
+              < Navbar />
+              <div className="container category">
+                <div className="sidebar">
+                  <h1>Mobilier</h1>
+                  <hr/>
+                  <ul>
+                    {this.state.subCategories.map((subCategory) =>
+                      <Filter
+                      name={subCategory.name}
+                      checked={subCategory.checked}
+                      toggleChecked = {this.toggleChecked.bind(this)}>
+                      </Filter>
+                      )}
+                  </ul>
+                </div>
+                <div className="row-3">
+                  {displayedItems.map((node, index) => { 
+                    return(
+                      <Card
+                      title={node.data.Titre_de_l_annonce__FR_}
+                      price={node.data.Prix_de_vente}
+                      status={node.data.Statut}
+                      image={node.data.Images[0].url}
+                      id={node.data.ID}
+                      key= {node.data.ID}
+                      >
+                      </Card>
+                    )
+                  })}
+                  <div className="btn-container">
+                    <Link className="btn-1">Voir plus d'assises</Link>
+                  </div>
+                </div>
+              </div>
+              <NewsletterAd />
+              <Footer />
+          </React.Fragment>
     )
   }
 }
 
 
-export default Mobilier
+export default Category
 
 
 // Airtable query
@@ -183,3 +186,5 @@ export const query = graphql`
     }
   }
   `;
+
+  
