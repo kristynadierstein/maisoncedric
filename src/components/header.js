@@ -17,7 +17,7 @@ const Header = (props) => {
         <Link to="/">
           < Logo className="mb-logo-header"/>
         </Link>
-      <Link to="#">< FlagEN id="mb-logo" /></Link>
+      <Link to="/">< FlagEN id="mb-logo" /></Link>
       </div>
     </header>
   )
