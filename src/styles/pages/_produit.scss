@@ -1,32 +1,44 @@
 // Desktop
-.row {
-  display: flex;
-  .caroussel {
-    width: 55%;
-    background-size: cover;
-    border-radius: 2px;
-  }
-  .content {
-    width: 45%;
-    padding: 30px;
-    h1 {
-      margin: 0;
+
+@media screen and (min-width: $TabletLandscape) {
+  .row {
+    display: flex;
+    .caroussel {
+      width: 55%;
+      background-size: cover;
+      border-radius: 2px;
     }
-    .call-to-action {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      label {
-        padding-left: 100px;
+    .content {
+      width: 45%;
+      padding: 30px;
+      h1 {
+        margin: 0;
+      }
+      .call-to-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        label {
+          padding-left: 100px;
+          color: $gray600;
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+      }
+      .btn-1-modal {
+        width: 185px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
 }
 
 
-// Respsonsive
+// Responsive
 
-@media screen and (max-width: $MobilePortrait) {
+@media screen and (max-width: $TabletLandscape) {
   .row {
     display: block;
     margin: -1em 0;
@@ -36,13 +48,35 @@
     .content {
       width: 100%;
       padding: 0;
-      margin-top: -180px;
+      // margin-top: -180px;
       h1 {
         font-size: 24px;
       }
-      .call-to-action label {
+      .call-to-action-mobile {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+
+      }
+      .call-to-action-mobile label {
         padding-left: 28px;
+        color: $gray600;
+        font-size: 1.2rem;
+        font-weight: 500;
+    
       }
     }
+  }
+  .fixed-mobile-links {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-left: -16px;
+    background: #FFFFFF;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.08);
+    
   }
 }
