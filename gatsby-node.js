@@ -1,3 +1,5 @@
+const path = require("path")
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const productPage = path.resolve(`src/templates/produit.js`)
