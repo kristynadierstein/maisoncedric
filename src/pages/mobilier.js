@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
-//import components
+// import components
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
@@ -27,7 +27,7 @@ class Mobilier extends React.Component {
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props
-  //function loops thru the names of subcategories, when checked, changes the state to true
+  // function loops thru the names of subcategories, when checked, changes the state to true
 
   toggleChecked(currentSelection){
     //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component

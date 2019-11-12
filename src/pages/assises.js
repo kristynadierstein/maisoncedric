@@ -27,7 +27,8 @@ class Assises extends React.Component {
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props
-  //function loops thru the names of subcategories, when checked, changes the state to true
+  // function loops thru the names of subcategories, when checked, changes the state to true
+
   toggleChecked(currentSelection){
     //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
@@ -58,6 +59,7 @@ class Assises extends React.Component {
 
   // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
   // matches at least one of the selected subcategories
+
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     //if "All" is checked, return everything
