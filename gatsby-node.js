@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
   // Variables can be added as the second function parameter
   return graphql(`
   query MyQuery {
-    allAirtable {
+    allAirtable(filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
       nodes {
         data {
           ID
