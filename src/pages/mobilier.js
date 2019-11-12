@@ -115,8 +115,7 @@ class Mobilier extends React.Component {
                 status={node.data.Statut}
                 image={node.data.Images[0].url}
                 id={node.data.ID}
-                key= {node.data.ID}
-                >
+                key= {node.data.ID}>
                 </Card>
               )
             })}

@@ -113,8 +113,8 @@ class Decoration extends React.Component {
                     status={node.data.Statut}
                     image={node.data.Images[0].url}
                     id={node.data.ID}
-                    key= {node.data.ID}
-                    ></Card>
+                    key= {node.data.ID}>
+                    </Card>
                   )
                 })}
                 <div className="btn-container">

@@ -14,8 +14,8 @@ class APropos extends React.Component {
   render(){
     return (
       <React.Fragment>
-        < Header />
-        < Navbar />
+        <Header />
+        <Navbar />
         <div className="container-small">
           <h1>Contactez-nous</h1>
           <p>
