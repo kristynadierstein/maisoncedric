@@ -12,27 +12,6 @@ import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 // import Card from '../components/card';
 
-// Airtable query
-export const query = graphql`
-  query MyIndexQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
-      nodes {
-        data {
-          ID
-          Nom_d_achat
-          Created_Time
-          Prix_de_vente
-          Titre_de_l_annonce__FR_
-          Statut
-          Images {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
-
 
 export const Card = (props) => {
   return(
@@ -136,3 +115,24 @@ class Index extends React.Component {
 }
 
 export default Index;
+
+// Airtable query
+export const query = graphql`
+  query MyIndexQuery {
+    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
+      nodes {
+        data {
+          ID
+          Nom_d_achat
+          Created_Time
+          Prix_de_vente
+          Titre_de_l_annonce__FR_
+          Statut
+          Images {
+            url
+          }
+        }
+      }
+    }
+  }
+`;

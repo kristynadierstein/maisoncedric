@@ -16,41 +16,41 @@ import Filter from '../components/filter.js';
 export const Card = (props) => {
   return(
     <div className="card">
-        <Link to={`/produit/${props.id}`} key={ props.id }>
-        <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
-          {isVendu(props.status)}
-        </div>
-        <div className="desc">
-          <p>{props.title}</p>
-          <label>
-            <strong>{props.price} €</strong>
-          </label>
-        </div>
-        </Link>
+      <Link to={`/produit/${props.id}`} key={ props.id }>
+      <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
+        {isVendu(props.status)}
       </div>
-    )
-    
-    function isVendu(itemStatus) {
-      if (itemStatus !== null) {
-        return (
-          <div className="vendu">
-            <label htmlFor="">{itemStatus}</label>
-          </div>
-        );
-      }
+      <div className="desc">
+        <p>{props.title}</p>
+        <label>
+          <strong>{props.price} €</strong>
+        </label>
+      </div>
+      </Link>
+    </div>
+  )
+
+  function isVendu(itemStatus) {
+    if (itemStatus !== null) {
+      return (
+        <div className="vendu">
+          <label htmlFor="">{itemStatus}</label>
+        </div>
+      );
     }
   }
-  
+}
+
   class Mobilier extends React.Component {
     constructor(props){
-      super(props) 
+      super(props)
       let subCategories = [];
       this.props.data.allAirtable.nodes.map(node => (
         node.data.Sub_Categories.sort().map(subCategory => (
           subCategories.push({ name: subCategory, checked: false })
           ))
           ))
-          subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);  
+          subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
           this.state = { subCategories: subCategories }
         }
         // create a function for OnClick where I will change the state and pass the function to each filter via props
@@ -59,7 +59,7 @@ export const Card = (props) => {
           //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
           const NewSubcategories = this.state.subCategories.map(subCategory => {
             if (subCategory.name == currentSelection) {
-              subCategory.checked = !subCategory.checked 
+              subCategory.checked = !subCategory.checked
             }
             return subCategory
           })
@@ -82,21 +82,21 @@ export const Card = (props) => {
           }
           this.setState({subCategories: NewSubcategories})
         }
-        
-        // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory 
+
+        // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
         // matches at least one of the selected subcategories
-        
+
         filteredProducts(){
           const allProductsinCategory = this.props.data.allAirtable.nodes
           //if "All" is checked, return everything
           if (this.state.subCategories[0].checked){
             return allProductsinCategory
-          }  
+          }
           //filter all subCategories which are checked, returns an array of subc which are checked
           const allCheckedSubcategories = this.state.subCategories.filter((subCategory) => {
             return subCategory.checked == true
           })
-          //we are mapping thru the above array and getting just strings with names 
+          //we are mapping thru the above array and getting just strings with names
           const allCheckedSubcategoryNames = allCheckedSubcategories.map(element => {
             return element.name
           })
@@ -107,12 +107,12 @@ export const Card = (props) => {
           })
           return allMatchingProducts
         }
-        
+
         render(){
           // Items displayed
           let numberDisplayed = 9;
           let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
-          
+
           return (
             <React.Fragment>
         < Header />
@@ -132,7 +132,7 @@ export const Card = (props) => {
             </ul>
           </div>
           <div className="row-3">
-            {displayedItems.map((node, index) => { 
+            {displayedItems.map((node, index) => {
               return(
                 <Card
                 title={node.data.Titre_de_l_annonce__FR_}
@@ -182,4 +182,4 @@ export const query = graphql`
       }
     }
   }
-  `;
+`;

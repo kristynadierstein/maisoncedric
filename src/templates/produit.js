@@ -25,18 +25,18 @@ class Produit extends React.Component {
   state = {
     open: false,
   };
-  
+
   onOpenModal = () => {
     this.setState({ open: true });
   };
-  
+
   onCloseModal = () => {
     this.setState({ open: false });
   };
-  
-  
-  render() {    
-    const { open } = this.state;    
+
+
+  render() {
+    const { open } = this.state;
     const title = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const status = this.props.data.allAirtable.nodes[0].data.Statut
@@ -49,14 +49,14 @@ class Produit extends React.Component {
         <div className="container">
           <div className="row">
             <div className="caroussel">
-            <Carousel 
+            <Carousel
              urls= {urls}
              />
             </div>
             <div className="content">
                 <h1>{title}</h1>
-              <MediaQuery maxDeviceWidth={1199}>   
-              <div className="fixed-mobile-links">  
+              <MediaQuery maxDeviceWidth={1199}>
+              <div className="fixed-mobile-links">
                   <MobileLinks />
               </div>
               </MediaQuery>
@@ -101,29 +101,27 @@ class Produit extends React.Component {
 
 export default Produit
 
-
-
 // Airtable query
 export const query = graphql`
-query MyQuery($id: Int!) {
-  allAirtable(filter: {data: {ID: {eq: $id}}}) {
-    nodes {
-      data {
-        ID
-        Categories
-        Sub_Categories
-        Description__FR_
-        Description__EN_
-        Created_Time
-        Prix_de_vente
-        Statut
-        Titre_de_l_annonce__FR_
-        Titre_de_l_annonce__EN_
-        Images {
-          url
+  query MyQuery($id: Int!) {
+    allAirtable(filter: {data: {ID: {eq: $id}}}) {
+      nodes {
+        data {
+          ID
+          Categories
+          Sub_Categories
+          Description__FR_
+          Description__EN_
+          Created_Time
+          Prix_de_vente
+          Statut
+          Titre_de_l_annonce__FR_
+          Titre_de_l_annonce__EN_
+          Images {
+            url
+          }
         }
       }
     }
   }
-}
 `
