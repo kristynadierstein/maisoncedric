@@ -4,18 +4,18 @@ import { Link } from "gatsby";
 // import styles
 import '../styles/main.scss';
 
-function isVendu(itemStatus) {
-  if (itemStatus !== null) {
-    return (
-      <div className="vendu">
-        <label htmlFor="">{itemStatus}</label>
-      </div>
-    )
-  }
-}
 
 const Card = (props) => {
-  console.log(props)
+  function isVendu(itemStatus) {
+    if (itemStatus !== null) {
+      return (
+        <div className="vendu">
+          <label htmlFor="">{itemStatus}</label>
+        </div>
+      )
+    }
+  }
+
   return(
     <div className="card">
       <Link to={`/produit/${props.id}`} id={props.id}>

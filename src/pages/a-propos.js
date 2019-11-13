@@ -17,12 +17,12 @@ class APropos extends React.Component {
   render(){
     return (
       <React.Fragment>
-        < Header />
+        <Header />
         <MediaQuery maxDeviceWidth={1199}>
-          < MobileNavbar />
+          <MobileNavbar />
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-          < Navbar />
+          <Navbar />
         </MediaQuery>
         <div className="container-small">
           <h1>Contactez-nous</h1>

@@ -14,8 +14,9 @@ class Carousel extends React.Component {
 	}
 
 	goToPrevSlide = () => {
-		if(this.state.currentIndex === 0)
+		if(this.state.currentIndex === 0) {
 			return;
+    }
 
 		this.setState(prevState => ({
 			currentIndex: prevState.currentIndex - 1,
@@ -55,7 +56,7 @@ class Carousel extends React.Component {
 		const LeftArrow = (props) => {
 			return (
 				<div className="backArrow arrowLeft" onClick={props.goToPrevSlide}>
-					< Arrow  />
+					<Arrow  />
 				</div>
 			);
 		}
@@ -63,7 +64,7 @@ class Carousel extends React.Component {
 		const RightArrow = (props) => {
 			return (
 				<div className="nextArrow arrow" onClick={props.goToNextSlide}>
-					< Arrow />
+					<Arrow />
 				</div>
 			);
 		}
