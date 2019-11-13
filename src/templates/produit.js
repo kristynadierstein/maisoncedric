@@ -2,7 +2,7 @@
 import React from "react";
 import MediaQuery from 'react-responsive';
 import Modal from 'react-responsive-modal';
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 // import styles
 import '../styles/main.scss';
@@ -14,6 +14,8 @@ import Footer from '../components/footer.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Carousel from '../components/carousel.js';
 import MobileLinks from '../components/mobile-links.js';
+import MobileNavbar from '../components/mobile-navbar.js';
+
 
 //import imagery
 import Env from '../../static/images/ic-mail.svg';
@@ -45,7 +47,13 @@ class Produit extends React.Component {
     return (
       <React.Fragment>
         < Header />
+        <MediaQuery maxDeviceWidth={1199}>
+        < MobileNavbar />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
         < Navbar />
+        </MediaQuery>
+
         <div className="container">
           <div className="row">
             <div className="caroussel">
@@ -101,27 +109,29 @@ class Produit extends React.Component {
 
 export default Produit
 
+
+
 // Airtable query
 export const query = graphql`
-  query MyQuery($id: Int!) {
-    allAirtable(filter: {data: {ID: {eq: $id}}}) {
-      nodes {
-        data {
-          ID
-          Categories
-          Sub_Categories
-          Description__FR_
-          Description__EN_
-          Created_Time
-          Prix_de_vente
-          Statut
-          Titre_de_l_annonce__FR_
-          Titre_de_l_annonce__EN_
-          Images {
-            url
-          }
+query MyQuery($id: Int!) {
+  allAirtable(filter: {data: {ID: {eq: $id}}}) {
+    nodes {
+      data {
+        ID
+        Categories
+        Sub_Categories
+        Description__FR_
+        Description__EN_
+        Created_Time
+        Prix_de_vente
+        Statut
+        Titre_de_l_annonce__FR_
+        Titre_de_l_annonce__EN_
+        Images {
+          url
         }
       }
     }
   }
+}
 `

@@ -1,17 +1,20 @@
+// external libraries
 import React from "react";
 import { graphql } from 'gatsby';
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
 
 //import components
+import Card from '../components/card.js';
+import Filter from '../components/filter.js';
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
-import Filter from '../components/filter.js';
-import Card from '../components/card.js';
 
 class Luminaires extends React.Component {
   constructor(props){
@@ -27,8 +30,7 @@ class Luminaires extends React.Component {
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props
-  // function loops thru the names of subcategories, when checked, changes the state to true
-
+  //function loops thru the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
     //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
@@ -59,7 +61,8 @@ class Luminaires extends React.Component {
 
   // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
   // matches at least one of the selected subcategories
-  filteredProducts() {
+
+  filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     //if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
@@ -81,7 +84,7 @@ class Luminaires extends React.Component {
     return allMatchingProducts
   }
 
-  render() {
+  render(){
     // Items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
@@ -89,10 +92,19 @@ class Luminaires extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Navbar />
+        <MediaQuery maxDeviceWidth={1199}>
+          <MobileNavbarFilters
+            subCategories={this.state.subCategories}
+            toggleChecked={this.toggleChecked.bind(this)}
+            value="Luminaires"
+            key="Luminaires"/>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
+          <Navbar />
+        </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1>Mobilier</h1>
+            <h1>Luminaires</h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -119,7 +131,7 @@ class Luminaires extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus</Link>
+              <Link to="" className="btn-1">Voir plus</Link>
             </div>
           </div>
         </div>

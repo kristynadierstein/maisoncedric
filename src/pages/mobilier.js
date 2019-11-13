@@ -1,17 +1,20 @@
+// external libraries
 import React from "react";
 import { graphql } from 'gatsby';
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
 
-// import components
+//import components
+import Card from '../components/card.js';
+import Filter from '../components/filter.js';
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
-import Filter from '../components/filter.js';
-import Card from '../components/card.js';
 
 class Mobilier extends React.Component {
   constructor(props){
@@ -27,8 +30,7 @@ class Mobilier extends React.Component {
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props
-  // function loops thru the names of subcategories, when checked, changes the state to true
-
+  //function loops thru the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
     //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
@@ -90,7 +92,16 @@ class Mobilier extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Navbar />
+        <MediaQuery maxDeviceWidth={1199}>
+          <MobileNavbarFilters
+            subCategories={this.state.subCategories}
+            toggleChecked={this.toggleChecked.bind(this)}
+            value="Mobilier"
+            key="Mobilier"/>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
+          <Navbar />
+        </MediaQuery>
         <div className="container category">
           <div className="sidebar">
             <h1>Mobilier</h1>
@@ -103,7 +114,7 @@ class Mobilier extends React.Component {
                 toggleChecked = {this.toggleChecked.bind(this)}
                 key={subCategory.name}>
                 </Filter>
-              )}
+                )}
             </ul>
           </div>
           <div className="row-3">
@@ -120,7 +131,7 @@ class Mobilier extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus</Link>
+              <Link to="" className="btn-1">Voir plus</Link>
             </div>
           </div>
         </div>

@@ -1,17 +1,20 @@
+// external libraries
 import React from "react";
 import { graphql } from 'gatsby';
 import { Link } from "gatsby";
+import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
 
 //import components
+import Card from '../components/card.js';
+import Filter from '../components/filter.js';
 import Footer from '../components/footer.js';
 import Header from '../components/header.js';
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
-import Filter from '../components/filter.js';
-import Card from '../components/card.js';
 
 class Assises extends React.Component {
   constructor(props){
@@ -27,17 +30,16 @@ class Assises extends React.Component {
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props
-  // function loops thru the names of subcategories, when checked, changes the state to true
-
+  //function loops thru the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
-    //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
+    // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
       if (subCategory.name === currentSelection) {
         subCategory.checked = !subCategory.checked
       }
       return subCategory
     })
-    //if everything is unchecked  set the first "all" to be checked
+    // if everything is unchecked  set the first "all" to be checked
     const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
       return subCategory.checked === false
     })
@@ -50,7 +52,7 @@ class Assises extends React.Component {
     if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
       NewSubcategories[0].checked = false
     }
-    //if you sepcifically selected "All", we uncheck the rest of the categories
+    // if you sepcifically selected "All", we uncheck the rest of the categories
     if (currentSelection === "Toutes les catégories") {
       allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
     }
@@ -59,7 +61,6 @@ class Assises extends React.Component {
 
   // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
   // matches at least one of the selected subcategories
-
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     //if "All" is checked, return everything
@@ -87,13 +88,23 @@ class Assises extends React.Component {
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
 
+    // For mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated. So easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details.
     return (
       <React.Fragment>
         <Header />
-        <Navbar />
+        <MediaQuery maxDeviceWidth={1199}>
+          <MobileNavbarFilters
+            subCategories={this.state.subCategories}
+            toggleChecked={this.toggleChecked.bind(this)}
+            value="Assises"
+            key="Assises"/>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1199}>
+          <Navbar />
+        </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1>Mobilier</h1>
+            <h1>Assises</h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -101,7 +112,8 @@ class Assises extends React.Component {
                 name={subCategory.name}
                 checked={subCategory.checked}
                 toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}>
+                key={subCategory.name}
+                >
                 </Filter>
                 )}
             </ul>
@@ -115,12 +127,13 @@ class Assises extends React.Component {
                 status={node.data.Statut}
                 image={node.data.Images[0].url}
                 id={node.data.ID}
-                key= {node.data.ID}>
+                key= {node.data.ID}
+                >
                 </Card>
               )
             })}
             <div className="btn-container">
-              <Link className="btn-1">Voir plus</Link>
+              <Link to="" className="btn-1">Voir plus</Link>
             </div>
           </div>
         </div>
