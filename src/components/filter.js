@@ -8,8 +8,8 @@ class Filter extends React.Component{
 
   render() {
     return(
-      <li key={this.props.name}>
-        <input type="checkbox" checked={this.props.checked} onClick={this.handleClick.bind(this)}/>
+      <li key={this.props.name} className="checkbox-list">
+        <input type="checkbox" checked={this.props.checked} onClick={this.handleClick.bind(this)} className="checkboxes-filters"/>
         {this.props.name}
       </li>
     )
