@@ -46,12 +46,12 @@ class Produit extends React.Component {
     const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
     return (
       <React.Fragment>
-        < Header />
+        <Header />
         <MediaQuery maxDeviceWidth={1199}>
-        < MobileNavbar />
+          <MobileNavbar />
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-        < Navbar />
+          <Navbar />
         </MediaQuery>
 
         <div className="container">
@@ -109,29 +109,27 @@ class Produit extends React.Component {
 
 export default Produit
 
-
-
 // Airtable query
 export const query = graphql`
-query MyQuery($id: Int!) {
-  allAirtable(filter: {data: {ID: {eq: $id}}}) {
-    nodes {
-      data {
-        ID
-        Categories
-        Sub_Categories
-        Description__FR_
-        Description__EN_
-        Created_Time
-        Prix_de_vente
-        Statut
-        Titre_de_l_annonce__FR_
-        Titre_de_l_annonce__EN_
-        Images {
-          url
+  query MyQuery($id: Int!) {
+    allAirtable(filter: {data: {ID: {eq: $id}}}) {
+      nodes {
+        data {
+          ID
+          Categories
+          Sub_Categories
+          Description__FR_
+          Description__EN_
+          Created_Time
+          Prix_de_vente
+          Statut
+          Titre_de_l_annonce__FR_
+          Titre_de_l_annonce__EN_
+          Images {
+            url
+          }
         }
       }
     }
   }
-}
-`
+`;
