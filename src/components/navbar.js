@@ -62,7 +62,7 @@ class navbar extends Component{
           <div id="dk-navbar-right">
             <ul>
               <li><Link to="/a-propos" activeStyle={activeStyle} >À propos</Link></li>
-              <li><Link to="#" activeStyle={activeStyle} >< FlagEN /></Link></li>
+              <li><Link to="#" activeStyle={activeStyle} ><FlagEN /></Link></li>
             </ul>
           </div>
         </nav>
@@ -70,36 +70,36 @@ class navbar extends Component{
         <nav id="mobile-navbar">
           <Sidebar
             sidebar={
-            <div>
-              <div className="mb-sidebar-header">
-                <h3>Categories</h3>
-                < Esc onClick={this.handleClick}/>
-              </div>
-              <ul className="mb-sidebar-list">
-                <li><Link to="" activeStyle={activeStyle} >Nouveautés</Link></li>
-                <li><Link to="/assises" activeStyle={activeStyle} >Assises</Link></li>
-                <li><Link to="/mobilier" activeStyle={activeStyle} >Mobilier</Link></li>
-                <li><Link to="/luminaires" activeStyle={activeStyle} >Luminaires</Link></li>
-                <li><Link to="/decoration" activeStyle={activeStyle} >Décoration</Link></li>
-              </ul>
-            <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">Contactez-nous </div>
-            <Modal open={open} onClose={this.onCloseModal} closeIconSize="20" center closeIcon="closeIcon">
-              <h2>Contactez-nous</h2>
-              <hr></hr>
-              <div className="modal-section">
-                <Env className="modal-env-svg"/>
-                <a href="/#" className="email-modal">contact@maisoncedric.com</a>
-              </div>
-              <hr></hr>
-              <div className="modal-section">
-                <Phone />
-                <div className="modal-phone-flag">
-                  <FlagFR />
-                  <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
+              <div>
+                <div className="mb-sidebar-header">
+                  <h3>Categories</h3>
+                  <Esc onClick={this.handleClick}/>
                 </div>
+                <ul className="mb-sidebar-list">
+                  <li><Link to="" activeStyle={activeStyle} >Nouveautés</Link></li>
+                  <li><Link to="/assises" activeStyle={activeStyle} >Assises</Link></li>
+                  <li><Link to="/mobilier" activeStyle={activeStyle} >Mobilier</Link></li>
+                  <li><Link to="/luminaires" activeStyle={activeStyle} >Luminaires</Link></li>
+                  <li><Link to="/decoration" activeStyle={activeStyle} >Décoration</Link></li>
+                </ul>
+              <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">Contactez-nous </div>
+              <Modal open={open} onClose={this.onCloseModal} closeIconSize="20" center closeIcon="closeIcon">
+                <h2>Contactez-nous</h2>
+                <hr></hr>
+                <div className="modal-section">
+                  <Env className="modal-env-svg"/>
+                  <a href="/#" className="email-modal">contact@maisoncedric.com</a>
+                </div>
+                <hr></hr>
+                <div className="modal-section">
+                  <Phone />
+                  <div className="modal-phone-flag">
+                    <FlagFR />
+                    <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
+                  </div>
+                </div>
+              </Modal>
               </div>
-            </Modal>
-            </div>
             }
             open={this.state.sidebarOpen}
             onSetOpen={this.onSetSidebarOpen}
