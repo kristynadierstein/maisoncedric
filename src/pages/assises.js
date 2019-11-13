@@ -29,8 +29,7 @@ class Assises extends React.Component {
     this.state = { subCategories: subCategories }
   }
 
-  // create a function for OnClick where I will change the state and pass the function to each filter via props
-  //function loops thru the names of subcategories, when checked, changes the state to true
+  // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
     // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
@@ -39,39 +38,48 @@ class Assises extends React.Component {
       }
       return subCategory
     })
-    // if everything is unchecked  set the first "all" to be checked
-    const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
-      return subCategory.checked === false
+
+    // new function allowing user to toggle only ONE checkbox
+    this.state.subCategories.map(subCategory => {
+      if (subCategory.checked === true && subCategory.name !== currentSelection) {
+        subCategory.checked = false
+      }
     })
-    if (isEveryCategoryUnChecked) {
-      NewSubcategories[0].checked = true
-    }
-    // if any of the other categories / normal ones is checked, we are unchecking the first one
-    const allSubcategoriesExceptTheFirst = NewSubcategories.slice(1)
-    const anyOfTheOtherSubCategoriesAreChecked = allSubcategoriesExceptTheFirst.some((subCategory) => subCategory.checked)
-    if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
-      NewSubcategories[0].checked = false
-    }
-    // if you sepcifically selected "All", we uncheck the rest of the categories
-    if (currentSelection === "Toutes les catégories") {
-      allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
-    }
+
+    // ****** OLD RULES *****
+
+    // // if everything is unchecked  set the first "all" to be checked
+    // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
+    //   return subCategory.checked === false
+    // })
+    // if (isEveryCategoryUnChecked) {
+    //   NewSubcategories[0].checked = true
+    // }
+    // // if any of the other categories / normal ones is checked, we are unchecking the first one
+    // const allSubcategoriesExceptTheFirst = NewSubcategories.slice(1)
+    // const anyOfTheOtherSubCategoriesAreChecked = allSubcategoriesExceptTheFirst.some((subCategory) => subCategory.checked)
+    // if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
+    //   NewSubcategories[0].checked = false
+    // }
+    // // if you sepcifically selected "All", we uncheck the rest of the categories
+    // if (currentSelection === "Toutes les catégories") {
+    //   allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
+    // }
     this.setState({subCategories: NewSubcategories})
   }
 
-  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
-  // matches at least one of the selected subcategories
+  // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
-    //if "All" is checked, return everything
+    // if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
       return allProductsinCategory
     }
-    //filter all subCategories which are checked, returns an array of subc which are checked
+    // filter all subCategories which are checked, returns an array of subc which are checked
     const allCheckedSubcategories = this.state.subCategories.filter((subCategory) => {
       return subCategory.checked === true
     })
-    //we are mapping thru the above array and getting just strings with names
+    // we are mapping thru the above array and getting just strings with names
     const allCheckedSubcategoryNames = allCheckedSubcategories.map(element => {
       return element.name
     })
@@ -84,11 +92,12 @@ class Assises extends React.Component {
   }
 
   render(){
-    // Items displayed
+    // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
 
-    // For mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated. So easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details.
+    // for mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated
+    // easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details
     return (
       <React.Fragment>
         <Header />
@@ -112,8 +121,7 @@ class Assises extends React.Component {
                 name={subCategory.name}
                 checked={subCategory.checked}
                 toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}
-                >
+                key={subCategory.name}>
                 </Filter>
                 )}
             </ul>
@@ -127,8 +135,7 @@ class Assises extends React.Component {
                 status={node.data.Statut}
                 image={node.data.Images[0].url}
                 id={node.data.ID}
-                key= {node.data.ID}
-                >
+                key= {node.data.ID}>
                 </Card>
               )
             })}
