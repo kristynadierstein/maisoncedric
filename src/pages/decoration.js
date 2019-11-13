@@ -7,7 +7,7 @@ import MediaQuery from 'react-responsive';
 // import styles
 import '../styles/main.scss';
 
-//import components
+// import components
 import Card from '../components/card.js';
 import Filter from '../components/filter.js';
 import Footer from '../components/footer.js';
@@ -28,22 +28,25 @@ class Decoration extends React.Component {
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
     this.state = { subCategories: subCategories }
   }
-  // create a function for OnClick where I will change the state and pass the function to each filter via props
-  //function loops thru the names of subcategories, when checked, changes the state to true
+  // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
-    //toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
+    // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
       if (subCategory.name === currentSelection) {
         subCategory.checked = !subCategory.checked
       }
       return subCategory
     })
-    //new function allowing user to toggle only ONE checkbox
+
+    // new function allowing user to toggle only ONE checkbox
     this.state.subCategories.map(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
       }
     })
+
+    // ****** OLD RULES *****
+
     // //if everything is unchecked  set the first "all" to be checked
     // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
     //   return subCategory.checked === false
@@ -64,20 +67,19 @@ class Decoration extends React.Component {
     this.setState({subCategories: NewSubcategories})
   }
 
-  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
-  // matches at least one of the selected subcategories
+  // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
 
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
-    //if "All" is checked, return everything
+    // if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
       return allProductsinCategory
     }
-    //filter all subCategories which are checked, returns an array of subc which are checked
+    // filter all subCategories which are checked, returns an array of subc which are checked
     const allCheckedSubcategories = this.state.subCategories.filter((subCategory) => {
       return subCategory.checked === true
     })
-    //we are mapping thru the above array and getting just strings with names
+    // we are mapping thru the above array and getting just strings with names
     const allCheckedSubcategoryNames = allCheckedSubcategories.map(element => {
       return element.name
     })
@@ -90,7 +92,7 @@ class Decoration extends React.Component {
   }
 
   render(){
-    // Items displayed
+    // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
 
