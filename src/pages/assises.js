@@ -1,3 +1,4 @@
+//import libraries
 import React from "react";
 import { graphql } from 'gatsby';
 import { Link } from "gatsby";
@@ -12,7 +13,7 @@ import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Filter from '../components/filter.js';
-import MobileNavbar from '../components/mobile-navbar.js';
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 
 export const Card = (props) => {
   return(
@@ -114,12 +115,17 @@ class Assises extends React.Component {
         let numberDisplayed = 9;
         let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
         
-        
+// for mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated. So easiest solution
+//is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see
+// component for more details
         return (
           <React.Fragment>
             < Header />
             <MediaQuery maxDeviceWidth={1199}>
-              < MobileNavbar />
+              < MobileNavbarFilters 
+                subCategories={this.state.subCategories}
+                toggleChecked={this.toggleChecked.bind(this)}
+              />
             </MediaQuery>
             <MediaQuery minDeviceWidth={1199}>
               < Navbar />
@@ -160,9 +166,9 @@ class Assises extends React.Component {
             </div>
             <NewsletterAd />
             <Footer />
-    </React.Fragment>
-  )
-}
+          </React.Fragment>
+        )
+      }
 }
 export default Assises
 

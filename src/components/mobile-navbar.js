@@ -5,14 +5,10 @@ import Sidebar from "react-sidebar";
 import Modal from 'react-responsive-modal';
 
 //import imagery
-import FlagEN from '../../static/images/ic--flag--en.svg';
 import Esc from '../../static/images/ic--esc.svg';
-import Env from '../../static/images/ic-mail.svg';
-import Phone from '../../static/images/ic-phone.svg';
-import FlagFR from '../../static/images/ic--flag--fr.svg';
 
 //import components
-
+import ModalContent from "../components/modal-content.js";
 
 class MobileNavbar extends React.Component{
   constructor(props) {
@@ -70,20 +66,7 @@ class MobileNavbar extends React.Component{
             </ul>
           <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">Contactez-nous </div>
           <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center closeIcon="closeIcon">
-            <h2>Contactez-nous</h2>
-            <hr></hr>
-            <div className="modal-section">
-              <Env className="modal-env-svg"/>
-              <a href="/" className="email-modal">contact@maisoncedric.com</a>
-            </div>
-            <hr></hr>
-            <div className="modal-section">
-              <Phone />
-              <div className="modal-phone-flag">
-                <FlagFR />
-                <a href="/" className="phone-modal" > +33 6 24 55 52 51</a>
-              </div>
-            </div>
+            <ModalContent />
           </Modal>
           </div>
           }
@@ -91,17 +74,17 @@ class MobileNavbar extends React.Component{
           onSetOpen={this.onSetSidebarOpen}
           sidebarClassName = "mobile-sidebar"
           >
-        <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
+          <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
           <div className="mb-navbar-empty-category">
             Categories
           </div>
         </div>
         </Sidebar>
-        <div className="mb-navbar-filtres">
+        <div className="mb-navbar-apropos">
           <Link to="/a-propos" activeStyle={activeStyle} >À propos</Link>
         </div>
       </nav>
-    </React.Fragment>
+      </React.Fragment>
       )
     }
   } 

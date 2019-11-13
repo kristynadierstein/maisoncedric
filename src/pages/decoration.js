@@ -12,7 +12,7 @@ import Header from '../components/header.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 import Filter from '../components/filter.js';
-import MobileNavbar from '../components/mobile-navbar.js';
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 
 export const Card = (props) => {
   return(
@@ -118,7 +118,10 @@ class Decoration extends React.Component {
           <React.Fragment>
             < Header />
             <MediaQuery maxDeviceWidth={1199}>
-              < MobileNavbar />
+              < MobileNavbarFilters 
+                subCategories={this.state.subCategories}
+                toggleChecked={this.toggleChecked.bind(this)}
+              />
             </MediaQuery>
             <MediaQuery minDeviceWidth={1199}>
               < Navbar />
