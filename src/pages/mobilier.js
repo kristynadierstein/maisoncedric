@@ -122,6 +122,8 @@ export const Card = (props) => {
               < MobileNavbarFilters 
                 subCategories={this.state.subCategories}
                 toggleChecked={this.toggleChecked.bind(this)}
+                value="Mobilier"
+                key="Mobilier"
               />
             </MediaQuery>
             <MediaQuery minDeviceWidth={1199}>

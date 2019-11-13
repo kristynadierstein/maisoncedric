@@ -125,6 +125,8 @@ class Assises extends React.Component {
               < MobileNavbarFilters 
                 subCategories={this.state.subCategories}
                 toggleChecked={this.toggleChecked.bind(this)}
+                value="Assises"
+                key="Assises"
               />
             </MediaQuery>
             <MediaQuery minDeviceWidth={1199}>
@@ -140,7 +142,8 @@ class Assises extends React.Component {
                     name={subCategory.name}
                     checked={subCategory.checked}
                     toggleChecked = {this.toggleChecked.bind(this)}
-                    key={subCategory.name}>
+                    key={subCategory.name}
+                    >
                     </Filter>
                     )}
                 </ul>

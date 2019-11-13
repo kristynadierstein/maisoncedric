@@ -121,6 +121,8 @@ constructor(props){
             < MobileNavbarFilters 
               subCategories={this.state.subCategories}
               toggleChecked={this.toggleChecked.bind(this)}
+              value="Luminaires"
+              key="Luminaires"
             />
           </MediaQuery>
           <MediaQuery minDeviceWidth={1199}>

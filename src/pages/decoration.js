@@ -121,6 +121,8 @@ class Decoration extends React.Component {
               < MobileNavbarFilters 
                 subCategories={this.state.subCategories}
                 toggleChecked={this.toggleChecked.bind(this)}
+                value="Décoration"
+                key="Décoration"
               />
             </MediaQuery>
             <MediaQuery minDeviceWidth={1199}>

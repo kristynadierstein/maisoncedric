@@ -95,7 +95,7 @@ class MobileNavbarFilters extends React.Component{
           sidebar={
           <div>
             <div className="mb-sidebar-header">
-              <h3>Filters</h3>
+              <h3>{this.props.value}</h3>
               <Esc onClick={this.handleClickFilters}/>
             </div>
             <ul className="mb-sidebar-list">
