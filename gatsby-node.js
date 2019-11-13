@@ -1,13 +1,4 @@
-const fs = require("fs-extra")
-const path = require(`path`)
-
-exports.onPostBuild = () => {
-  console.log("Copying locales")
-  fs.copySync(
-    path.join(__dirname, "/src/locales"),
-    path.join(__dirname, "/public/locales")
-  )
-};
+const path = require("path")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -18,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
   // Variables can be added as the second function parameter
   return graphql(`
   query MyQuery {
-    allAirtable {
+    allAirtable(filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
       nodes {
         data {
           ID

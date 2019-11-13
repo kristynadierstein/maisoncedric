@@ -1,67 +1,18 @@
+// external libraries
 import React from 'react';
 import {graphql} from 'gatsby';
-import { Link } from "gatsby";
 import MediaQuery from 'react-responsive';
 
 // import styles
 import '../styles/main.scss';
 
-// import components
-import Header from '../components/header.js';
-import Navbar from '../components/navbar.js';
+//import components
+import Card from '../components/card.js';
 import Footer from '../components/footer.js';
-import NewsletterAd from '../components/newsletterAd.js';
+import Header from '../components/header.js';
 import MobileNavbar from '../components/mobile-navbar.js';
-
-
-// Airtable query
-export const query = graphql`
-  query MyIndexQuery {
-    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
-      nodes {
-        data {
-          ID
-          Nom_d_achat
-          Created_Time
-          Prix_de_vente
-          Titre_de_l_annonce__FR_
-          Statut
-          Images {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
-
-
-export const Card = (props) => {
-  return(
-    <div className="card">
-        <Link to={`/produit/${props.id}`} key={ props.id }>
-        <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
-          {isVendu(props.status)}
-        </div>
-        <div className="desc">
-          <p>{props.title}</p>
-          <label>
-            <strong>{props.price} €</strong>
-          </label>
-        </div>
-        </Link>
-    </div>
-  )
-}
-  function isVendu(itemStatus) {
-    if (itemStatus !== null) {
-      return (
-        <div className="vendu">
-          <label htmlFor="">{itemStatus}</label>
-        </div>
-      );
-    }
-  }
+import Navbar from '../components/navbar.js';
+import NewsletterAd from '../components/newsletterAd.js';
 
 class Index extends React.Component {
   render(){
@@ -69,12 +20,12 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        < Header />
+        <Header />
         <MediaQuery maxDeviceWidth={1199}>
-          < MobileNavbar />
+          <MobileNavbar />
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-          < Navbar />
+          <Navbar />
         </MediaQuery>
         <div className="container">
 
@@ -135,11 +86,32 @@ class Index extends React.Component {
             </Card>
           </div>
         </div>
-        < NewsletterAd />
-        < Footer />
+        <NewsletterAd />
+        <Footer />
       </React.Fragment>
     )
   }
 }
 
 export default Index;
+
+// Airtable query
+export const query = graphql`
+  query MyIndexQuery {
+    allAirtable(sort: {fields: data___Created_Time, order: DESC}, filter: {data: {Images: {elemMatch: {size: {gt: 1}}}}}) {
+      nodes {
+        data {
+          ID
+          Nom_d_achat
+          Created_Time
+          Prix_de_vente
+          Titre_de_l_annonce__FR_
+          Statut
+          Images {
+            url
+          }
+        }
+      }
+    }
+  }
+`;

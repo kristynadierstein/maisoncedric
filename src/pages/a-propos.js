@@ -1,3 +1,4 @@
+// external libraries
 import React from "react";
 import { Link } from "gatsby";
 import MediaQuery from 'react-responsive';

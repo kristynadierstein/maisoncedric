@@ -27,18 +27,18 @@ class Produit extends React.Component {
   state = {
     open: false,
   };
-  
+
   onOpenModal = () => {
     this.setState({ open: true });
   };
-  
+
   onCloseModal = () => {
     this.setState({ open: false });
   };
-  
-  
-  render() {    
-    const { open } = this.state;    
+
+
+  render() {
+    const { open } = this.state;
     const title = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const status = this.props.data.allAirtable.nodes[0].data.Statut
@@ -53,18 +53,18 @@ class Produit extends React.Component {
         <MediaQuery minDeviceWidth={1199}>
         < Navbar />
         </MediaQuery>
-        
+
         <div className="container">
           <div className="row">
             <div className="caroussel">
-            <Carousel 
+            <Carousel
              urls= {urls}
              />
             </div>
             <div className="content">
                 <h1>{title}</h1>
-              <MediaQuery maxDeviceWidth={1199}>   
-              <div className="fixed-mobile-links">  
+              <MediaQuery maxDeviceWidth={1199}>
+              <div className="fixed-mobile-links">
                   <MobileLinks />
               </div>
               </MediaQuery>

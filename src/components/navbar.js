@@ -13,7 +13,7 @@ import FlagEN from '../../static/images/ic--flag--en.svg';
  // loop thru all objects and create an array with all existing categories
  let Array = []
  props.data.allAirtable.nodes.map(node =>
-   node.data.Categories.map(category => 
+   node.data.Categories.map(category =>
      Array.push(category))
    )
  //remove duplicates from the array above and create a new array
@@ -43,7 +43,7 @@ import FlagEN from '../../static/images/ic--flag--en.svg';
         <div id="dk-navbar-right">
           <ul>
             <li><Link to="/a-propos">À propos</Link></li>
-            <li><Link to="/">< FlagEN /></Link></li>
+            <li><Link to="/"><FlagEN /></Link></li>
           </ul>
         </div>
   </nav>
@@ -51,8 +51,8 @@ import FlagEN from '../../static/images/ic--flag--en.svg';
 }
 
 export default (props) => {
-    return (<StaticQuery
-      query={graphql`
+  return (<StaticQuery
+    query={graphql`
       query MyNavbarQuery {
         allAirtable(filter: {data: {Images: {elemMatch: {size: {gte: 1}}}}}) {
           nodes {
@@ -61,11 +61,10 @@ export default (props) => {
             }
           }
         }
-      }      
-      `}
-      render={data => 
-        <NavbarContent data={data} />  
       }
-    />)
-  }
-
+    `}
+    render={data =>
+      <NavbarContent data={data} />
+    }
+  />)
+}

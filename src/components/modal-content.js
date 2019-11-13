@@ -2,10 +2,10 @@
 import React from "react";
 
 //import imagery
-import FlagEN from '../../static/images/ic--flag--en.svg';
 import Env from '../../static/images/ic-mail.svg';
 import Phone from '../../static/images/ic-phone.svg';
 import FlagFR from '../../static/images/ic--flag--fr.svg';
+// import FlagEN from '../../static/images/ic--flag--en.svg';
 
 const ModalContent  = () => {
   return(
