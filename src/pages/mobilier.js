@@ -39,23 +39,29 @@ class Mobilier extends React.Component {
       }
       return subCategory
     })
-    //if everything is unchecked  set the first "all" to be checked
-    const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
-      return subCategory.checked === false
-    })
-    if (isEveryCategoryUnChecked) {
-      NewSubcategories[0].checked = true
-    }
-    // if any of the other categories / normal ones is checked, we are unchecking the first one
-    const allSubcategoriesExceptTheFirst = NewSubcategories.slice(1)
-    const anyOfTheOtherSubCategoriesAreChecked = allSubcategoriesExceptTheFirst.some((subCategory) => subCategory.checked)
-    if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
-      NewSubcategories[0].checked = false
-    }
-    //if you sepcifically selected "All", we uncheck the rest of the categories
-    if (currentSelection === "Toutes les catégories") {
-      allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
-    }
+      //new function allowing user to toggle only ONE checkbox
+      this.state.subCategories.map(subCategory => {
+        if (subCategory.checked === true && subCategory.name !== currentSelection) {
+          subCategory.checked = false
+        }
+      })
+    // //if everything is unchecked  set the first "all" to be checked
+    // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
+    //   return subCategory.checked === false
+    // })
+    // if (isEveryCategoryUnChecked) {
+    //   NewSubcategories[0].checked = true
+    // }
+    // // if any of the other categories / normal ones is checked, we are unchecking the first one
+    // const allSubcategoriesExceptTheFirst = NewSubcategories.slice(1)
+    // const anyOfTheOtherSubCategoriesAreChecked = allSubcategoriesExceptTheFirst.some((subCategory) => subCategory.checked)
+    // if (anyOfTheOtherSubCategoriesAreChecked && currentSelection !== "Toutes les catégories") {
+    //   NewSubcategories[0].checked = false
+    // }
+    // //if you sepcifically selected "All", we uncheck the rest of the categories
+    // if (currentSelection === "Toutes les catégories") {
+    //   allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
+    // }
     this.setState({subCategories: NewSubcategories})
   }
 
