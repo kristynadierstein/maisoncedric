@@ -1,6 +1,6 @@
 {
   "index": {
-    "titre": "What's new"
+    "titre": "What's New"
   },
   "assises": {
     "titre": "Seats"
@@ -20,11 +20,14 @@
     "content2": "Our exhibition space is accessible only by appointment."
   },
   "navbar": {
-    "tab1": "What's new",
+    "tab1": "What's New",
     "tab2": "Seats",
     "tab3": "Furniture",
     "tab4": "Lighting Fixtures",
     "tab5": "Decoration",
     "tab6": "About"
+  },
+  "boutons": {
+    "voir_plus": "See more"
   }
 }

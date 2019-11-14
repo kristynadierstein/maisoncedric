@@ -16,6 +16,14 @@ import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
+export const getLocalizedProductName = (locale, data) => {
+  if (locale === "en") {
+    return data.Titre_de_l_annonce__EN_
+  } else if (locale === "fr") {
+    return data.Titre_de_l_annonce__FR_
+  }
+}
+
 class Assises extends React.Component {
   constructor(props){
     super(props)
@@ -95,6 +103,8 @@ class Assises extends React.Component {
     // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+    // current language
+    const locale = this.props.intl.locale;
 
     // for mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated
     // easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details
@@ -118,10 +128,10 @@ class Assises extends React.Component {
             <ul>
               {this.state.subCategories.map((subCategory) =>
                 <Filter
-                name={subCategory.name}
-                checked={subCategory.checked}
-                toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}>
+                  name={subCategory.name}
+                  checked={subCategory.checked}
+                  toggleChecked = {this.toggleChecked.bind(this)}
+                  key={subCategory.name}>
                 </Filter>
                 )}
             </ul>
@@ -130,17 +140,17 @@ class Assises extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                title={node.data.Titre_de_l_annonce__FR_}
-                price={node.data.Prix_de_vente}
-                status={node.data.Statut}
-                image={node.data.Images[0].url}
-                id={node.data.ID}
-                key= {node.data.ID}>
+                  title={getLocalizedProductName(locale, node.data)}
+                  price={node.data.Prix_de_vente}
+                  status={node.data.Statut}
+                  image={node.data.Images[0].url}
+                  id={node.data.ID}
+                  key= {node.data.ID}>
                 </Card>
               )
             })}
             <div className="btn-container">
-              <Link to="" className="btn-1">Voir plus</Link>
+              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></Link>
             </div>
           </div>
         </div>

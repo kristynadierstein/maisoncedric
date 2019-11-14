@@ -26,5 +26,8 @@
     "tab4": "Luminaires",
     "tab5": "Décoration",
     "tab6": "À propos"
+  },
+  "boutons": {
+    "voir_plus": "Voir plus"
   }
 }

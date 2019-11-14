@@ -18,7 +18,7 @@ import NewsletterAd from '../components/newsletterAd.js';
 export const getLocalizedProductName = (locale, data) => {
   if (locale === "en") {
     return data.Titre_de_l_annonce__EN_
-  } else {
+  } else if (locale === "fr") {
     return data.Titre_de_l_annonce__FR_
   }
 }
