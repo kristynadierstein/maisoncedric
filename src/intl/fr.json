@@ -20,6 +20,7 @@
     "content2": "Notre espace d'exposition est accessible uniquement sur rendez-vous."
   },
   "navbar": {
+    "tabs_title": "Catégories",
     "tab1": "Nouveautés",
     "tab2": "Assises",
     "tab3": "Mobilier",
