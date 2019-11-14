@@ -1,8 +1,8 @@
 // external libraries
 import React from "react";
-import { graphql } from 'gatsby';
-import { Link } from "gatsby";
+import { Link, graphql } from 'gatsby';
 import MediaQuery from 'react-responsive';
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';
@@ -112,7 +112,7 @@ class Luminaires extends React.Component {
         </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1>Luminaires</h1>
+            <h1><FormattedMessage id="luminaires.titre" /></h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -150,7 +150,7 @@ class Luminaires extends React.Component {
   }
 }
 
-export default Luminaires
+export default injectIntl(Luminaires)
 
 // Airtable query
 export const query = graphql`

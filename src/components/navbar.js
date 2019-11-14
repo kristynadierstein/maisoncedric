@@ -1,6 +1,7 @@
 // external libraries
 import React from 'react';
 import { Link } from "gatsby";
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 // import images
 import FlagEN from '../../static/images/ic--flag--en.svg';
@@ -16,16 +17,36 @@ const NavbarContent = (props) => {
     <nav id="desktop-navbar">
       <div id="dk-navbar-left">
         <ul>
-          <li><Link to="/" activeStyle={activeStyle} >Nouveautés</Link></li>
-          <li><Link to="/assises" activeStyle={activeStyle} >Assises</Link></li>
-          <li><Link to="/mobilier" activeStyle={activeStyle} >Mobilier</Link></li>
-          <li><Link to="/luminaires" activeStyle={activeStyle} >Luminaires</Link></li>
-          <li><Link to="/decoration" activeStyle={activeStyle} >Décoration</Link></li>
+          <li>
+            <Link to="/" activeStyle={activeStyle} >
+              <FormattedMessage id="navbar.tab1" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/assises" activeStyle={activeStyle} >
+              <FormattedMessage id="navbar.tab2" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/mobilier" activeStyle={activeStyle} >
+              <FormattedMessage id="navbar.tab3" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/luminaires" activeStyle={activeStyle} >
+              <FormattedMessage id="navbar.tab4" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/decoration" activeStyle={activeStyle} >
+              <FormattedMessage id="navbar.tab5" />
+            </Link>
+          </li>
         </ul>
       </div>
       <div id="dk-navbar-right">
         <ul>
-          <li><Link to="/a-propos">À propos</Link></li>
+          <li><Link to="/a-propos"><FormattedMessage id="navbar.tab6" /></Link></li>
           <li><Link to="/"><FlagEN /></Link></li>
         </ul>
       </div>
@@ -33,4 +54,4 @@ const NavbarContent = (props) => {
   )
 }
 
-export default NavbarContent
+export default injectIntl(NavbarContent)

@@ -1,3 +1,30 @@
 {
-  "go_page2": "Aller à la page 2"
+  "index": {
+    "titre": "Nouveautés"
+  },
+  "assises": {
+    "titre": "Assises"
+  },
+  "mobilier": {
+    "titre": "Mobilier"
+  },
+  "luminaires": {
+    "titre": "Luminaires"
+  },
+  "decoration": {
+    "titre": "Décoration"
+  },
+  "a-propos": {
+    "titre": "Contactez-nous",
+    "content1": "Cédric, Alice, Damien et Mustapha sommes heureux de vous présenter notre sélection éclectique de pièces du XXème siècle. Nous parcourons l'Europe à la recherche de pièces qui nous touchent, et que nous proposons à la vente.",
+    "content2": "Notre espace d'exposition est accessible uniquement sur rendez-vous."
+  },
+  "navbar": {
+    "tab1": "Nouveautés",
+    "tab2": "Assises",
+    "tab3": "Mobilier",
+    "tab4": "Luminaires",
+    "tab5": "Décoration",
+    "tab6": "À propos"
+  }
 }

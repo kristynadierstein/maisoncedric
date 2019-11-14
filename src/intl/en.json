@@ -1,3 +1,30 @@
 {
-  "index": "Go to page 2"
+  "index": {
+    "titre": "What's new"
+  },
+  "assises": {
+    "titre": "Seats"
+  },
+  "mobilier": {
+    "titre": "Furniture"
+  },
+  "luminaires": {
+    "titre": "Lighting Fixtures"
+  },
+  "decoration": {
+    "titre": "Decoration"
+  },
+  "a-propos": {
+    "titre": "Contact Us",
+    "content1": "Cédric, Alice, Damien and Mustapha are pleased to present you our eclectic selection of 20th century pieces. We travel all over Europe in search of parts that touch us, and that we offer for sale.",
+    "content2": "Our exhibition space is accessible only by appointment."
+  },
+  "navbar": {
+    "tab1": "What's new",
+    "tab2": "Seats",
+    "tab3": "Furniture",
+    "tab4": "Lighting Fixtures",
+    "tab5": "Decoration",
+    "tab6": "About"
+  }
 }
