@@ -20,6 +20,7 @@
     "content2": "Our exhibition space is accessible only by appointment."
   },
   "navbar": {
+    "tabs_title": "Categories",
     "tab1": "What's New",
     "tab2": "Seats",
     "tab3": "Furniture",

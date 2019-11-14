@@ -29,41 +29,29 @@ class MobileLinks extends React.Component {
     const { open } = this.state;
     return (
       <React.Fragment>
-      <div className="call-to-action-mobile">
-        <label htmlFor="">Vendu</label>
-        <div className="btn-1-modal" onClick={this.onOpenModal}>Contactez-nous</div>
-        <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center >
-          <h2>Contactez-nous</h2>
-        <hr></hr>
-        <div className="modal-section">
-          <Env className="modal-svg"/>
-          <a href="/#" className="email-modal">contact@maisoncedric.com</a>
+        <div className="call-to-action-mobile">
+          <label htmlFor="">Vendu</label>
+          <div className="btn-1-modal" onClick={this.onOpenModal}>Contactez-nous</div>
+          <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center >
+            <h2>Contactez-nous</h2>
+          <hr></hr>
+          <div className="modal-section">
+            <Env className="modal-svg"/>
+            <a href="/#" className="email-modal">contact@maisoncedric.com</a>
+          </div>
+          <hr></hr>
+          <div className="modal-section">
+            <Phone className="modal-svg"/>
+              <div>
+                <FlagFR id="modal-phone-flag" />
+                <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
+              </div>
+          </div>
+          </Modal>
         </div>
-        <hr></hr>
-        <div className="modal-section">
-          <Phone className="modal-svg"/>
-            <div>
-              <FlagFR id="modal-phone-flag" />
-              <a href="/#" className="phone-modal" > +33 6 24 55 52 51</a>
-            </div>
-        </div>
-        </Modal>
-      </div>
       </React.Fragment>
-
     )
   }
 }
 
 export default MobileLinks
-
-
-
-
-
-
-
-
-
-
-  

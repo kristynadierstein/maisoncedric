@@ -20,6 +20,7 @@ const NavbarContent = (props) => {
     color: '#17181A',
     fontWeight: 600
   }
+  // current language
   const locale = props.intl.locale;
   return (
     <nav id="desktop-navbar">
