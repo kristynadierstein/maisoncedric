@@ -41,6 +41,19 @@ module.exports = {
           include: /images/
         }
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`en`, `fr`],
+        // language file path
+        defaultLanguage: `fr`,
+        // option to redirect to `/fr` when connecting `/`
+        redirect: true,
+      },
+    },
   ]
 }

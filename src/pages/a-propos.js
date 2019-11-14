@@ -1,7 +1,7 @@
 // external libraries
 import React from "react";
-import { Link } from "gatsby";
 import MediaQuery from 'react-responsive';
+import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';
@@ -15,6 +15,7 @@ import MobileNavbar from '../components/mobile-navbar.js';
 
 class APropos extends React.Component {
   render(){
+    console.log(this.props)
     return (
       <React.Fragment>
         <Header />
@@ -25,11 +26,11 @@ class APropos extends React.Component {
           <Navbar />
         </MediaQuery>
         <div className="container-small">
-          <h1>Contactez-nous</h1>
+          <h1><FormattedMessage id="a-propos.titre" /></h1>
           <p>
-            Cédric, Alice, Damien et Mustapha sommes heureux de vous présenter notre sélection éclectique de pièces du XXème siècle. Nous parcourons l'Europe à la recherche de pièces qui nous touchent, et que nous proposons à la vente.
+            <FormattedMessage id="a-propos.content1" />
             <br/>
-            Notre espace d'exposition est accessible uniquement sur rendez-vous.
+            <FormattedMessage id="a-propos.content2" />
           </p>
           <hr/>
           <div className="contact">
@@ -49,4 +50,4 @@ class APropos extends React.Component {
   }
 }
 
-export default APropos
+export default injectIntl(APropos);

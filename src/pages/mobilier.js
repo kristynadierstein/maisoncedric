@@ -1,8 +1,8 @@
 // external libraries
 import React from "react";
-import { graphql } from 'gatsby';
-import { Link } from "gatsby";
+import { Link, graphql } from 'gatsby';
 import MediaQuery from 'react-responsive';
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';
@@ -15,6 +15,14 @@ import Header from '../components/header.js';
 import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
+
+export const getLocalizedProductName = (locale, data) => {
+  if (locale === "en") {
+    return data.Titre_de_l_annonce__EN_
+  } else if (locale === "fr") {
+    return data.Titre_de_l_annonce__FR_
+  }
+}
 
 class Mobilier extends React.Component {
   constructor(props){
@@ -97,6 +105,8 @@ class Mobilier extends React.Component {
     // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+    // current language
+    const locale = this.props.intl.locale;
 
     return (
       <React.Fragment>
@@ -113,7 +123,7 @@ class Mobilier extends React.Component {
         </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1>Mobilier</h1>
+            <h1><FormattedMessage id="mobilier.titre" /></h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -130,17 +140,17 @@ class Mobilier extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                title={node.data.Titre_de_l_annonce__FR_}
-                price={node.data.Prix_de_vente}
-                status={node.data.Statut}
-                image={node.data.Images[0].url}
-                id={node.data.ID}
-                key= {node.data.ID}>
+                  title={getLocalizedProductName(locale, node.data)}
+                  price={node.data.Prix_de_vente}
+                  status={node.data.Statut}
+                  image={node.data.Images[0].url}
+                  id={node.data.ID}
+                  key= {node.data.ID}>
                 </Card>
               )
             })}
             <div className="btn-container">
-              <Link to="" className="btn-1">Voir plus</Link>
+              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></Link>
             </div>
           </div>
         </div>
@@ -151,7 +161,7 @@ class Mobilier extends React.Component {
   }
 }
 
-export default Mobilier
+export default injectIntl(Mobilier)
 
 // Airtable query
 export const query = graphql`
