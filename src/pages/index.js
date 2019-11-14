@@ -2,6 +2,7 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import MediaQuery from 'react-responsive';
+import { useIntl, Link, FormattedMessage, injectIntl } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';
@@ -14,10 +15,18 @@ import MobileNavbar from '../components/mobile-navbar.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
+export const getLocalizedProductName = (locale, data) => {
+  if (locale === "en") {
+    return data.Titre_de_l_annonce__EN_
+  } else {
+    return data.Titre_de_l_annonce__FR_
+  }
+}
+
 class Index extends React.Component {
   render(){
+    console.log(this.props)
     const nodes = this.props.data.allAirtable.nodes;
-
     return (
       <React.Fragment>
         <Header />
@@ -31,9 +40,13 @@ class Index extends React.Component {
 
           <h1>Nouveautés</h1>
 
+          <p>
+            {this.props.intl.formatMessage({ id: "go_page2" })}
+          </p>
+
           <div className="row-3">
             <Card
-              title={nodes[4].data.Titre_de_l_annonce__FR_}
+              title={getLocalizedProductName(this.props.intl.locale, nodes[4].data)}
               price={nodes[4].data.Prix_de_vente}
               status={nodes[4].data.Statut}
               image={nodes[4].data.Images[0].url}
@@ -93,7 +106,7 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default injectIntl(Index);
 
 // Airtable query
 export const query = graphql`
@@ -106,6 +119,7 @@ export const query = graphql`
           Created_Time
           Prix_de_vente
           Titre_de_l_annonce__FR_
+          Titre_de_l_annonce__EN_
           Statut
           Images {
             url
