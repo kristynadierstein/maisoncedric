@@ -63,7 +63,7 @@ class MobileNavbar extends React.Component{
                   <li><Link to="/luminaires" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab4" /></Link></li>
                   <li><Link to="/decoration" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab5" /></Link></li>
                 </ul>
-              <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">Contactez-nous </div>
+              <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact"><FormattedMessage id="a-propos.titre" /></div>
               <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center closeIcon="closeIcon">
                 <ModalContent />
               </Modal>
