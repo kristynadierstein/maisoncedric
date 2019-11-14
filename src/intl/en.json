@@ -30,5 +30,8 @@
   },
   "boutons": {
     "voir_plus": "See more"
+  },
+  "labels": {
+    "vendu": "Sold"
   }
 }

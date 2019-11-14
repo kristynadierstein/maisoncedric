@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "gatsby";
+import { injectIntl, FormattedMessage, Link } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';
 
-
 const Card = (props) => {
   function isVendu(itemStatus) {
-    if (itemStatus !== null) {
+    console.log(itemStatus);
+    if (itemStatus !== null && itemStatus[0] === "Vendu") {
       return (
         <div className="vendu">
-          <label htmlFor="">{itemStatus}</label>
+          <label htmlFor=""><FormattedMessage id="labels.vendu" /></label>
         </div>
       )
     }
@@ -33,4 +33,4 @@ const Card = (props) => {
   )
 }
 
-export default Card
+export default injectIntl(Card)
