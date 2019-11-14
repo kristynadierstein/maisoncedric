@@ -1,18 +1,26 @@
 // external libraries
 import React from 'react';
 import { Link } from "gatsby";
-import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
+import { injectIntl, FormattedMessage, changeLocale } from "gatsby-plugin-intl";
 
 // import images
 import FlagEN from '../../static/images/ic--flag--en.svg';
-// import FlagFR from '../../static/images/ic--flag--fr.svg';
+import FlagFR from '../../static/images/ic--flag--fr.svg';
+
+export const getLocalizedFlag = (locale) => {
+  if (locale === "fr") {
+    return <Link onClick={() => changeLocale("en")}><FlagEN /></Link>
+  } else {
+    return <Link onClick={() => changeLocale("fr")}><FlagFR /></Link>
+  }
+}
 
 const NavbarContent = (props) => {
   const activeStyle = {
     color: '#17181A',
     fontWeight: 600
   }
-
+  const locale = props.intl.locale;
   return (
     <nav id="desktop-navbar">
       <div id="dk-navbar-left">
@@ -47,7 +55,7 @@ const NavbarContent = (props) => {
       <div id="dk-navbar-right">
         <ul>
           <li><Link to="/a-propos"><FormattedMessage id="navbar.tab6" /></Link></li>
-          <li><Link to="/"><FlagEN /></Link></li>
+          <li>{getLocalizedFlag(locale)}</li>
         </ul>
       </div>
     </nav>
