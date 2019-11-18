@@ -21,22 +21,6 @@ import Env from '../../static/images/ic-mail.svg';
 import Phone from '../../static/images/ic-phone.svg';
 import FlagFR from '../../static/images/ic--flag--fr.svg';
 
-export const getLocalizedProductInfo = (path, data) => {
-  if (path.match(/en/g)) {
-    return {
-      titre: data.Titre_de_l_annonce__EN_,
-      description: data.Description__EN_,
-      btn: "Contact Us"
-    }
-  } else if (path.match(/fr/g)) {
-    return {
-      titre: data.Titre_de_l_annonce__FR_,
-      description: data.Description__FR_,
-      btn: "Contactez-nous"
-    }
-  }
-}
-
 class Produit extends React.Component {
   state = {
     open: false,
@@ -50,17 +34,29 @@ class Produit extends React.Component {
     this.setState({ open: false });
   };
 
-
   render() {
     const { open } = this.state;
-    const title = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const status = this.props.data.allAirtable.nodes[0].data.Statut
     const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
-    const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
     // For tranlsation
     const path = this.props.path
     const data = this.props.data.allAirtable.nodes[0].data
+    const getLocalizedProductInfo = (path, data) => {
+      if (path.match(/en/g)) {
+        return {
+          titre: data.Titre_de_l_annonce__EN_,
+          description: data.Description__EN_,
+          btn: "Contact Us"
+        }
+      } else if (path.match(/fr/g)) {
+        return {
+          titre: data.Titre_de_l_annonce__FR_,
+          description: data.Description__FR_,
+          btn: "Contactez-nous"
+        }
+      }
+    }
     return (
       <React.Fragment>
         <Header />
