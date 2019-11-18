@@ -21,14 +21,6 @@ import Env from '../../static/images/ic-mail.svg';
 import Phone from '../../static/images/ic-phone.svg';
 import FlagFR from '../../static/images/ic--flag--fr.svg';
 
-export const getLocalizedProductTitre = (path, data) => {
-  if (path.match(/en/g)) {
-    return data.Titre_de_l_annonce__EN_
-  } else if (path.match(/fr/g)) {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
-
 class Produit extends React.Component {
   state = {
     open: false,
@@ -47,11 +39,31 @@ class Produit extends React.Component {
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const status = this.props.data.allAirtable.nodes[0].data.Statut
     const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
-    const titre = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
-    const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
+
     // For tranlsation
     const path = this.props.path
     const data = this.props.data.allAirtable.nodes[0].data
+    const getLocalizedProductTitre = (path, data) => {
+      if (path.match(/en/g)) {
+        return data.Titre_de_l_annonce__EN_
+      } else if (path.match(/fr/g)) {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
+    const getLocalizedProductDescription = (path, data) => {
+      if (path.match(/en/g)) {
+        return data.Description__EN_
+      } else if (path.match(/fr/g)) {
+        return data.Description__FR_
+      }
+    }
+    const getLocalizedButton = (path) => {
+      if (path.match(/en/g)) {
+        return 'Contact Us'
+      } else if (path.match(/fr/g)) {
+        return 'Contactez-nous'
+      }
+    }
 
     return (
       <React.Fragment>
@@ -83,11 +95,11 @@ class Produit extends React.Component {
                 {/* <label htmlFor="">{status}</label> */}
                 <label htmlFor="">{prix} €</label>
                 <div className="btn-1-modal" onClick={this.onOpenModal}>
-                  Contactez-nous
+                  {getLocalizedButton(path)}
                 </div>
                 <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center >
                   <h2>
-                    Contactez-nous
+                    {getLocalizedButton(path)}
                   </h2>
                 <hr></hr>
                 <div className="modal-section">
@@ -107,7 +119,7 @@ class Produit extends React.Component {
               <hr/>
               </MediaQuery>
               <p>
-                {description}
+                {getLocalizedProductDescription(path, data)}
               </p>
               <hr/>
             </div>
