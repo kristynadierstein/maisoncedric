@@ -89,11 +89,11 @@ class Produit extends React.Component {
                 {/* <label htmlFor="">{status}</label> */}
                 <label htmlFor="">{prix} €</label>
                 <div className="btn-1-modal" onClick={this.onOpenModal}>
-                  {getLocalizedProductInfo(path, data).btn}
+                  Contactez-nous
                 </div>
                 <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center >
                   <h2>
-                    {getLocalizedProductInfo(path, data).btn}
+                    Contactez-nous
                   </h2>
                 <hr></hr>
                 <div className="modal-section">
