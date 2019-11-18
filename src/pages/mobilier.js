@@ -16,14 +16,6 @@ import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
-
 class Mobilier extends React.Component {
   constructor(props){
     super(props)
@@ -76,9 +68,7 @@ class Mobilier extends React.Component {
     this.setState({subCategories: NewSubcategories})
   }
 
-  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
-  // matches at least one of the selected subcategories
-
+  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     // if "All" is checked, return everything
@@ -102,11 +92,20 @@ class Mobilier extends React.Component {
   }
 
   render(){
-    // items displayed
-    let numberDisplayed = 9;
-    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+    // data from Airtable
+    const nodes = this.props.data.allAirtable.nodes;
+
     // current language
     const locale = this.props.intl.locale;
+
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
 
     return (
       <React.Fragment>
@@ -128,10 +127,10 @@ class Mobilier extends React.Component {
             <ul>
               {this.state.subCategories.map((subCategory) =>
                 <Filter
-                name={subCategory.name}
-                checked={subCategory.checked}
-                toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}>
+                  name={subCategory.name}
+                  checked={subCategory.checked}
+                  toggleChecked = {this.toggleChecked.bind(this)}
+                  key={subCategory.name}>
                 </Filter>
                 )}
             </ul>
@@ -140,7 +139,7 @@ class Mobilier extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}

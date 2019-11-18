@@ -15,7 +15,6 @@ import MobileNavbar from '../components/mobile-navbar.js';
 
 class APropos extends React.Component {
   render(){
-    console.log(this.props)
     return (
       <React.Fragment>
         <Header />

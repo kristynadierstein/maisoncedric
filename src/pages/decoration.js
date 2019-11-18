@@ -16,14 +16,6 @@ import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
-
 class Decoration extends React.Component {
   constructor(props){
     super(props)
@@ -36,6 +28,7 @@ class Decoration extends React.Component {
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
     this.state = { subCategories: subCategories }
   }
+
   // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
     // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
@@ -76,7 +69,6 @@ class Decoration extends React.Component {
   }
 
   // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
-
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     // if "All" is checked, return everything
@@ -103,8 +95,18 @@ class Decoration extends React.Component {
     // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+
     // current language
     const locale = this.props.intl.locale;
+
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
 
     return (
       <React.Fragment>
@@ -138,7 +140,7 @@ class Decoration extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}

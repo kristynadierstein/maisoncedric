@@ -16,14 +16,6 @@ import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
-
 class Assises extends React.Component {
   constructor(props){
     super(props)
@@ -103,11 +95,19 @@ class Assises extends React.Component {
     // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+
     // current language
     const locale = this.props.intl.locale;
 
-    // for mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated
-    // easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
+
     return (
       <React.Fragment>
         <Header />
@@ -140,7 +140,7 @@ class Assises extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}
