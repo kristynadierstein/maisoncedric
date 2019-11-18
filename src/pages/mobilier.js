@@ -1,32 +1,48 @@
 // external libraries
-import React from "react";
-import { Link, graphql } from 'gatsby';
-import MediaQuery from 'react-responsive';
-import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
+import React from "react"
+import { graphql } from 'gatsby'
+import MediaQuery from 'react-responsive'
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
-import '../styles/main.scss';
+import '../styles/main.scss'
 
 //import components
-import Card from '../components/card.js';
-import Filter from '../components/filter.js';
-import Footer from '../components/footer.js';
-import Header from '../components/header.js';
-import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
-import Navbar from '../components/navbar.js';
-import NewsletterAd from '../components/newsletterAd.js';
+import Card from '../components/card.js'
+import Filter from '../components/filter.js'
+import Footer from '../components/footer.js'
+import Header from '../components/header.js'
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js'
+import Navbar from '../components/navbar.js'
+import NewsletterAd from '../components/newsletterAd.js'
 
 class Mobilier extends React.Component {
   constructor(props){
     super(props)
-    let subCategories = [];
+    let subCategories = []
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
         subCategories.push({ name: subCategory, checked: false })
       ))
     ))
-    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
-    this.state = { subCategories: subCategories }
+    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
+    this.state = {
+      subCategories: subCategories,
+      items: [],
+      visible: 9
+    }
+    this.loadMore = this.loadMore.bind(this)
+  }
+
+  loadMore() {
+    this.setState((prev) => {
+      return {visible: prev.visible + 9}
+    })
+  }
+
+  componentDidMount() {
+    const getFirstFilteredArray = this.filteredProducts()
+    this.setState({items: getFirstFilteredArray})
   }
 
   // Create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
@@ -92,12 +108,8 @@ class Mobilier extends React.Component {
   }
 
   render(){
-    // items displayed
-    let numberDisplayed = 9;
-    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
-
     // current language
-    const locale = this.props.intl.locale;
+    const locale = this.props.intl.locale
 
     // gives product title according to current language
     const getLocalizedProductTitle = (locale, data) => {
@@ -137,7 +149,7 @@ class Mobilier extends React.Component {
             </ul>
           </div>
           <div className="row-3">
-            {displayedItems.map((node, index) => {
+            {this.state.items.slice(0, this.state.visible).map((node, index) => {
               return(
                 <Card
                   title={getLocalizedProductTitle(locale, node.data)}
@@ -150,7 +162,11 @@ class Mobilier extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></Link>
+              {this.state.visible < this.state.items.length &&
+                <button onClick={this.loadMore} type="button" className="btn-1">
+                  <FormattedMessage id="boutons.voir_plus" />
+                </button>
+              }
             </div>
           </div>
         </div>
@@ -184,4 +200,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
