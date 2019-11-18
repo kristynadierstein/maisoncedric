@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby";
-import { injectIntl, FormattedMessage, changeLocale } from "gatsby-plugin-intl";
+import { injectIntl, changeLocale } from "gatsby-plugin-intl";
 
 //import imagery
 import Logo from '../../static/images/ic--mc.svg';
