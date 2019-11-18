@@ -39,6 +39,8 @@ class Produit extends React.Component {
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const status = this.props.data.allAirtable.nodes[0].data.Statut
     const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
+    const titre = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
+    const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
     // For tranlsation
     const path = this.props.path
     const data = this.props.data.allAirtable.nodes[0].data
@@ -74,7 +76,7 @@ class Produit extends React.Component {
             </div>
             <div className="content">
                 <h1>
-                  {getLocalizedProductInfo(path, data).titre}
+                  {titre}
                 </h1>
               <MediaQuery maxDeviceWidth={1199}>
               <div className="fixed-mobile-links">
@@ -111,7 +113,7 @@ class Produit extends React.Component {
               <hr/>
               </MediaQuery>
               <p>
-                {getLocalizedProductInfo(path, data).description}
+                {description}
               </p>
               <hr/>
             </div>
