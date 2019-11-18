@@ -42,8 +42,6 @@ class Produit extends React.Component {
     const titre = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
     const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
     // For tranlsation
-    const path = this.props.path
-    const data = this.props.data.allAirtable.nodes[0].data
     const getLocalizedProductInfo = (path, data) => {
       if (path.match(/en/g)) {
         return {
@@ -76,7 +74,7 @@ class Produit extends React.Component {
             </div>
             <div className="content">
                 <h1>
-                  {titre}
+                  {getLocalizedProductInfo(this.props.path, this.props.data.allAirtable.nodes[0].data).titre}
                 </h1>
               <MediaQuery maxDeviceWidth={1199}>
               <div className="fixed-mobile-links">
