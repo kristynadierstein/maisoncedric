@@ -21,6 +21,14 @@ import Env from '../../static/images/ic-mail.svg';
 import Phone from '../../static/images/ic-phone.svg';
 import FlagFR from '../../static/images/ic--flag--fr.svg';
 
+export const getLocalizedProductTitre = (path, data) => {
+  if (path.match(/en/g)) {
+    return data.Titre_de_l_annonce__EN_
+  } else if (path.match(/fr/g)) {
+    return data.Titre_de_l_annonce__FR_
+  }
+}
+
 class Produit extends React.Component {
   state = {
     open: false,
@@ -42,21 +50,9 @@ class Produit extends React.Component {
     const titre = this.props.data.allAirtable.nodes[0].data.Titre_de_l_annonce__FR_
     const description = this.props.data.allAirtable.nodes[0].data.Description__FR_
     // For tranlsation
-    const getLocalizedProductInfo = (path, data) => {
-      if (path.match(/en/g)) {
-        return {
-          titre: data.Titre_de_l_annonce__EN_,
-          description: data.Description__EN_,
-          btn: "Contact Us"
-        }
-      } else if (path.match(/fr/g)) {
-        return {
-          titre: data.Titre_de_l_annonce__FR_,
-          description: data.Description__FR_,
-          btn: "Contactez-nous"
-        }
-      }
-    }
+    const path = this.props.path
+    const data = this.props.data.allAirtable.nodes[0].data
+
     return (
       <React.Fragment>
         <Header />
@@ -73,9 +69,9 @@ class Produit extends React.Component {
               <Carousel urls= {urls} />
             </div>
             <div className="content">
-                <h1>
-                  {getLocalizedProductInfo(this.props.path, this.props.data.allAirtable.nodes[0].data).titre}
-                </h1>
+              <h1>
+                {getLocalizedProductTitre(path, data)}
+              </h1>
               <MediaQuery maxDeviceWidth={1199}>
               <div className="fixed-mobile-links">
                 <MobileLinks />
