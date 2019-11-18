@@ -37,13 +37,23 @@ class Produit extends React.Component {
   render() {
     const { open } = this.state;
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
+    const data = this.props.data.allAirtable.nodes[0].data
+
+    // display price or status if item is sold
+    const getItemPrice = (data) => {
+      if (data.Statut !== null && data.Statut[0] === 'Vendu') {
+        return data.Statut[0]
+      } else {
+        return `${data.Prix_de_vente} €`
+      }
+    }
+
     const status = this.props.data.allAirtable.nodes[0].data.Statut
     const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
 
     // For tranlsation
     const path = this.props.path
-    const data = this.props.data.allAirtable.nodes[0].data
-    const getLocalizedProductTitre = (path, data) => {
+    const getLocalizedProductTitle = (path, data) => {
       if (path.match(/en/g)) {
         return data.Titre_de_l_annonce__EN_
       } else if (path.match(/fr/g)) {
@@ -82,7 +92,7 @@ class Produit extends React.Component {
             </div>
             <div className="content">
               <h1>
-                {getLocalizedProductTitre(path, data)}
+                {getLocalizedProductTitle(path, data)}
               </h1>
               <MediaQuery maxDeviceWidth={1199}>
               <div className="fixed-mobile-links">
@@ -93,7 +103,9 @@ class Produit extends React.Component {
               <hr/>
               <div className="call-to-action">
                 {/* <label htmlFor="">{status}</label> */}
-                <label htmlFor="">{prix} €</label>
+                <label htmlFor="">
+                  {getItemPrice(data)}
+                </label>
                 <div className="btn-1-modal" onClick={this.onOpenModal}>
                   {getLocalizedButton(path)}
                 </div>
