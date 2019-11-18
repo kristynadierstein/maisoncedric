@@ -34,7 +34,23 @@ class Assises extends React.Component {
       ))
     ))
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
-    this.state = { subCategories: subCategories }
+    this.state = { 
+      subCategories: subCategories,
+      items: [],
+      visible: 1
+    };
+    this.loadMore = this.loadMore.bind(this);
+  }
+
+  loadMore() {
+    this.setState((prev) => {
+      return {visible: prev.visible + 1};
+    });
+  }
+
+  componentDidMount() {
+    const getFirstFilteredArray = this.filteredProducts()
+    this.setState({items: getFirstFilteredArray})
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
@@ -100,12 +116,8 @@ class Assises extends React.Component {
   }
 
   render(){
-    // items displayed
-    let numberDisplayed = 9;
-    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
     // current language
     const locale = this.props.intl.locale;
-
     // for mobile navbar filters we wanted to make a query inside nested component of mobile navbar however, too complicated
     // easiest solution is to pass the subcategories looped items as a prop and pass the filtering function, which does everything as a props as well, see component for more details
     return (
@@ -137,7 +149,7 @@ class Assises extends React.Component {
             </ul>
           </div>
           <div className="row-3">
-            {displayedItems.map((node, index) => {
+            {this.state.items.slice(0, this.state.visible).map((node, index) => {
               return(
                 <Card
                   title={getLocalizedProductName(locale, node.data)}
@@ -150,7 +162,9 @@ class Assises extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></Link>
+              {this.state.visible < this.state.items.length &&
+                <button onClick={this.loadMore} type="button" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></button>
+              }
             </div>
           </div>
         </div>
