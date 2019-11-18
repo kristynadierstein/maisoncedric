@@ -92,8 +92,9 @@ class Mobilier extends React.Component {
   }
 
   render(){
-    // data from Airtable
-    const nodes = this.props.data.allAirtable.nodes;
+    // items displayed
+    let numberDisplayed = 9;
+    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
 
     // current language
     const locale = this.props.intl.locale;
