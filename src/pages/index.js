@@ -2,7 +2,7 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import MediaQuery from 'react-responsive';
-import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl";
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 // import styles
 import '../styles/main.scss';

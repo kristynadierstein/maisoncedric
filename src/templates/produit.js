@@ -48,9 +48,6 @@ class Produit extends React.Component {
       }
     }
 
-    const status = this.props.data.allAirtable.nodes[0].data.Statut
-    const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
-
     // For tranlsation
     const path = this.props.path
     const getLocalizedProductTitle = (path, data) => {

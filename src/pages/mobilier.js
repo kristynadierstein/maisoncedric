@@ -48,7 +48,7 @@ class Mobilier extends React.Component {
     })
 
     // New function allowing user to toggle only ONE checkbox
-    this.state.subCategories.map(subCategory => {
+    this.state.subCategories.forEach(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
       }
