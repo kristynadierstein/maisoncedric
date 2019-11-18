@@ -3,6 +3,7 @@ import React from "react";
 import Sidebar from "react-sidebar";
 import Modal from 'react-responsive-modal';
 import { Link } from "gatsby";
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 //import components
 import ModalContent from "../components/modal-content.js";
@@ -58,6 +59,7 @@ class MobileNavbarFilters extends React.Component{
     }
     
     const { open } = this.state;
+    const locale = this.props.intl.locale
        
     return(
       <React.Fragment>     
@@ -66,17 +68,17 @@ class MobileNavbarFilters extends React.Component{
           sidebar={
           <div>
             <div className="mb-sidebar-header">
-              <h3>Categories</h3>
+            <h3><FormattedMessage id="navbar.tabs_title" /></h3>
               <Esc onClick={this.handleClick}/>
             </div>
             <ul className="mb-sidebar-list">
-              <li><Link to="/" activeStyle={activeStyle} >Nouveautés</Link></li>
-              <li><Link to="/assises" activeStyle={activeStyle} >Assises</Link></li>
-              <li><Link to="/mobilier" activeStyle={activeStyle} >Mobilier</Link></li>
-              <li><Link to="/luminaires" activeStyle={activeStyle} >Luminaires</Link></li>
-              <li><Link to="/decoration" activeStyle={activeStyle} >Décoration</Link></li>
+            <li><Link to={ `${locale}/` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab1" /></Link></li>
+                  <li><Link to={ `${locale}/assises` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab2" /></Link></li>
+                  <li><Link to={ `${locale}/mobilier` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab3" /></Link></li>
+                  <li><Link to={ `${locale}/luminaires` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab4" /></Link></li>
+                  <li><Link to={ `${locale}/decoration` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab5" /></Link></li>
             </ul>
-            <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">Contactez-nous </div>
+            <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact"><FormattedMessage id="a-propos.titre" /></div>
             <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center closeIcon="closeIcon">
               <ModalContent />
             </Modal>
@@ -87,7 +89,7 @@ class MobileNavbarFilters extends React.Component{
           sidebarClassName = "mobile-sidebar">
           <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
             <div className="mb-navbar-empty-category">
-              Categories
+            <FormattedMessage id="navbar.tabs_title" />
             </div>
           </div>
         </Sidebar>
@@ -125,4 +127,4 @@ class MobileNavbarFilters extends React.Component{
     }
   } 
 
-  export default MobileNavbarFilters
+  export default injectIntl(MobileNavbarFilters)
