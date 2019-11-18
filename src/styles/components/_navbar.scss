@@ -1,5 +1,4 @@
 @media(min-width: $TabletLandscape) {
-
   #mobile-navbar {
     display:none;
   }
@@ -31,6 +30,13 @@
     float:right;
     position: relative;
     left:50%;
+    display: flex;
+    align-items: center;
+  }
+
+  #dk-navbar-right > ul > li > a {
+    display: flex;
+    align-items: center;
   }
 
   #dk-navbar-right > ul > li {
@@ -163,10 +169,4 @@
     color: #17181A;
     font-weight:500;
   }
-
-  //testing right pull sidebar
-//   #mobile-navbar > div.mb-navbar-filtres > div > div:nth-child(3)
-// {
-//   background-color: red;
-// }
 }
