@@ -11,6 +11,7 @@ import Esc from '../../static/images/ic--esc.svg';
 //import components
 import ModalContent from "../components/modal-content.js";
 
+
 class MobileNavbar extends React.Component{
   constructor(props) {
     super(props);
@@ -38,13 +39,14 @@ class MobileNavbar extends React.Component{
     this.setState({ open: false });
   }
 
+  
   render (){
     const activeStyle = {
       color: '#17181A',
       fontWeight: 600,
     }
-
     const { open } = this.state;
+    const locale = this.props.intl.locale
 
     return(
       <React.Fragment>
@@ -57,11 +59,11 @@ class MobileNavbar extends React.Component{
                   <Esc onClick={this.handleClick}/>
                 </div>
                 <ul className="mb-sidebar-list">
-                  <li><Link to="/" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab1" /></Link></li>
-                  <li><Link to="/assises" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab2" /></Link></li>
-                  <li><Link to="/mobilier" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab3" /></Link></li>
-                  <li><Link to="/luminaires" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab4" /></Link></li>
-                  <li><Link to="/decoration" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab5" /></Link></li>
+                  <li><Link to={ `${locale}/` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab1" /></Link></li>
+                  <li><Link to={ `${locale}/assises` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab2" /></Link></li>
+                  <li><Link to={ `${locale}/mobilier` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab3" /></Link></li>
+                  <li><Link to={ `${locale}/luminaires` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab4" /></Link></li>
+                  <li><Link to={ `${locale}/decoration` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab5" /></Link></li>
                 </ul>
               <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact"><FormattedMessage id="a-propos.titre" /></div>
               <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center closeIcon="closeIcon">
@@ -80,7 +82,7 @@ class MobileNavbar extends React.Component{
         </div>
         </Sidebar>
         <div className="mb-navbar-apropos">
-          <Link to="/a-propos" activeStyle={activeStyle} ><FormattedMessage id="navbar.tab6" /></Link>
+          <Link to={ `${locale}/a-propos` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab6" /></Link>
         </div>
       </nav>
     </React.Fragment>
