@@ -1,51 +1,43 @@
 // external libraries
-import React from "react";
-import { Link, graphql } from 'gatsby';
-import MediaQuery from 'react-responsive';
-import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
+import React from "react"
+import { graphql } from 'gatsby'
+import MediaQuery from 'react-responsive'
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
-import '../styles/main.scss';
+import '../styles/main.scss'
 
 //import components
-import Card from '../components/card.js';
-import Filter from '../components/filter.js';
-import Footer from '../components/footer.js';
-import Header from '../components/header.js';
-import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
-import Navbar from '../components/navbar.js';
-import NewsletterAd from '../components/newsletterAd.js';
-
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
+import Card from '../components/card.js'
+import Filter from '../components/filter.js'
+import Footer from '../components/footer.js'
+import Header from '../components/header.js'
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js'
+import Navbar from '../components/navbar.js'
+import NewsletterAd from '../components/newsletterAd.js'
 
 class Mobilier extends React.Component {
   constructor(props){
     super(props)
-    let subCategories = [];
+    let subCategories = []
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
         subCategories.push({ name: subCategory, checked: false })
       ))
     ))
-    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
-    this.state = { 
+    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
+    this.state = {
       subCategories: subCategories,
       items: [],
-      visible: 1 
-    };
-    this.loadMore = this.loadMore.bind(this);
+      visible: 9
+    }
+    this.loadMore = this.loadMore.bind(this)
   }
 
   loadMore() {
     this.setState((prev) => {
-      return {visible: prev.visible + 1};
-    });
+      return {visible: prev.visible + 9}
+    })
   }
 
   componentDidMount() {
@@ -64,7 +56,7 @@ class Mobilier extends React.Component {
     })
 
     // New function allowing user to toggle only ONE checkbox
-    this.state.subCategories.map(subCategory => {
+    this.state.subCategories.forEach(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
       }
@@ -92,9 +84,7 @@ class Mobilier extends React.Component {
     this.setState({subCategories: NewSubcategories})
   }
 
-  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory
-  // matches at least one of the selected subcategories
-
+  // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     // if "All" is checked, return everything
@@ -119,7 +109,16 @@ class Mobilier extends React.Component {
 
   render(){
     // current language
-    const locale = this.props.intl.locale;
+    const locale = this.props.intl.locale
+
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
 
     return (
       <React.Fragment>
@@ -141,10 +140,10 @@ class Mobilier extends React.Component {
             <ul>
               {this.state.subCategories.map((subCategory) =>
                 <Filter
-                name={subCategory.name}
-                checked={subCategory.checked}
-                toggleChecked = {this.toggleChecked.bind(this)}
-                key={subCategory.name}>
+                  name={subCategory.name}
+                  checked={subCategory.checked}
+                  toggleChecked = {this.toggleChecked.bind(this)}
+                  key={subCategory.name}>
                 </Filter>
                 )}
             </ul>
@@ -153,7 +152,7 @@ class Mobilier extends React.Component {
             {this.state.items.slice(0, this.state.visible).map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}
@@ -164,7 +163,9 @@ class Mobilier extends React.Component {
             })}
             <div className="btn-container">
               {this.state.visible < this.state.items.length &&
-                <button onClick={this.loadMore} type="button" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></button>
+                <button onClick={this.loadMore} type="button" className="btn-1">
+                  <FormattedMessage id="boutons.voir_plus" />
+                </button>
               }
             </div>
           </div>
@@ -199,4 +200,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

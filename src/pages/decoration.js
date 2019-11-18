@@ -1,57 +1,50 @@
 // external libraries
-import React from "react";
-import { Link, graphql } from 'gatsby';
-import MediaQuery from 'react-responsive';
-import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
+import React from "react"
+import { graphql } from 'gatsby'
+import MediaQuery from 'react-responsive'
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
-import '../styles/main.scss';
+import '../styles/main.scss'
 
 // import components
-import Card from '../components/card.js';
-import Filter from '../components/filter.js';
-import Footer from '../components/footer.js';
-import Header from '../components/header.js';
-import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
-import Navbar from '../components/navbar.js';
-import NewsletterAd from '../components/newsletterAd.js';
-
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
+import Card from '../components/card.js'
+import Filter from '../components/filter.js'
+import Footer from '../components/footer.js'
+import Header from '../components/header.js'
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js'
+import Navbar from '../components/navbar.js'
+import NewsletterAd from '../components/newsletterAd.js'
 
 class Decoration extends React.Component {
   constructor(props){
     super(props)
-    let subCategories = [];
+    let subCategories = []
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
         subCategories.push({ name: subCategory, checked: false })
       ))
     ))
-    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories);
-    this.state = { 
+    subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
+    this.state = {
       subCategories: subCategories,
       items: [],
-      visible: 1
+      visible: 9
     }
-    this.loadMore = this.loadMore.bind(this);
+    this.loadMore = this.loadMore.bind(this)
   }
 
   loadMore() {
     this.setState((prev) => {
-      return {visible: prev.visible + 1};
-    });
+      return {visible: prev.visible + 9}
+    })
   }
 
   componentDidMount() {
     const getFirstFilteredArray = this.filteredProducts()
     this.setState({items: getFirstFilteredArray})
   }
+
   // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
     // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
@@ -63,7 +56,7 @@ class Decoration extends React.Component {
     })
 
     // new function allowing user to toggle only ONE checkbox
-    this.state.subCategories.map(subCategory => {
+    this.state.subCategories.forEach(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
       }
@@ -92,7 +85,6 @@ class Decoration extends React.Component {
   }
 
   // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
-
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     // if "All" is checked, return everything
@@ -117,7 +109,16 @@ class Decoration extends React.Component {
 
   render(){
     // current language
-    const locale = this.props.intl.locale;
+    const locale = this.props.intl.locale
+
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
 
     return (
       <React.Fragment>
@@ -151,7 +152,7 @@ class Decoration extends React.Component {
             {this.state.items.slice(0, this.state.visible).map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}
@@ -197,4 +198,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

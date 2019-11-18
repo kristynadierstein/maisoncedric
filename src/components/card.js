@@ -5,8 +5,7 @@ import { injectIntl, FormattedMessage, Link } from "gatsby-plugin-intl";
 import '../styles/main.scss';
 
 const Card = (props) => {
-  function isVendu(itemStatus) {
-    console.log(itemStatus);
+  const isVendu = (itemStatus) => {
     if (itemStatus !== null && itemStatus[0] === "Vendu") {
       return (
         <div className="vendu">
