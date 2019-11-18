@@ -16,14 +16,6 @@ import MobileNavbarFilters from '../components/mobile-navbar-filters.js';
 import Navbar from '../components/navbar.js';
 import NewsletterAd from '../components/newsletterAd.js';
 
-export const getLocalizedProductName = (locale, data) => {
-  if (locale === "en") {
-    return data.Titre_de_l_annonce__EN_
-  } else if (locale === "fr") {
-    return data.Titre_de_l_annonce__FR_
-  }
-}
-
 class Luminaires extends React.Component {
   constructor(props){
     super(props)
@@ -48,7 +40,7 @@ class Luminaires extends React.Component {
     })
 
     // new function allowing user to toggle only ONE checkbox
-    this.state.subCategories.map(subCategory => {
+    this.state.subCategories.forEach(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
       }
@@ -77,7 +69,6 @@ class Luminaires extends React.Component {
   }
 
   // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
-
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
     // if "All" is checked, return everything
@@ -104,8 +95,18 @@ class Luminaires extends React.Component {
     // items displayed
     let numberDisplayed = 9;
     let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+
     // current language
     const locale = this.props.intl.locale;
+
+    // gives product title according to current language
+    const getLocalizedProductTitle = (locale, data) => {
+      if (locale === "en") {
+        return data.Titre_de_l_annonce__EN_
+      } else if (locale === "fr") {
+        return data.Titre_de_l_annonce__FR_
+      }
+    }
 
     return (
       <React.Fragment>
@@ -139,7 +140,7 @@ class Luminaires extends React.Component {
             {displayedItems.map((node, index) => {
               return(
                 <Card
-                  title={getLocalizedProductName(locale, node.data)}
+                  title={getLocalizedProductTitle(locale, node.data)}
                   price={node.data.Prix_de_vente}
                   status={node.data.Statut}
                   image={node.data.Images[0].url}

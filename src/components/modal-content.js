@@ -1,6 +1,6 @@
 // external libraries
 import React from "react";
-import { injectIntl, FormattedMessage, Link } from "gatsby-plugin-intl";
+import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
 
 // images
 import Env from '../../static/images/ic-mail.svg';

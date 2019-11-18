@@ -38,21 +38,20 @@ class Produit extends React.Component {
     const { open } = this.state;
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const data = this.props.data.allAirtable.nodes[0].data
+    const path = this.props.path
 
     // display price or status if item is sold
-    const getItemPrice = (data) => {
-      if (data.Statut !== null && data.Statut[0] === 'Vendu') {
-        return data.Statut[0]
+    const getItemPrice = (data, path) => {
+      if (data.Statut !== null && data.Statut[0] === 'Vendu' && path.match(/en/g)) {
+        return "Sold"
+      } else if (data.Statut !== null && data.Statut[0] === 'Vendu' && path.match(/en/g)) {
+        return "Vendu"
       } else {
         return `${data.Prix_de_vente} €`
       }
     }
 
-    const status = this.props.data.allAirtable.nodes[0].data.Statut
-    const prix = this.props.data.allAirtable.nodes[0].data.Prix_de_vente
-
     // For tranlsation
-    const path = this.props.path
     const getLocalizedProductTitle = (path, data) => {
       if (path.match(/en/g)) {
         return data.Titre_de_l_annonce__EN_
@@ -104,7 +103,7 @@ class Produit extends React.Component {
               <div className="call-to-action">
                 {/* <label htmlFor="">{status}</label> */}
                 <label htmlFor="">
-                  {getItemPrice(data)}
+                  {getItemPrice(data, path)}
                 </label>
                 <div className="btn-1-modal" onClick={this.onOpenModal}>
                   {getLocalizedButton(path)}
