@@ -9,13 +9,14 @@ import FlagFR from '../../static/images/ic--flag--fr.svg';
 
 export const getLocalizedFlag = (locale) => {
   if (locale === "fr") {
-    return <Link onClick={() => changeLocale("en")}><FlagEN /></Link>
+    return <div onClick={() => changeLocale("en")}><FlagEN/></div>
   } else if (locale === "en") {
-    return <Link onClick={() => changeLocale("fr")}><FlagFR /></Link>
+    return <div onClick={() => changeLocale("fr")}><FlagFR/></div>
   }
 }
 
 const NavbarContent = (props) => {
+  // active style for the current tab
   const activeStyle = {
     color: '#17181A',
     fontWeight: 600
@@ -23,40 +24,41 @@ const NavbarContent = (props) => {
 
   // current language
   const locale = props.intl.locale;
+
   return (
     <nav id="desktop-navbar">
       <div id="dk-navbar-left">
         <ul>
           <li>
-            <Link to={ `${locale}/` } activeStyle={activeStyle} >  
-              <FormattedMessage id="navbar.tab1" />
+            <Link to={`/${locale}`} activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab1"/>
             </Link>
           </li>
           <li>
-            <Link to={ `${locale}/assises` } activeStyle={activeStyle} >
-              <FormattedMessage id="navbar.tab2" />
+            <Link to={`/${locale}/assises`} activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab2"/>
             </Link>
           </li>
           <li>
-            <Link to={ `${locale}/mobilier` } activeStyle={activeStyle} >
-              <FormattedMessage id="navbar.tab3" />
+            <Link to={`/${locale}/mobilier`} activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab3"/>
             </Link>
           </li>
           <li>
-            <Link to={ `${locale}/luminaires` } activeStyle={activeStyle} >
-              <FormattedMessage id="navbar.tab4" />
+            <Link to={`/${locale}/luminaires`} activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab4"/>
             </Link>
           </li>
           <li>
-            <Link to={ `${locale}/decoration` } activeStyle={activeStyle} >
-              <FormattedMessage id="navbar.tab5" />
+            <Link to={`/${locale}/decoration`} activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab5"/>
             </Link>
           </li>
         </ul>
       </div>
       <div id="dk-navbar-right">
         <ul>
-          <li><Link to={ `${locale}/a-propos` } activeStyle={activeStyle}><FormattedMessage id="navbar.tab6" /></Link></li>
+          <li><Link to={ `/${locale}/a-propos` } activeStyle={activeStyle}><FormattedMessage id="navbar.tab6"/></Link></li>
           <li>{getLocalizedFlag(locale)}</li>
         </ul>
       </div>

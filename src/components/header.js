@@ -9,9 +9,9 @@ import FlagFR from '../../static/images/ic--flag--fr.svg';
 
 export const getLocalizedFlag = (locale) => {
   if (locale === "fr") {
-    return <Link onClick={() => changeLocale("en")}><FlagEN /></Link>
+    return <div onClick={() => changeLocale("en")}><FlagEN/></div>
   } else {
-    return <Link onClick={() => changeLocale("fr")}><FlagFR /></Link>
+    return <div onClick={() => changeLocale("fr")}><FlagFR/></div>
   }
 }
 

@@ -1,3 +1,7 @@
+.mb-header > div {
+  z-index: 99999;
+}
+
 @media(min-width: $TabletLandscape){
   .mb-header {
     display: none;
