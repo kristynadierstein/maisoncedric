@@ -58,7 +58,7 @@ const NavbarContent = (props) => {
       </div>
       <div id="dk-navbar-right">
         <ul>
-          <li><Link to={ `/${locale}/a-propos` } activeStyle={activeStyle}><FormattedMessage id="navbar.tab6"/></Link></li>
+          <li><Link to={ `/${locale}/a-propos/` } activeStyle={activeStyle}><FormattedMessage id="navbar.tab6"/></Link></li>
           <li>{getLocalizedFlag(locale)}</li>
         </ul>
       </div>
