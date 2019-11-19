@@ -145,7 +145,7 @@ class Assises extends React.Component {
                   toggleChecked = {this.toggleChecked.bind(this)}
                   key={subCategory.name}>
                 </Filter>
-                )}
+              )}
             </ul>
           </div>
           <div className="row-3">
@@ -163,7 +163,9 @@ class Assises extends React.Component {
             })}
             <div className="btn-container">
               {this.state.visible < this.state.items.length &&
-                <button onClick={this.loadMore} type="button" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></button>
+                <button onClick={this.loadMore} type="button" className="btn-1">
+                  <FormattedMessage id="boutons.voir_plus" />
+                </button>
               }
             </div>
           </div>

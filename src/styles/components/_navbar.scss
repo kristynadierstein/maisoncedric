@@ -34,9 +34,10 @@
     align-items: center;
   }
 
-  #dk-navbar-right > ul > li > a {
+  #dk-navbar-right > ul > li > div {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   #dk-navbar-right > ul > li {

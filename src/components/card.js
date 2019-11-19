@@ -9,7 +9,9 @@ const Card = (props) => {
     if (itemStatus !== null && itemStatus[0] === "Vendu") {
       return (
         <div className="vendu">
-          <label htmlFor=""><FormattedMessage id="labels.vendu" /></label>
+          <label htmlFor="">
+            <FormattedMessage id="labels.vendu"/>
+          </label>
         </div>
       )
     }
@@ -18,7 +20,7 @@ const Card = (props) => {
   return(
     <div className="card">
       <Link to={`/produit/${props.id}`} id={props.id}>
-        <div className="image" style={{backgroundImage: "url(" + props.image + ")"}}>
+        <div className="image" style={{backgroundImage: `url(${props.image})`}}>
           {isVendu(props.status)}
         </div>
         <div className="desc">
