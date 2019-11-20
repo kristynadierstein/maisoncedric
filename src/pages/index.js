@@ -39,6 +39,9 @@ class Index extends React.Component {
           <Navbar/>
           <MobileNavbar/>
         </MediaQuery>
+        <MediaQuery maxDeviceWidth={1199}>
+          <MobileNavbar/>
+        </MediaQuery>
         <div className="container">
 
           <h1><FormattedMessage id="index.titre"/></h1>
