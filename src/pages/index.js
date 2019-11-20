@@ -34,16 +34,16 @@ class Index extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar />
-        </MediaQuery>
+        <Header/>
         <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
+          <Navbar/>
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={1199}>
+          <MobileNavbar/>
         </MediaQuery>
         <div className="container">
 
-          <h1><FormattedMessage id="index.titre" /></h1>
+          <h1><FormattedMessage id="index.titre"/></h1>
 
           <div className="row-3">
             {(0 < nodes.length) &&
@@ -121,8 +121,8 @@ class Index extends React.Component {
             }
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }

@@ -1,52 +1,49 @@
 //import libraries
-import React from "react";
-import { Link } from "gatsby";
-import Sidebar from "react-sidebar";
-import Modal from 'react-responsive-modal';
-import { injectIntl, FormattedMessage } from "gatsby-plugin-intl";
+import React from 'react'
+import Sidebar from 'react-sidebar'
+import Modal from 'react-responsive-modal'
+import { injectIntl, FormattedMessage, Link } from 'gatsby-plugin-intl'
 
 //import imagery
-import Esc from '../../static/images/ic--esc.svg';
+import Esc from '../../static/images/ic--esc.svg'
 
 //import components
-import ModalContent from "../components/modal-content.js";
-
+import ModalContent from '../components/modal-content.js'
 
 class MobileNavbar extends React.Component{
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sidebarOpen: false,
       open: false,
-    };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    }
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   onSetSidebarOpen = (open) => {
-    this.setState({ sidebarOpen: open });
+    this.setState({ sidebarOpen: open })
   }
 
   handleClick = (e) => {
-    this.setState({ sidebarOpen: false });
+    this.setState({ sidebarOpen: false })
   }
 
   onOpenModal = () => {
-    this.setState({ open: true });
+    this.setState({ open: true })
   }
 
   onCloseModal = () => {
-    this.setState({ open: false });
+    this.setState({ open: false })
   }
 
-  
+
   render (){
     const activeStyle = {
       color: '#17181A',
       fontWeight: 600,
     }
-    const { open } = this.state;
-    const locale = this.props.intl.locale
+    const { open } = this.state
 
     return(
       <React.Fragment>
@@ -55,37 +52,60 @@ class MobileNavbar extends React.Component{
             sidebar={
               <div>
                 <div className="mb-sidebar-header">
-                  <h3><FormattedMessage id="navbar.tabs_title" /></h3>
+                  <h3><FormattedMessage id="navbar.tabs_title"/></h3>
                   <Esc onClick={this.handleClick}/>
                 </div>
                 <ul className="mb-sidebar-list">
-                  <li><Link to={ `${locale}/` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab1" /></Link></li>
-                  <li><Link to={ `${locale}/assises` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab2" /></Link></li>
-                  <li><Link to={ `${locale}/mobilier` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab3" /></Link></li>
-                  <li><Link to={ `${locale}/luminaires` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab4" /></Link></li>
-                  <li><Link to={ `${locale}/decoration` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab5" /></Link></li>
+                  <li>
+                    <Link to={ '/' } activeStyle={activeStyle}>
+                      <FormattedMessage id="navbar.tab1"/>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={ '/assises' } activeStyle={activeStyle}>
+                      <FormattedMessage id="navbar.tab2"/>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={ '/mobilier' } activeStyle={activeStyle}>
+                      <FormattedMessage id="navbar.tab3"/>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={ '/luminaires' } activeStyle={activeStyle}>
+                      <FormattedMessage id="navbar.tab4"/>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={ '/decoration' } activeStyle={activeStyle}>
+                      <FormattedMessage id="navbar.tab5"/>
+                    </Link>
+                  </li>
                 </ul>
-              <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact"><FormattedMessage id="a-propos.titre" /></div>
+              <div onClick={this.onOpenModal} className="mb-sidebar-btn-contact">
+                <FormattedMessage id="a-propos.titre"/>
+              </div>
               <Modal open={open} onClose={this.onCloseModal} closeIconSize={20} center closeIcon="closeIcon">
-                <ModalContent />
+                <ModalContent/>
               </Modal>
               </div>
             }
             open={this.state.sidebarOpen}
             onSetOpen={this.onSetSidebarOpen}
-            sidebarClassName = "mobile-sidebar"
-          >
-          <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories" >
-          <div className="mb-navbar-empty-category">
-            <FormattedMessage id="navbar.tabs_title" />
+            sidebarClassName = "mobile-sidebar">
+            <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories">
+              <div className="mb-navbar-empty-category">
+                <FormattedMessage id="navbar.tabs_title"/>
+              </div>
+            </div>
+          </Sidebar>
+          <div className="mb-navbar-apropos">
+            <Link to={ '/a-propos' } activeStyle={activeStyle}>
+              <FormattedMessage id="navbar.tab6"/>
+            </Link>
           </div>
-        </div>
-        </Sidebar>
-        <div className="mb-navbar-apropos">
-          <Link to={ `${locale}/a-propos` } activeStyle={activeStyle} ><FormattedMessage id="navbar.tab6" /></Link>
-        </div>
-      </nav>
-    </React.Fragment>
+        </nav>
+      </React.Fragment>
     )
   }
 }
