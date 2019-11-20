@@ -1,6 +1,6 @@
 // external libraries
 import React from "react"
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import MediaQuery from 'react-responsive'
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
@@ -26,28 +26,12 @@ class Mobilier extends React.Component {
       ))
     ))
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
-    this.state = {
-      subCategories: subCategories,
-      items: [],
-      visible: 9
-    }
-    this.loadMore = this.loadMore.bind(this)
+    this.state = { subCategories: subCategories }
   }
 
-  loadMore() {
-    this.setState((prev) => {
-      return {visible: prev.visible + 9}
-    })
-  }
-
-  componentDidMount() {
-    const getFirstFilteredArray = this.filteredProducts()
-    this.setState({items: getFirstFilteredArray})
-  }
-
-  // Create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
+  // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
   toggleChecked(currentSelection){
-    // Toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
+    // toggling the selected category and returning a new array, NewSubcategories is becoming a new state for Mobilier component
     const NewSubcategories = this.state.subCategories.map(subCategory => {
       if (subCategory.name === currentSelection) {
         subCategory.checked = !subCategory.checked
@@ -55,7 +39,7 @@ class Mobilier extends React.Component {
       return subCategory
     })
 
-    // New function allowing user to toggle only ONE checkbox
+    // new function allowing user to toggle only ONE checkbox
     this.state.subCategories.forEach(subCategory => {
       if (subCategory.checked === true && subCategory.name !== currentSelection) {
         subCategory.checked = false
@@ -63,7 +47,6 @@ class Mobilier extends React.Component {
     })
 
     // ****** OLD RULES *****
-
     // //if everything is unchecked  set the first "all" to be checked
     // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
     //   return subCategory.checked === false
@@ -81,12 +64,14 @@ class Mobilier extends React.Component {
     // if (currentSelection === "Toutes les catégories") {
     //   allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
     // }
+
     this.setState({subCategories: NewSubcategories})
   }
 
   // i need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
+
     // if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
       return allProductsinCategory
@@ -108,6 +93,10 @@ class Mobilier extends React.Component {
   }
 
   render(){
+    // items displayed
+    let numberDisplayed = 9
+    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+
     // current language
     const locale = this.props.intl.locale
 
@@ -122,7 +111,7 @@ class Mobilier extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
+        <Header/>
         <MediaQuery maxDeviceWidth={1199}>
           <MobileNavbarFilters
             subCategories={this.state.subCategories}
@@ -131,11 +120,11 @@ class Mobilier extends React.Component {
             key="Mobilier"/>
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
+          <Navbar/>
         </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1><FormattedMessage id="mobilier.titre" /></h1>
+            <h1><FormattedMessage id="mobilier.titre"/></h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -149,7 +138,7 @@ class Mobilier extends React.Component {
             </ul>
           </div>
           <div className="row-3">
-            {this.state.items.slice(0, this.state.visible).map((node, index) => {
+            {displayedItems.map((node, index) => {
               return(
                 <Card
                   title={getLocalizedProductTitle(locale, node.data)}
@@ -162,16 +151,12 @@ class Mobilier extends React.Component {
               )
             })}
             <div className="btn-container">
-              {this.state.visible < this.state.items.length &&
-                <button onClick={this.loadMore} type="button" className="btn-1">
-                  <FormattedMessage id="boutons.voir_plus" />
-                </button>
-              }
+              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus"/></Link>
             </div>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }
