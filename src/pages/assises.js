@@ -1,6 +1,6 @@
 // external libraries
 import React from "react"
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import MediaQuery from 'react-responsive'
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
@@ -26,23 +26,7 @@ class Assises extends React.Component {
       ))
     ))
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
-    this.state = {
-      subCategories: subCategories,
-      items: [],
-      visible: 9
-    }
-    this.loadMore = this.loadMore.bind(this)
-  }
-
-  loadMore() {
-    this.setState((prev) => {
-      return {visible: prev.visible + 9}
-    })
-  }
-
-  componentDidMount() {
-    const getFirstFilteredArray = this.filteredProducts()
-    this.setState({items: getFirstFilteredArray})
+    this.state = { subCategories: subCategories }
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
@@ -63,7 +47,6 @@ class Assises extends React.Component {
     })
 
     // ****** OLD RULES *****
-
     // // if everything is unchecked  set the first "all" to be checked
     // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
     //   return subCategory.checked === false
@@ -81,12 +64,14 @@ class Assises extends React.Component {
     // if (currentSelection === "Toutes les catégories") {
     //   allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
     // }
+
     this.setState({subCategories: NewSubcategories})
   }
 
   // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
+
     // if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
       return allProductsinCategory
@@ -108,6 +93,10 @@ class Assises extends React.Component {
   }
 
   render(){
+    // items displayed
+    let numberDisplayed = 9
+    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+
     // current language
     const locale = this.props.intl.locale
 
@@ -122,7 +111,7 @@ class Assises extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
+        <Header/>
         <MediaQuery maxDeviceWidth={1199}>
           <MobileNavbarFilters
             subCategories={this.state.subCategories}
@@ -131,11 +120,11 @@ class Assises extends React.Component {
             key="Assises"/>
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
+          <Navbar/>
         </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1><FormattedMessage id="assises.titre" /></h1>
+            <h1><FormattedMessage id="assises.titre"/></h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -145,11 +134,11 @@ class Assises extends React.Component {
                   toggleChecked = {this.toggleChecked.bind(this)}
                   key={subCategory.name}>
                 </Filter>
-              )}
+                )}
             </ul>
           </div>
           <div className="row-3">
-            {this.state.items.slice(0, this.state.visible).map((node, index) => {
+            {displayedItems.map((node, index) => {
               return(
                 <Card
                   title={getLocalizedProductTitle(locale, node.data)}
@@ -162,16 +151,12 @@ class Assises extends React.Component {
               )
             })}
             <div className="btn-container">
-              {this.state.visible < this.state.items.length &&
-                <button onClick={this.loadMore} type="button" className="btn-1">
-                  <FormattedMessage id="boutons.voir_plus" />
-                </button>
-              }
+              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus"/></Link>
             </div>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }

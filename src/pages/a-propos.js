@@ -1,35 +1,35 @@
 // external libraries
-import React from "react";
-import MediaQuery from 'react-responsive';
-import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl";
+import React from "react"
+import MediaQuery from 'react-responsive'
+import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
-import '../styles/main.scss';
+import '../styles/main.scss'
 
 //import components
-import Header from '../components/header.js';
-import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
-import NewsletterAd from '../components/newsletterAd.js';
-import MobileNavbar from '../components/mobile-navbar.js';
+import Header from '../components/header.js'
+import Navbar from '../components/navbar.js'
+import Footer from '../components/footer.js'
+import NewsletterAd from '../components/newsletterAd.js'
+import MobileNavbar from '../components/mobile-navbar.js'
 
 class APropos extends React.Component {
   render(){
     return (
       <React.Fragment>
-        <Header />
+        <Header/>
         <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar />
+          <MobileNavbar/>
         </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
+          <Navbar/>
         </MediaQuery>
         <div className="container-small">
-          <h1><FormattedMessage id="a-propos.titre" /></h1>
+          <h1><FormattedMessage id="a-propos.titre"/></h1>
           <p>
-            <FormattedMessage id="a-propos.content1" />
+            <FormattedMessage id="a-propos.content1"/>
             <br/>
-            <FormattedMessage id="a-propos.content2" />
+            <FormattedMessage id="a-propos.content2"/>
           </p>
           <hr/>
           <div className="contact">
@@ -42,11 +42,11 @@ class APropos extends React.Component {
             <Link>+33 6 24 55 52 51</Link>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }
 }
 
-export default injectIntl(APropos);
+export default injectIntl(APropos)
