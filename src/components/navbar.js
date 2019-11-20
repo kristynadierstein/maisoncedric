@@ -15,7 +15,7 @@ export const getLocalizedFlag = (locale) => {
   }
 }
 
-const NavbarContent = (props) => {
+const Navbar = (props) => {
   // active style for the current tab
   const activeStyle = {
     color: '#17181A',
@@ -66,4 +66,4 @@ const NavbarContent = (props) => {
   )
 }
 
-export default injectIntl(NavbarContent)
+export default injectIntl(Navbar)

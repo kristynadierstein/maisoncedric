@@ -35,11 +35,9 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <Header/>
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar/>
-        </MediaQuery>
         <MediaQuery minDeviceWidth={1199}>
           <Navbar/>
+          <MobileNavbar/>
         </MediaQuery>
         <div className="container">
 
