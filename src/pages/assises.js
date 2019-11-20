@@ -63,7 +63,6 @@ class Assises extends React.Component {
     })
 
     // ****** OLD RULES *****
-
     // // if everything is unchecked  set the first "all" to be checked
     // const isEveryCategoryUnChecked = NewSubcategories.every((subCategory) => {
     //   return subCategory.checked === false
@@ -81,12 +80,14 @@ class Assises extends React.Component {
     // if (currentSelection === "Toutes les catégories") {
     //   allSubcategoriesExceptTheFirst.forEach(subCategory => subCategory.checked = false)
     // }
+
     this.setState({subCategories: NewSubcategories})
   }
 
   // need the whole this.props.data.allAirtable.nodes, loop through it and find those where subcategory matches at least one of the selected subcategories
   filteredProducts(){
     const allProductsinCategory = this.props.data.allAirtable.nodes
+
     // if "All" is checked, return everything
     if (this.state.subCategories[0].checked){
       return allProductsinCategory
