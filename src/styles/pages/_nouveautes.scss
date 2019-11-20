@@ -2,20 +2,20 @@
 
 .row-3 {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px 0;
   .card {
     width: 30%;
+    margin-right: 3.3%;
   }
 }
 .row-4 {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px 0;
   .card {
     width: 22%;
+    margin-right: 2.9%;
   }
 }
 
