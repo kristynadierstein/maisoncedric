@@ -37,7 +37,6 @@ class Index extends React.Component {
         <Header/>
         <MediaQuery minDeviceWidth={1199}>
           <Navbar/>
-          <MobileNavbar/>
         </MediaQuery>
         <MediaQuery maxDeviceWidth={1199}>
           <MobileNavbar/>

@@ -44,7 +44,6 @@ class MobileNavbar extends React.Component{
       fontWeight: 600,
     }
     const { open } = this.state
-    const locale = this.props.intl.locale
 
     return(
       <React.Fragment>
@@ -58,27 +57,27 @@ class MobileNavbar extends React.Component{
                 </div>
                 <ul className="mb-sidebar-list">
                   <li>
-                    <Link to={ `/${locale}/` } activeStyle={activeStyle}>
+                    <Link to={ '/' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab1"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/assises` } activeStyle={activeStyle}>
+                    <Link to={ '/assises' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab2"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/mobilier` } activeStyle={activeStyle}>
+                    <Link to={ '/mobilier' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab3"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/luminaires` } activeStyle={activeStyle}>
+                    <Link to={ '/luminaires' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab4"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/decoration` } activeStyle={activeStyle}>
+                    <Link to={ '/decoration' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab5"/>
                     </Link>
                   </li>
@@ -101,7 +100,7 @@ class MobileNavbar extends React.Component{
             </div>
           </Sidebar>
           <div className="mb-navbar-apropos">
-            <Link to={ `${locale}/a-propos` } activeStyle={activeStyle}>
+            <Link to={ '/a-propos' } activeStyle={activeStyle}>
               <FormattedMessage id="navbar.tab6"/>
             </Link>
           </div>

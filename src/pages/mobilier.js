@@ -112,15 +112,15 @@ class Mobilier extends React.Component {
     return (
       <React.Fragment>
         <Header/>
+        <MediaQuery minDeviceWidth={1199}>
+          <Navbar/>
+        </MediaQuery>
         <MediaQuery maxDeviceWidth={1199}>
           <MobileNavbarFilters
             subCategories={this.state.subCategories}
             toggleChecked={this.toggleChecked.bind(this)}
             value="Mobilier"
             key="Mobilier"/>
-        </MediaQuery>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar/>
         </MediaQuery>
         <div className="container category">
           <div className="sidebar">

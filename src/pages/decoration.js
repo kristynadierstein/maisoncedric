@@ -111,7 +111,10 @@ class Decoration extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
+        <Header/>
+        <MediaQuery minDeviceWidth={1199}>
+          <Navbar/>
+        </MediaQuery>
         <MediaQuery maxDeviceWidth={1199}>
           <MobileNavbarFilters
             subCategories={this.state.subCategories}
@@ -119,12 +122,9 @@ class Decoration extends React.Component {
             value="Décoration"
             key="Décoration"/>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
-        </MediaQuery>
         <div className="container category">
           <div className="sidebar">
-            <h1><FormattedMessage id="decoration.titre" /></h1>
+            <h1><FormattedMessage id="decoration.titre"/></h1>
             <hr/>
             <ul>
               {this.state.subCategories.map((subCategory) =>
@@ -151,12 +151,12 @@ class Decoration extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link to="/" className="btn-1"><FormattedMessage id="boutons.voir_plus" /></Link>
+              <Link to="/" className="btn-1"><FormattedMessage id="boutons.voir_plus"/></Link>
             </div>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }

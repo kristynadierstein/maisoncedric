@@ -56,9 +56,7 @@ class MobileNavbarFilters extends React.Component{
       color: '#17181A',
       fontWeight: 600,
     }
-
     const { open } = this.state
-    const locale = this.props.intl.locale
 
     return(
       <React.Fragment>
@@ -72,27 +70,27 @@ class MobileNavbarFilters extends React.Component{
                 </div>
                 <ul className="mb-sidebar-list">
                   <li>
-                    <Link to={ `/${locale}/`} activeStyle={activeStyle}>
+                    <Link to={ `/`} activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab1"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/assises/`} activeStyle={activeStyle}>
+                    <Link to={ `/assises/`} activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab2"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/mobilier/`} activeStyle={activeStyle}>
+                    <Link to={ `/mobilier/`} activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab3"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/luminaires/`} activeStyle={activeStyle}>
+                    <Link to={ `/luminaires/`} activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab4"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ `/${locale}/decoration/`} activeStyle={activeStyle}>
+                    <Link to={ `/decoration/`} activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab5"/>
                     </Link>
                   </li>
