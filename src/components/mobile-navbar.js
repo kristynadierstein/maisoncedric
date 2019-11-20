@@ -62,22 +62,22 @@ class MobileNavbar extends React.Component{
                     </Link>
                   </li>
                   <li>
-                    <Link to={ '/assises' } activeStyle={activeStyle}>
+                    <Link to={ '/assises/' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab2"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ '/mobilier' } activeStyle={activeStyle}>
+                    <Link to={ '/mobilier/' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab3"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ '/luminaires' } activeStyle={activeStyle}>
+                    <Link to={ '/luminaires/' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab4"/>
                     </Link>
                   </li>
                   <li>
-                    <Link to={ '/decoration' } activeStyle={activeStyle}>
+                    <Link to={ '/decoration/' } activeStyle={activeStyle}>
                       <FormattedMessage id="navbar.tab5"/>
                     </Link>
                   </li>
@@ -100,7 +100,7 @@ class MobileNavbar extends React.Component{
             </div>
           </Sidebar>
           <div className="mb-navbar-apropos">
-            <Link to={ '/a-propos' } activeStyle={activeStyle}>
+            <Link to={ '/a-propos/' } activeStyle={activeStyle}>
               <FormattedMessage id="navbar.tab6"/>
             </Link>
           </div>
