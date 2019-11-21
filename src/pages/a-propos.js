@@ -5,6 +5,10 @@ import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 // import styles
 import '../styles/main.scss'
 
+// images
+import Envelope from '../../static/images/ic-mail.svg';
+import Phone from '../../static/images/ic-phone.svg';
+
 //import components
 import Header from '../components/header.js'
 import Navbar from '../components/navbar.js'
@@ -28,12 +32,12 @@ class APropos extends React.Component {
           </p>
           <hr/>
           <div className="contact">
-            <img src="../images/ic-mail.svg" alt=""/>
+            <Envelope/>
             <Link>contact@maisoncedric.com</Link>
           </div>
           <hr/>
           <div className="contact">
-            <img src="../images/ic-phone.svg" alt=""/>
+            <Phone/>
             <Link>+33 6 24 55 52 51</Link>
           </div>
         </div>
