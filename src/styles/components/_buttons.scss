@@ -7,6 +7,17 @@
   cursor: pointer;
 }
 
+.btn-see-more {
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  padding: 12px 30px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 .btn-1-modal {
   background-color: black;
   color: white;
@@ -18,5 +29,4 @@
   z-index: 1000;
   font-size: .8rem;
   font-weight: 600;
-  
 }
