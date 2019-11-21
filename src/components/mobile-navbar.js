@@ -47,7 +47,7 @@ class MobileNavbar extends React.Component{
 
     return(
       <React.Fragment>
-        <nav id="mobile-navbar">
+        <nav className="mobile-navbar">
           <Sidebar
             sidebar={
               <div>

@@ -1,33 +1,36 @@
 @media(min-width: $TabletLandscape) {
-  #mobile-navbar {
+  .mobile-navbar {
     display:none;
   }
 
-  #desktop-navbar{
+  .desktop-navbar {
+    border-top: 1px solid $gray200;
+    border-bottom: 1px solid $gray200;
+  }
+
+  .desktop-navbar-container{
+    max-width: 1200px;
+    margin: 0 auto;
     clear: both;
     display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    border-top: 1px solid $gray200;
-    border-bottom: 1px solid $gray200;
-    margin: 0 auto;
     padding: 21px 121px 21px 121px;
   }
 
-  #dk-navbar-left > ul {
+  .dk-navbar-left > ul {
     float:left;
     position: relative;
     left:50%;
   }
 
-  #dk-navbar-left > ul > li {
+  .dk-navbar-left > ul > li {
     float:left;
     position: relative;
     left: -50%;
     margin-right:32px;
   }
 
-  #dk-navbar-right > ul {
+  .dk-navbar-right > ul {
     float:right;
     position: relative;
     left:50%;
@@ -35,13 +38,13 @@
     align-items: center;
   }
 
-  #dk-navbar-right > ul > li > div {
+  .dk-navbar-right > ul > li > div {
     display: flex;
     align-items: center;
     cursor: pointer;
   }
 
-  #dk-navbar-right > ul > li {
+  .dk-navbar-right > ul > li {
     float:left;
     position: relative;
     left: -50%;
@@ -50,7 +53,7 @@
 }
 
 @media (max-width: $TabletLandscape) {
-  #desktop-navbar {
+  .desktop-navbar-container {
     display: none;
   }
 
@@ -116,7 +119,7 @@
     position: relative;
   }
 
-  #mobile-navbar > div.mb-navbar-filtres > a {
+  .mobile-navbar > div.mb-navbar-filtres > a {
     color: $gray900;
   }
 
@@ -140,7 +143,7 @@
     padding-bottom: 24px;
   }
 
-  #mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
+  .mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
     line-height: 2.5rem;
     margin-left: 12px;
     color: $gray900;
