@@ -122,7 +122,7 @@ class Produit extends React.Component {
               <p>
                 {getLocalizedProductDescription(path, data)}
               </p>
-              <hr/>
+              <hr className="tab-d-none"/>
             </div>
           </div>
         </div>
