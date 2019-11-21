@@ -1,7 +1,6 @@
 // external libraries
 import React from "react"
 import { Link, graphql } from 'gatsby'
-import MediaQuery from 'react-responsive'
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
@@ -112,16 +111,12 @@ class Luminaires extends React.Component {
     return (
       <React.Fragment>
         <Header/>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar/>
-        </MediaQuery>
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbarFilters
-            subCategories={this.state.subCategories}
-            toggleChecked={this.toggleChecked.bind(this)}
-            value="Luminaires"
-            key="Luminaires"/>
-        </MediaQuery>
+        <Navbar/>
+        <MobileNavbarFilters
+          subCategories={this.state.subCategories}
+          toggleChecked={this.toggleChecked.bind(this)}
+          value="Luminaires"
+          key="Luminaires"/>
         <div className="container category">
           <div className="sidebar">
             <h1><FormattedMessage id="luminaires.titre"/></h1>

@@ -1,7 +1,6 @@
 // external libraries
 import React from 'react'
 import {graphql} from 'gatsby'
-import MediaQuery from 'react-responsive'
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
@@ -35,12 +34,8 @@ class Index extends React.Component {
     return (
       <React.Fragment>
         <Header/>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar/>
-        </MediaQuery>
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar/>
-        </MediaQuery>
+        <Navbar/>
+        <MobileNavbar/>
         <div className="container">
 
           <h1><FormattedMessage id="index.titre"/></h1>
