@@ -67,7 +67,7 @@
     position: relative;
     top: 61px;
     left: 0px;
-    z-index: 500;
+    z-index: 999;
   }
 
   .mb-navbar-btn-filters{
@@ -133,7 +133,7 @@
     display: flex;
     justify-content: space-between;
     margin: 24px;
-    padding-bottom: 20px;
+    padding: 20px 0;
     border-bottom: 1px solid #DFE1E6 ;
   }
 
@@ -150,6 +150,7 @@
     display: block;
     height: 100%;
     width: 100%;
+    z-index: 9999;
   }
 
   .mb-navbar-filtres a {
