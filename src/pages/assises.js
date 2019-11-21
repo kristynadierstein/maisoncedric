@@ -1,6 +1,6 @@
 // external libraries
 import React from "react"
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { injectIntl, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
