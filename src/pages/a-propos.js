@@ -1,6 +1,5 @@
 // external libraries
 import React from "react"
-import MediaQuery from 'react-responsive'
 import { injectIntl, Link, FormattedMessage } from "gatsby-plugin-intl"
 
 // import styles
@@ -18,12 +17,8 @@ class APropos extends React.Component {
     return (
       <React.Fragment>
         <Header/>
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar/>
-        </MediaQuery>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar/>
-        </MediaQuery>
+        <MobileNavbar/>
+        <Navbar/>
         <div className="container-small">
           <h1><FormattedMessage id="a-propos.titre"/></h1>
           <p>

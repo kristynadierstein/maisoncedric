@@ -1,41 +1,40 @@
 // import libraries
-import React from "react";
-import MediaQuery from 'react-responsive';
-import Modal from 'react-responsive-modal';
-import { graphql } from 'gatsby';
+import React from "react"
+import Modal from 'react-responsive-modal'
+import { graphql } from 'gatsby'
 
 // import styles
-import '../styles/main.scss';
+import '../styles/main.scss'
 
 // import components
-import Header from '../components/header.js';
-import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
-import NewsletterAd from '../components/newsletterAd.js';
-import Carousel from '../components/carousel.js';
-import MobileLinks from '../components/mobile-links.js';
-import MobileNavbar from '../components/mobile-navbar.js';
+import Header from '../components/header.js'
+import Navbar from '../components/navbar.js'
+import Footer from '../components/footer.js'
+import NewsletterAd from '../components/newsletterAd.js'
+import Carousel from '../components/carousel.js'
+import MobileLinks from '../components/mobile-links.js'
+import MobileNavbar from '../components/mobile-navbar.js'
 
 // import imagery
-import Env from '../../static/images/ic-mail.svg';
-import Phone from '../../static/images/ic-phone.svg';
-import FlagFR from '../../static/images/ic--flag--fr.svg';
+import Env from '../../static/images/ic-mail.svg'
+import Phone from '../../static/images/ic-phone.svg'
+import FlagFR from '../../static/images/ic--flag--fr.svg'
 
 class Produit extends React.Component {
   state = {
     open: false,
-  };
+  }
 
   onOpenModal = () => {
-    this.setState({ open: true });
-  };
+    this.setState({ open: true })
+  }
 
   onCloseModal = () => {
-    this.setState({ open: false });
-  };
+    this.setState({ open: false })
+  }
 
   render() {
-    const { open } = this.state;
+    const { open } = this.state
     const urls = this.props.data.allAirtable.nodes[0].data.Images.map(e => e.url)
     const data = this.props.data.allAirtable.nodes[0].data
     const path = this.props.path
@@ -51,7 +50,7 @@ class Produit extends React.Component {
       }
     }
 
-    // For tranlsation
+    // for translation
     const getLocalizedProductTitle = (path, data) => {
       if (path.match(/en/g)) {
         return data.Titre_de_l_annonce__EN_
@@ -76,29 +75,21 @@ class Produit extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
-        <MediaQuery maxDeviceWidth={1199}>
-          <MobileNavbar />
-        </MediaQuery>
-        <MediaQuery minDeviceWidth={1199}>
-          <Navbar />
-        </MediaQuery>
-
-        <div className="container">
+        <Header/>
+        <MobileNavbar/>
+        <Navbar/>
+        <div className="container produit">
           <div className="row">
             <div className="caroussel">
-              <Carousel urls= {urls} />
+              <Carousel urls= {urls}/>
             </div>
             <div className="content">
               <h1>
                 {getLocalizedProductTitle(path, data)}
               </h1>
-              <MediaQuery maxDeviceWidth={1199}>
               <div className="fixed-mobile-links">
-                <MobileLinks />
+                <MobileLinks/>
               </div>
-              </MediaQuery>
-              <MediaQuery minDeviceWidth={1199}>
               <hr/>
               <div className="call-to-action">
                 {/* <label htmlFor="">{status}</label> */}
@@ -121,14 +112,13 @@ class Produit extends React.Component {
                 <div className="modal-section">
                   <Phone className="modal-svg"/>
                     <div>
-                      <FlagFR id="modal-phone-flag" />
+                      <FlagFR id="modal-phone-flag"/>
                       <a href="/" className="phone-modal">+33 6 24 55 52 51</a>
                     </div>
                 </div>
                 </Modal>
               </div>
-              <hr/>
-              </MediaQuery>
+              <hr className="tab-d-none"/>
               <p>
                 {getLocalizedProductDescription(path, data)}
               </p>
@@ -136,8 +126,8 @@ class Produit extends React.Component {
             </div>
           </div>
         </div>
-        <NewsletterAd />
-        <Footer />
+        <NewsletterAd/>
+        <Footer/>
       </React.Fragment>
     )
   }
@@ -168,4 +158,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

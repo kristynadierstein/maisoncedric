@@ -42,8 +42,10 @@
     }
     .row-3 {
       width: 100%;
+      justify-content: space-around;
       .card {
-        width: 48%;
+        width: 46%;
+        margin-right: 0;
       }
     }
   }

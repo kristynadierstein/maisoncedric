@@ -90,7 +90,16 @@
 }
 
 @media (max-width: $TabletLandscape) {
+  .container.produit {
+    padding: 6em 1em 0em 1em;
+  }
   .newsletter-ad-container {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .caroussel {
+    margin-bottom: -180px;
   }
 }

@@ -1,7 +1,8 @@
+// external librairies
 import React from "react"
 import { Link } from 'gatsby'
 
-//import placeholder imagery
+// import placeholder imagery
 import Insta from '../../static/jpgs/img--ad--instagram.png'
 import Mail from '../../static/jpgs/img--ad--mail.png'
 
