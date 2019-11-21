@@ -19,17 +19,17 @@ class Assises extends React.Component {
   constructor(props){
     super(props)
 
-    let subCats = []
+    let subCategoriesFlat = []
     let subCategories = []
 
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
-        !subCats.includes(subCategory) ? subCats.push(subCategory) : console.log("oij")
+        !subCategoriesFlat.includes(subCategory) && subCategoriesFlat.push(subCategory)
       ))
     ))
 
-    subCats.forEach((subCat) => {
-      subCategories.push({name: subCat, checked: false})
+    subCategoriesFlat.forEach((subCategoryFlat) => {
+      subCategories.push({name: subCategoryFlat, checked: false})
     })
 
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)

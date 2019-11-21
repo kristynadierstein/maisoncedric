@@ -19,12 +19,19 @@ class Mobilier extends React.Component {
   constructor(props){
     super(props)
 
+    let subCategoriesFlat = []
     let subCategories = []
+
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
-        subCategories.push({ name: subCategory, checked: false })
+        !subCategoriesFlat.includes(subCategory) && subCategoriesFlat.push(subCategory)
       ))
     ))
+
+    subCategoriesFlat.forEach((subCategoryFlat) => {
+      subCategories.push({name: subCategoryFlat, checked: false})
+    })
+
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
 
     this.state = {
