@@ -141,7 +141,7 @@
     margin: 0px 24px 24px 24px;
     border-bottom: 1px solid #DFE1E6;
     padding-bottom: 24px;
-    z-index: 9999;
+    z-index: 1001;
   }
 
   .mobile-navbar > div:nth-child(1) > div.mobile-sidebar > div > ul > li > a {
@@ -159,7 +159,6 @@
     align-items: center;
     height: 100%;
     width: 100%;
-
   }
 
   .mb-sidebar-btn-contact {
@@ -176,7 +175,6 @@
     font-weight:500;
   }
 }
-
 
 a:active {
   color: '#17181A';
