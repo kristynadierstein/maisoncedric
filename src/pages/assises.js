@@ -18,6 +18,7 @@ import NewsletterAd from '../components/newsletterAd.js'
 class Assises extends React.Component {
   constructor(props){
     super(props)
+
     let subCategories = []
     this.props.data.allAirtable.nodes.map(node => (
       node.data.Sub_Categories.sort().map(subCategory => (
@@ -25,7 +26,13 @@ class Assises extends React.Component {
       ))
     ))
     subCategories = [{ name: "Toutes les catégories", checked: true }].concat(subCategories)
-    this.state = { subCategories: subCategories }
+
+    this.state = {
+      subCategories: subCategories,
+      visible: 9
+    }
+
+    this.loadMore = this.loadMore.bind(this)
   }
 
   // create a function for OnClick where I will change the state and pass the function to each filter via props function loops through the names of subcategories, when checked, changes the state to true
@@ -88,16 +95,19 @@ class Assises extends React.Component {
       const match = product.data.Sub_Categories.some(subcategory => allCheckedSubcategoryNames.includes(subcategory))
       return match
     })
+
     return allMatchingProducts
   }
 
-  render(){
-    // items displayed
-    let numberDisplayed = 9
-    let displayedItems = this.filteredProducts().slice(0, numberDisplayed)
+  loadMore() {
+    this.setState((prev) => {
+      return {visible: prev.visible + 9}
+    })
+  }
 
-    // current language
-    const locale = this.props.intl.locale
+  render(){
+    let displayedItems = this.filteredProducts().slice(0, this.state.visible)
+    const locale = this.props.intl.locale // current language
 
     // gives product title according to current language
     const getLocalizedProductTitle = (locale, data) => {
@@ -146,7 +156,11 @@ class Assises extends React.Component {
               )
             })}
             <div className="btn-container">
-              <Link to="" className="btn-1"><FormattedMessage id="boutons.voir_plus"/></Link>
+              {this.state.visible < displayedItems.length + 1 &&
+                <button className="btn-see-more" onClick={this.loadMore}>
+                  <FormattedMessage id="boutons.voir_plus"/>
+                </button>
+              }
             </div>
           </div>
         </div>
