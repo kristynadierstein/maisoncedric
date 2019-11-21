@@ -1,96 +1,96 @@
 .newsletter-ad {
-  background-color: #EFF0F2;
+  background-color: #eff0f2;
+}
+
+.newsletter-ad-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
-  z-index: -1000;
-  margin-top: 40px;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
 }
 
 .newsletter-imgs {
   display: flex;
   align-items: baseline;
   overflow: visible;
-  margin-right:150px;
+  margin-right: 150px;
   position: relative;
 }
 
 .newsletter-text-all {
   display: inline-grid;
-  width: 24%;
+  width: 26%;
   padding: 42px 0px;
 }
+
 .newsletter-title {
   font-family: $serif-italic;
-  font-weight:400;
+  font-weight: 400;
   padding-bottom: 8px;
   font-size: x-large;
 }
 
 .newsletter-body {
-  font-weight:500;
-
+  font-weight: 500;
 }
 
 .btn-newsletter-subscribe {
   background-color: #4CB781;
   margin-top: 28px;
-  margin-bottom:8px;
-  margin-left:0px;
+  margin-bottom: 8px;
+  margin-left: 0px;
   margin-right: 0px;
   background-color: $gray900;
-  color:white;
-  height:40px;
+  color: white;
+  height: 40px;
   border: none;
   border-radius: 2px;
   font-family: $sans-bold !important;
   font-size: .9rem!important;
   font-weight: 500!important;
-  width:100%;
-
+  width: 100%;
 }
 
 .btn-newsletter-instagram {
   background-color: #4CB781;
   margin: 8px 0px;
   background-color: #4A90E3;
-  color:white;
-  height:40px;
+  color: white;
+  height: 40px;
   border: none;
   border-radius: 2px;
   font-family: $sans-bold !important;
   font-size: .9rem!important;
   font-weight: 500!important;
-  width:100%;
-
+  width: 100%;
 }
 
-.newsletter-btns{
-  display:flex;
+.newsletter-btns {
+  display: flex;
   flex-direction: column;
   width: 100%;
-
 }
 
-.newsletter-pic1{
+.newsletter-pic1 {
   width: 371px;
   height: 279px;
   position: absolute;
-  right: -175px;
-  bottom: -217px;
+  right: -107px;
+  bottom: -194px;
 }
 
 .newsletter-pic2 {
   width: 286px;
-  height: 409px;        
+  height: 409px;
   position: absolute;
-  top: -207px;
-  left: 83px;
+  top: -214px;
+  left: 23px;
 }
 
 @media (max-width: $TabletLandscape) {
-  .newsletter-ad {
+  .newsletter-ad-container {
     display: none;
   }
 }
