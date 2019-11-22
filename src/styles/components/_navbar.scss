@@ -53,6 +53,10 @@
 }
 
 @media (max-width: $TabletLandscape) {
+  div {
+    -webkit-overflow-scrolling: initial !important;
+  }
+
   .desktop-navbar-container {
     display: none;
   }

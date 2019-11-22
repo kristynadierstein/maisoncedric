@@ -43,7 +43,7 @@ class Produit extends React.Component {
     const getItemPrice = (data, path) => {
       if (data.Statut !== null && data.Statut[0] === 'Vendu' && path.match(/en/g)) {
         return "Sold"
-      } else if (data.Statut !== null && data.Statut[0] === 'Vendu' && path.match(/en/g)) {
+      } else if (data.Statut !== null && data.Statut[0] === 'Vendu' && path.match(/fr/g)) {
         return "Vendu"
       } else {
         return `${data.Prix_de_vente} €`
