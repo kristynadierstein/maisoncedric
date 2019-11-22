@@ -19,7 +19,7 @@ const Card = (props) => {
 
   return(
     <div className="card">
-      <Link to={`/produit/${props.id}`} id={props.id}>
+      <Link to={`/produit/${props.id}`} id={props.id}  state={{ produit: true }}>
         <div className="image" style={{backgroundImage: `url(${props.image})`}}>
           {isVendu(props.status)}
         </div>

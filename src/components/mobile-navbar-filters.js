@@ -58,6 +58,49 @@ class MobileNavbarFilters extends React.Component{
     }
     const { open } = this.state
 
+    let filters; 
+    if (this.props.subCategories != null) {
+      filters = (
+        <Sidebar
+          sidebar={
+            <div>
+              <div className="mb-sidebar-header">
+                <h3>{this.props.value}</h3>
+                <Esc onClick={this.handleClickFilters}/>
+              </div>
+              <ul className="mb-sidebar-list">
+                {this.props.subCategories.map((subCategory) =>
+                  <Filter
+                    name={subCategory.name}
+                    checked={subCategory.checked}
+                    toggleChecked={this.props.toggleChecked}
+                    key={subCategory.name}/>
+                )}
+              </ul>
+            </div>
+          }
+          open={this.state.sidebarOpenFilters}
+          onSetOpen={this.onSetSidebarOpenFilters}
+          sidebarClassName = "mobile-sidebar">
+          <div onClick={() => this.onSetSidebarOpenFilters(true)} className="mb-navbar-btn-filters">
+            <div className="mb-navbar-filtres">
+              Filters
+            </div>
+          </div>
+        </Sidebar>
+      )
+    } 
+    
+    else {
+      filters = (
+        <div className="mb-navbar-btn-filters-produit" >
+          <div className="mb-navbar-filtres">
+            Filters
+          </div>
+        </div> 
+      )
+    }
+
     return(
       <React.Fragment>
         <nav className="mobile-navbar">
@@ -112,37 +155,12 @@ class MobileNavbarFilters extends React.Component{
               </div>
             </div>
           </Sidebar>
-          <Sidebar
-            sidebar={
-              <div>
-                <div className="mb-sidebar-header">
-                  <h3>{this.props.value}</h3>
-                  <Esc onClick={this.handleClickFilters}/>
-                </div>
-                <ul className="mb-sidebar-list">
-                  {this.props.subCategories.map((subCategory) =>
-                    <Filter
-                      name={subCategory.name}
-                      checked={subCategory.checked}
-                      toggleChecked={this.props.toggleChecked}
-                      key={subCategory.name}/>
-                  )}
-                </ul>
-              </div>
-            }
-            open={this.state.sidebarOpenFilters}
-            onSetOpen={this.onSetSidebarOpenFilters}
-            sidebarClassName = "mobile-sidebar">
-            <div onClick={() => this.onSetSidebarOpenFilters(true)} className="mb-navbar-btn-filters">
-              <div className="mb-navbar-filtres">
-                Filters
-              </div>
-            </div>
-          </Sidebar>
+          {filters}
         </nav>
-      </React.Fragment>
-    )
-  }
+    </React.Fragment>
+  )
 }
+}
+   
 
 export default injectIntl(MobileNavbarFilters)
