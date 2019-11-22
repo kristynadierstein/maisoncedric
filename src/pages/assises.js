@@ -134,7 +134,7 @@ class Assises extends React.Component {
           toggleChecked={this.toggleChecked.bind(this)}
           value="Assises"
           key="Assises"/>
-        <div className="container category">
+        <div className="container">
           <div className="sidebar">
             <h1><FormattedMessage id="assises.titre"/></h1>
             <hr/>
