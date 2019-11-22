@@ -47,8 +47,11 @@
 @media screen and (max-width: $MobilePortrait) {
   .category {
     .row-3 {
-      margin: 0;
+      grid-template-columns: 1fr 1fr;
       padding-top: 10px;
+    }
+    .btn-container {
+      grid-column: span 2 !important;
     }
   }
 }

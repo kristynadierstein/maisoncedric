@@ -105,8 +105,7 @@ class MobileNavbarFilters extends React.Component{
             }
             open={this.state.sidebarOpen}
             onSetOpen={this.onSetSidebarOpen}
-            sidebarClassName = "mobile-sidebar"
-            style="z-index: 999">
+            sidebarClassName = "mobile-sidebar">
             <div onClick={() => this.onSetSidebarOpen(true)} className="mb-navbar-btn-categories">
               <div className="mb-navbar-empty-category">
                 <FormattedMessage id="navbar.tabs_title"/>
