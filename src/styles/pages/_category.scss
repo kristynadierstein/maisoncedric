@@ -12,12 +12,10 @@
   .row-3 {
     width: 75%;
     padding-top: 20px;
-    .card {
-      margin-bottom: 30px;
-    }
+    grid-row-gap: 2em;
     .btn-container {
       padding-top: 20px;
-      width: 100%;
+      grid-column: span 3;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -42,11 +40,6 @@
     }
     .row-3 {
       width: 100%;
-      justify-content: space-around;
-      .card {
-        width: 46%;
-        margin: 0;
-      }
     }
   }
 }
