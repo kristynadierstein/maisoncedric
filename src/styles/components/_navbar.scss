@@ -73,6 +73,21 @@
     left: 0px;
     z-index: 999;
   }
+  
+  .mb-navbar-btn-filters-produit {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    flex-direction: column;
+    float: right;
+    top: 61px;
+    border-top: 1px solid #DFE1E6;
+    border-bottom: 1px solid #DFE1E6;
+    background-color: #F2F2F2;
+    color: #8A8F99;
+  }
 
   .mb-navbar-btn-filters{
     width: 50%;

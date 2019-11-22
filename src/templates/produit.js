@@ -13,7 +13,7 @@ import Footer from '../components/footer.js'
 import NewsletterAd from '../components/newsletterAd.js'
 import Carousel from '../components/carousel.js'
 import MobileLinks from '../components/mobile-links.js'
-import MobileNavbar from '../components/mobile-navbar.js'
+import MobileNavbarFilters from '../components/mobile-navbar-filters.js'
 
 // import imagery
 import Env from '../../static/images/ic-mail.svg'
@@ -76,7 +76,7 @@ class Produit extends React.Component {
     return (
       <React.Fragment>
         <Header/>
-        <MobileNavbar/>
+        <MobileNavbarFilters/>
         <Navbar/>
         <div className="container produit">
           <div className="row">
